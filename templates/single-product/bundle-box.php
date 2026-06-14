@@ -1,11 +1,11 @@
 <?php
 /**
- * "Frequently bought together" bundle box, rendered by the storefront-kit
- * ProductBundleEngine on `woocommerce_after_single_product_summary`.
+ * "Frequently bought together" bundle box, rendered on
+ * `woocommerce_after_single_product_summary`.
  *
  * Lists the bundled products (when enabled) and a single button that adds the
  * whole bundle — the main product plus every linked item — to the cart. The
- * engine applies the configured discount (cart fee or per-item) afterwards.
+ * configured discount (cart fee or per-item) is applied afterwards.
  *
  * @var \WC_Product                                          $product
  * @var array{items: list<int>, discount_percent: float}     $bundle

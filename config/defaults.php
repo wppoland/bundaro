@@ -4,9 +4,7 @@
  *
  * The feature ships enabled. The merchant tunes the bundle box title, the
  * add-to-cart button label and how the discount is applied (`fee` adds a single
- * negative cart fee; `per_item` lowers the price of each bundled line). All
- * bundle logic lives in the storefront-kit ProductBundleEngine; these values are
- * passed through to it as the resolved settings.
+ * negative cart fee; `per_item` lowers the price of each bundled line).
  *
  * @package Bundle
  *

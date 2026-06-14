@@ -51,7 +51,7 @@ final class Plugin
         }
 
         /**
-         * Fires after Bundle has fully booted. PRO companions hook here.
+         * Fires after Bundle has fully booted. Add-on code can hook here.
          *
          * @param Plugin $plugin The booted plugin instance.
          */

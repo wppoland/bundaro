@@ -10,16 +10,15 @@ use WPPoland\StorefrontKit\Bundle\ProductBundleEngine;
 defined('ABSPATH') || exit;
 
 /**
- * Thin adapter over the storefront-kit {@see ProductBundleEngine}.
+ * Wires up the product bundle feature for this plugin.
  *
- * Injects this plugin's text-domain ('bundle'), request/nonce keys, the bundle
- * product-meta key and asset URLs into the namespace-neutral engine, and
- * supplies the closures it needs: an enabled-check, resolved settings, a reader
- * for the per-product bundle definition (stored as product meta — no custom
- * table) and a template renderer for the bundle box. All bundle orchestration
- * (render, add-to-cart, discount fee / per-item adjustment) lives in the kit;
- * this class only supplies localisation, option storage, the meta key and the
- * front-end stylesheet.
+ * Supplies the text-domain ('bundle'), request/nonce keys, the bundle
+ * product-meta key and asset URLs, plus the closures needed for an
+ * enabled-check, resolved settings, a reader for the per-product bundle
+ * definition (stored as product meta — no custom table) and a template renderer
+ * for the bundle box. The render, add-to-cart and discount fee / per-item
+ * adjustment are handled by {@see ProductBundleEngine}; this class supplies
+ * localisation, option storage, the meta key and the front-end stylesheet.
  */
 final class BundleService implements HasHooks
 {
@@ -47,9 +46,8 @@ final class BundleService implements HasHooks
 
     public function __construct()
     {
-        // The engine ships with storefront-kit >= 1.5.0. When present, wire it
-        // with this plugin's text-domain / request keys / meta key. Otherwise
-        // leave the service inert (see registerHooks()).
+        // Wire the bundle engine when available; otherwise leave the service
+        // inert (see registerHooks()).
         if (! class_exists(ProductBundleEngine::class)) {
             return;
         }
@@ -72,9 +70,8 @@ final class BundleService implements HasHooks
     public function registerHooks(): void
     {
         if (! $this->engine instanceof ProductBundleEngine) {
-            // storefront-kit < 1.5.0 has no ProductBundleEngine. Bump the
-            // `wppoland/storefront-kit` constraint (composer update) to enable
-            // product bundles. No hooks are registered until the engine exists.
+            // No ProductBundleEngine available: no hooks are registered until it
+            // exists.
             return;
         }
 

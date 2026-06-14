@@ -1,32 +1,31 @@
 # Bundle – Product Bundles for WooCommerce
 
-A "frequently bought together" / product-bundle box for WooCommerce. An admin
-links N products to a product plus an optional bundle discount; "Add bundle to
-cart" adds all linked items, and the discount is applied as a cart fee or a
-per-item adjustment. Bundle definitions are stored as product meta — no custom
-tables.
+Bundle adds a "frequently bought together" box to your WooCommerce product pages. Link any number of products to a product, set an optional bundle discount, and let customers add the whole bundle to the cart in one click.
 
-Thin adapter over [`wppoland/storefront-kit`](https://github.com/wppoland/storefront-kit)
-(`WPPoland\StorefrontKit\Bundle\ProductBundleEngine`), wired with closures.
+## Features
 
-## Develop
+- Bundle box under the product summary listing the linked products, with an "Add bundle to cart" button that adds everything at once.
+- Optional bundle discount applied as a single cart fee or a per-item price adjustment, with an optional savings line.
+- `[bundle]` shortcode to place the box anywhere, optionally targeting a product with `[bundle id="123"]`.
+- Editable, translatable box title, button label and discount-line label.
+- Bundle definitions stored as product meta — no custom database tables.
+- Lightweight, accessible, themeable markup that is dark-mode aware with no layout shift and no jQuery.
 
-```bash
-composer install
-composer cs        # PHPCS (WordPress security/i18n subset)
-composer analyse   # PHPStan level 6
-```
+## Installation
 
-WordPress.org Plugin Check runs in CI via wp-env + WooCommerce.
+1. Upload the plugin to `/wp-content/plugins/bundle`, or install it via Plugins → Add New.
+2. Activate it. WooCommerce must be active.
+3. Edit a product, open the "Bundle" tab, enter the bundled product IDs and an optional discount, then save.
+4. Adjust global options under WooCommerce → Bundle.
 
-## Usage
+## Frequently Asked Questions
 
-1. Activate the plugin (WooCommerce must be active).
-2. Edit a product → **Bundle** tab → enter bundled product IDs + an optional
-   discount %.
-3. Tune global behaviour under **WooCommerce → Bundle** (discount mode, labels,
-   visibility).
+**Does it require WooCommerce?**
+Yes. WooCommerce must be installed and active.
 
-## License
+**How is the discount applied?**
+Choose between a single negative cart fee (one line in the cart) or a per-item price adjustment on each bundled product, set under WooCommerce → Bundle.
 
-GPL-2.0-or-later.
+Built by WPPoland — https://plogins.com
+
+License: GPL-2.0-or-later
