@@ -4,38 +4,38 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Wymaga wtyczek: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Sprzedawaj pakiety produktów i często kupowane razem oferty z opcjonalnym rabatem na pakiet WooCommerce.
+Sprzedawaj pakiety produktów i oferty „często kupowane razem” z opcjonalnym rabatem pakietowym WooCommerce.
 
 == Description ==
 
-Pakiet dodaje pole pakietu produktów „często kupowane razem” do stron produktów WooCommerce. Połącz dowolną liczbę produktów z produktem, ustaw opcjonalny rabat na pakiet i pozwól klientom dodać cały zestaw produktów do koszyka jednym kliknięciem.
+Bundle dodaje do stron produktów WooCommerce pole pakietu „często kupowane razem”. Połącz dowolną liczbę produktów z produktem, ustaw opcjonalny rabat pakietowy i pozwól klientom dodać cały zestaw do koszyka jednym kliknięciem.
 
-* Pole pakietu pod podsumowaniem produktu zawierające listę produktów w pakiecie.
-* Opcja „Dodaj pakiet do koszyka” dodaje jednocześnie główny produkt i wszystkie powiązane pozycje.
-* Opcjonalny rabat na pakiet, stosowany albo jako opłata za pojedynczy koszyk, albo jako korekta ceny za sztukę.
-* Opcjonalny wiersz oszczędności, który pokazuje sumę pakietu i zaoszczędzoną kwotę.
-* Krótki kod `[bundle]` umożliwiający umieszczenie pakietu w dowolnym miejscu. Użyj `[bundle id="123"]`, aby kierować reklamy na konkretny produkt.
-* Edytowalny tytuł pudełka, etykieta przycisku i etykieta linii rabatowej, wszystko można przetłumaczyć.
-* Definicje pakietów są przechowywane jako meta produktu, bez niestandardowych tabel bazy danych.
-* Czysta dezinstalacja: po usunięciu usuwa opcje i definicje pakietów.
-* Jeden mały arkusz stylów, brak JavaScript w witrynie sklepu i brak jQuery. Obrazy rezerwują swoje miejsce, dzięki czemu pudełko nie zmienia układu podczas ładowania i dostosowuje się do preferencji trybu ciemnego odwiedzającego.
-* A "?" dymek pomocy przy każdym ustawieniu, dostępny za pomocą klawiatury, a pudełko chowa się, gdy dla produktu nie ma już pakietu do pokazania.
+* Pole pakietu pod podsumowaniem produktu z listą produktów w pakiecie.
+* „Dodaj pakiet do koszyka” dodaje jednocześnie produkt główny i wszystkie powiązane pozycje.
+* Opcjonalny rabat pakietowy — jako pojedyncza opłata w koszyku albo korekta ceny dla każdej pozycji.
+* Opcjonalny wiersz oszczędności pokazujący sumę pakietu i zaoszczędzoną kwotę.
+* Shortcode `[bundle]` do umieszczenia pola pakietu w dowolnym miejscu; użyj `[bundle id="123"]`, aby wskazać konkretny produkt.
+* Edytowalny tytuł pola, etykieta przycisku i etykieta wiersza rabatu — wszystko przetłumaczalne.
+* Definicje pakietów są przechowywane jako meta produktu, bez niestandardowych tabel w bazie danych.
+* Czysta dezinstalacja: po usunięciu usuwa swoje opcje i definicje pakietów.
+* Jeden mały arkusz stylów, bez JavaScriptu w sklepie i bez jQuery. Obrazy rezerwują miejsce, więc pole nie powoduje przeskoku układu podczas ładowania i dostosowuje się do preferencji trybu ciemnego odwiedzającego.
+* Dymek pomocy „?” przy każdym ustawieniu, dostępny z klawiatury; pole ukrywa się, gdy dla produktu nie ma już nic do pokazania w pakiecie.
 
-Skonfiguruj zachowanie globalne w WooCommerce → Pakiet. Połącz produkty i ustaw rabat na produkt w zakładce „Pakiet” w edytorze produktów. Wyłącz opcję „Pokaż na stronie produktu”, aby wyświetlić okno tylko po upuszczeniu krótkiego kodu `[bundle]`.
+Skonfiguruj zachowanie globalne w WooCommerce → Bundle. Połącz produkty i ustaw rabat w zakładce „Bundle” w edytorze produktów. Wyłącz „Pokaż na stronie produktu”, aby wyświetlać pole tylko tam, gdzie umieścisz shortcode `[bundle]`.
 
-Wtyczka jest rozwijana w sposób otwarty. Kod, raporty o błędach i poprawki są dostępne na https://github.com/wppoland/plogins-bundle.
+Wtyczka jest rozwijana otwarcie (open source). Kod, zgłoszenia błędów i poprawki znajdziesz na https://github.com/wppoland/plogins-bundle.
 
 == Installation ==
 
-1. Prześlij wtyczkę do `/wp-content/plugins/bundle` lub zainstaluj poprzez Wtyczki → Dodaj nową.
-2. Aktywuj. WooCommerce musi być aktywny.
-3. Edytuj produkt, otwórz zakładkę „Pakiet”, wprowadź identyfikatory produktów objętych pakietem oraz opcjonalny rabat, a następnie zapisz.
-4. Dostosuj opcje globalne w WooCommerce → Pakiet.
+1. Wgraj wtyczkę do `/wp-content/plugins/bundle` lub zainstaluj przez Wtyczki → Dodaj nową.
+2. Włącz ją. WooCommerce musi być aktywne.
+3. Edytuj produkt, otwórz zakładkę „Bundle”, wprowadź identyfikatory produktów w pakiecie i opcjonalny rabat, a następnie zapisz.
+4. Dostosuj opcje globalne w WooCommerce → Bundle.
 
 == Frequently Asked Questions ==
 
@@ -44,24 +44,24 @@ Wtyczka jest rozwijana w sposób otwarty. Kod, raporty o błędach i poprawki s�
 * <strong>Dokumentacja</strong> - https://plogins.com/pl/plogins-bundle/docs/
 * <strong>Strona wtyczki</strong> - https://plogins.com/pl/plogins-bundle/
 * <strong>Kod źródłowy</strong> - https://github.com/wppoland/plogins-bundle
-* <strong>Raporty o błędach i prośby o nowe funkcje</strong> - https://github.com/wppoland/plogins-bundle/issues
+* <strong>Zgłoszenia błędów i propozycje funkcji</strong> - https://github.com/wppoland/plogins-bundle/issues
 
 
 = Does it require WooCommerce? =
 
-Tak. WooCommerce musi być zainstalowany i aktywny.
+Tak. WooCommerce musi być zainstalowane i aktywne.
 
 = How is the discount applied? =
 
-Wybierz pomiędzy pojedynczą ujemną opłatą za koszyk (jedna linia w koszyku) lub korektą ceny za sztukę w przypadku każdego produktu w pakiecie. Ustaw to w WooCommerce → Pakiet.
+Wybierz między pojedynczą ujemną opłatą w koszyku (jedna linia w koszyku) a korektą ceny dla każdego produktu w pakiecie. Ustaw to w WooCommerce → Bundle.
 
 = Can a bundle include a discount? =
 
-Tak. Ustaw opcjonalny rabat procentowy na pakiet produktów. Pakiet może wyświetlać sumę pakietu i linię oszczędności przed dodaniem do koszyka.
+Tak. Ustaw opcjonalny rabat procentowy dla pakietu produktów. Bundle może pokazać sumę pakietu i wiersz oszczędności przed dodaniem do koszyka.
 
 = Does the bundle add all products to the cart? =
 
-Tak. Przycisk „Dodaj pakiet do koszyka” powoduje dodanie produktu głównego i produktów powiązanych.
+Tak. Przycisk „Dodaj pakiet do koszyka” dodaje produkt główny i powiązane produkty razem.
 
 = Does it create custom database tables? =
 
@@ -69,44 +69,51 @@ Nie. Definicje pakietów są przechowywane jako meta produktu.
 
 = Can I place the bundle box somewhere other than under the product summary? =
 
-Tak. Użyj krótkiego kodu `[bundle]` w dowolnym miejscu, w którym znany jest bieżący produkt, lub `[bundle id="123"]`, aby wyrenderować pakiet konkretnego produktu. Wyłącz „Pokaż na stronie produktu” w WooCommerce → Pakiet, aby używać tylko krótkiego kodu.
+Tak. Użyj shortcode’u `[bundle]` wszędzie tam, gdzie znany jest bieżący produkt, lub `[bundle id="123"]`, aby wyrenderować pakiet konkretnego produktu. Wyłącz „Pokaż na stronie produktu” w WooCommerce → Bundle, aby używać wyłącznie shortcode’u.
 
 = Does Bundle use JavaScript on the storefront? =
 
-Nie. Pakiet bezpłatnego pakietu jest renderowany przez serwer z jednym małym arkuszem stylów i bez kodu JavaScript dostępnego w sklepie.
+Nie. Darmowe pole pakietu jest renderowane po stronie serwera z jednym małym arkuszem stylów i bez JavaScriptu w sklepie.
 
 
 = Does this plugin work on WordPress Multisite? =
 
-Tak. Ta wtyczka jest kompatybilna z WordPress Multisite. Aktywuj go w sieci lub aktywuj na poszczególnych stronach; każda witryna przechowuje własne ustawienia i dane.
+Tak. Ta wtyczka jest zgodna z WordPress Multisite. Włącz ją dla całej sieci lub w pojedynczych witrynach; każda witryna zachowuje własne ustawienia i dane.
 
 == Screenshots ==
 
-1. Na wystawie sklepowej.
-2. Ustawienia w panelu administracyjnym WordPress.
+1. W sklepie.
+2. Ustawienia w panelu WordPress.
 3. Na urządzeniu mobilnym.
 == External Services ==
 
-Pakiet nie łączy się z żadnymi usługami zewnętrznymi. Nie wykonuje żadnych zdalnych wywołań API i nie wysyła żadnych danych poza Twoją witrynę. Jego jedyny arkusz stylów i skrypt administracyjny są obsługiwane z Twojej własnej instalacji WordPressa (`assets/css/bundle.css`, `assets/css/admin.css` i `assets/js/admin.js`), bez czcionek innych firm, CDN i analiz. Wszystkie dane pozostają w Twojej bazie danych: opcje globalne w `bundle_settings` i `bundle_db_version` oraz pakiet każdego produktu w meta postu `_bundle_definition`. Wtyczka nie wysyła wiadomości e-mail.
+Bundle nie łączy się z żadną usługą zewnętrzną. Nie wykonuje zdalnych wywołań API i nie wysyła żadnych danych poza Twoją witrynę. Jego jedyny arkusz stylów i skrypt panelu są serwowane z Twojej instalacji WordPress (`assets/css/bundle.css`, `assets/css/admin.css` i `assets/js/admin.js`), bez czcionek, CDN ani analityki innych firm. Wszystkie dane pozostają w Twojej bazie danych: opcje globalne w `bundle_settings` i `bundle_db_version` oraz pakiet każdego produktu w meta wpisu `_bundle_definition`. Wtyczka nie wysyła e-maili.
+
+== Translations ==
+
+Plogins Bundle zawiera polskie, niemieckie i hiszpańskie tłumaczenia interfejsu wtyczki. Domena tekstowa to `plogins-bundle`, więc pakiety językowe z WordPress.org mogą również nadpisać lub rozszerzyć te dołączone tłumaczenia.
 
 == Changelog ==
+
+= 1.0.2 =
+* Dodano dołączone polskie, niemieckie i hiszpańskie tłumaczenia interfejsu wtyczki.
 
 = 1.0.1 =
 * Pierwsza stabilna wersja.
 
 = 0.2.1 =
-* Zmieniono nazwę na Plogins Bundle dla WooCommerce, aby uzyskać bardziej charakterystyczną nazwę wtyczki.
+* Zmieniono nazwę na Plogins Bundle dla WooCommerce, aby nazwa wtyczki była bardziej charakterystyczna.
 
 = 0.2.0 =
-* Strona ustawień ułożona w formie kart z „?” dymek pomocy wyjaśniający każdą opcję.
-* Zmieniona stylistyka pudełka sklepowego: płynne dopasowywanie rozmiaru, obsługa trybu ciemnego, zarezerwowane miejsce na obraz, aby nie zmieniało układu, oraz wiersz oszczędności określający zaoszczędzoną kwotę.
-* Dostępność: dymki pomocy obsługiwane za pomocą klawiatury, widoczne style fokusu i obsługa ograniczonego ruchu.
-* Usunięte lub brakujące produkty w pakiecie są pomijane, a pudełko chowa się, gdy nie ma już nic do spakowania.
-* Nowość: krótki kod `[bundle]` umożliwiający renderowanie pakietu w dowolnym miejscu, z opcjonalnym atrybutem `id` umożliwiającym kierowanie na konkretny produkt.
-* Nowość: opcja „Pokaż oszczędności”, która wyświetla sumę pakietu i kwotę zaoszczędzoną na pudełku.
-* Nowość: tytuł pudełka zapisany przez administratora, etykieta przycisku i etykieta linii rabatowej są teraz używane przez pudełko pakietu (poprzednio pudełko je ignorowało).
+* Strona ustawień ułożona w formie kart z dymkiem pomocy „?” wyjaśniającym każdą opcję.
+* Przeprojektowane pole w sklepie: płynne dopasowanie rozmiaru, obsługa trybu ciemnego, zarezerwowane miejsce na obraz, aby nie powodować przeskoku układu, oraz wiersz oszczędności pokazujący zaoszczędzoną kwotę.
+* Dostępność: dymki pomocy obsługiwane z klawiatury, widoczne style fokusu i obsługa ograniczonego ruchu.
+* Usunięte lub brakujące produkty w pakiecie są pomijane, a pole ukrywa się, gdy nie ma już nic do spakowania.
+* Nowość: shortcode `[bundle]` do renderowania pola pakietu w dowolnym miejscu, z opcjonalnym atrybutem `id` wskazującym konkretny produkt.
+* Nowość: opcja „Pokaż oszczędności” wyświetlająca sumę pakietu i zaoszczędzoną kwotę na polu.
+* Nowość: tytuł pola, etykieta przycisku i etykieta wiersza rabatu zapisane w panelu są teraz używane przez pole pakietu (wcześniej były ignorowane).
 * Nowość: czysta dezinstalacja usuwa opcje wtyczki i wszystkie zapisane definicje pakietów.
-* I18n: zregenerowano szablon tłumaczenia z nowymi ciągami znaków.
+* I18n: zregenerowano szablon tłumaczenia z nowymi ciągami.
 
 = 0.1.0 =
 * Pierwsze wydanie.

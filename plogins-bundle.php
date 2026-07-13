@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Plogins Bundle - Product Bundles for WooCommerce
+ * Plugin Name:       Bundle - Product Bundles for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-bundle/
  * Description:        Sell groups of products together as a bundle with an optional bundle discount.
  * Version:           1.0.2
