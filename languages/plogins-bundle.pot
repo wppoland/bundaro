@@ -26,7 +26,9 @@ msgstr ""
 
 #. Description of the plugin
 #: bundle.php
-msgid "Sell groups of products together as a bundle with an optional bundle discount."
+msgid ""
+"Sell groups of products together as a bundle with an optional bundle "
+"discount."
 msgstr ""
 
 #. Author of the plugin
@@ -40,22 +42,27 @@ msgid "https://plogins.com/"
 msgstr ""
 
 #: bundle.php:47
-msgid "Bundle – Product Bundles for WooCommerce requires WooCommerce to be active."
+msgid ""
+"Bundle – Product Bundles for WooCommerce requires WooCommerce to be active."
 msgstr ""
 
-#: src/Admin/ProductBundleBox.php:76
-#: src/Admin/Settings.php:40
+#: src/Admin/ProductBundleBox.php:76 src/Admin/Settings.php:40
 msgid "Bundle"
 msgstr ""
 
 #: src/Admin/ProductBundleBox.php:105
-msgid "Link the products that are usually bought together with this one. They appear in a \"frequently bought together\" box on this product's page, and shoppers can add the whole set to the cart in one click."
+msgid ""
+"Link the products that are usually bought together with this one. They "
+"appear in a \"frequently bought together\" box on this product's page, and "
+"shoppers can add the whole set to the cart in one click."
 msgstr ""
 
 #. translators: %s: "Products > All Products" admin breadcrumb.
 #: src/Admin/ProductBundleBox.php:110
 #, php-format
-msgid "Tip: the product ID is shown in the URL when you edit a product, and in the ID column under %s."
+msgid ""
+"Tip: the product ID is shown in the URL when you edit a product, and in the "
+"ID column under %s."
 msgstr ""
 
 #: src/Admin/ProductBundleBox.php:111
@@ -71,7 +78,9 @@ msgid "e.g. 42, 108, 256"
 msgstr ""
 
 #: src/Admin/ProductBundleBox.php:130
-msgid "Comma-separated product IDs to sell alongside this product. Duplicates, blanks and this product's own ID are ignored automatically."
+msgid ""
+"Comma-separated product IDs to sell alongside this product. Duplicates, "
+"blanks and this product's own ID are ignored automatically."
 msgstr ""
 
 #: src/Admin/ProductBundleBox.php:134
@@ -79,7 +88,10 @@ msgid "Bundle discount (%)"
 msgstr ""
 
 #: src/Admin/ProductBundleBox.php:147
-msgid "Optional. The percentage off the combined price when the whole bundle is added to the cart. Leave at 0 for no discount (the box still cross-sells the items). Values are clamped to 0–100."
+msgid ""
+"Optional. The percentage off the combined price when the whole bundle is "
+"added to the cart. Leave at 0 for no discount (the box still cross-sells the "
+"items). Values are clamped to 0–100."
 msgstr ""
 
 #: src/Admin/Settings.php:39
@@ -91,13 +103,20 @@ msgid "More information"
 msgstr ""
 
 #: src/Admin/Settings.php:137
-msgid "Configure the \"frequently bought together\" box that lets shoppers add a product and its companions to the cart in one click. Link the companion products and set an optional discount on each product in the product editor, under the \"Bundle\" tab."
+msgid ""
+"Configure the \"frequently bought together\" box that lets shoppers add a "
+"product and its companions to the cart in one click. Link the companion "
+"products and set an optional discount on each product in the product editor, "
+"under the \"Bundle\" tab."
 msgstr ""
 
 #. translators: 1: [bundle] shortcode, 2: [bundle id="123"] shortcode.
 #: src/Admin/Settings.php:143
 #, php-format
-msgid "Prefer to place the box yourself? Use the %1$s shortcode on any page, or %2$s to target a specific product, then turn off \"Show on product page\" below."
+msgid ""
+"Prefer to place the box yourself? Use the %1$s shortcode on any page, or "
+"%2$s to target a specific product, then turn off \"Show on product page\" "
+"below."
 msgstr ""
 
 #: src/Admin/Settings.php:155
@@ -105,7 +124,9 @@ msgid "Display"
 msgstr ""
 
 #: src/Admin/Settings.php:156
-msgid "Where the bundle box appears and how much it shows. The defaults work for most stores."
+msgid ""
+"Where the bundle box appears and how much it shows. The defaults work for "
+"most stores."
 msgstr ""
 
 #: src/Admin/Settings.php:161
@@ -113,7 +134,9 @@ msgid "Enable bundles"
 msgstr ""
 
 #: src/Admin/Settings.php:162
-msgid "Master switch. When off, no bundle box is shown anywhere and no bundle discount is applied, your products keep selling normally."
+msgid ""
+"Master switch. When off, no bundle box is shown anywhere and no bundle "
+"discount is applied, your products keep selling normally."
 msgstr ""
 
 #: src/Admin/Settings.php:167
@@ -125,7 +148,10 @@ msgid "Show on product page"
 msgstr ""
 
 #: src/Admin/Settings.php:174
-msgid "Automatically render the box just below the product summary on single product pages. Turn this off if you only want to place the box manually with the [bundle] shortcode."
+msgid ""
+"Automatically render the box just below the product summary on single "
+"product pages. Turn this off if you only want to place the box manually with "
+"the [bundle] shortcode."
 msgstr ""
 
 #: src/Admin/Settings.php:179
@@ -137,7 +163,10 @@ msgid "Show bundled items"
 msgstr ""
 
 #: src/Admin/Settings.php:186
-msgid "Display each companion product with its thumbnail and price inside the box, so shoppers see exactly what they are getting. Turn off for a compact box with just the button."
+msgid ""
+"Display each companion product with its thumbnail and price inside the box, "
+"so shoppers see exactly what they are getting. Turn off for a compact box "
+"with just the button."
 msgstr ""
 
 #: src/Admin/Settings.php:191
@@ -149,7 +178,9 @@ msgid "Show savings"
 msgstr ""
 
 #: src/Admin/Settings.php:198
-msgid "Show the bundle total and the exact amount saved (e.g. \"you save $12.00\"). A clear saving figure is a strong nudge to buy the whole bundle."
+msgid ""
+"Show the bundle total and the exact amount saved (e.g. \"you save $12.00\"). "
+"A clear saving figure is a strong nudge to buy the whole bundle."
 msgstr ""
 
 #: src/Admin/Settings.php:203
@@ -161,7 +192,9 @@ msgid "Discount"
 msgstr ""
 
 #: src/Admin/Settings.php:213
-msgid "How the bundle discount reaches the cart. Set the per-product discount itself in the product editor, under the \"Bundle\" tab."
+msgid ""
+"How the bundle discount reaches the cart. Set the per-product discount "
+"itself in the product editor, under the \"Bundle\" tab."
 msgstr ""
 
 #: src/Admin/Settings.php:218
@@ -169,7 +202,11 @@ msgid "Discount mode"
 msgstr ""
 
 #: src/Admin/Settings.php:219
-msgid "How the discount appears in the cart. \"Single cart fee\" adds one negative line (\"Bundle discount −$12.00\"), simplest and clearest. \"Per-item\" lowers the price of each bundled product instead, which suits stores that need the discount reflected on every line and in per-product tax."
+msgid ""
+"How the discount appears in the cart. \"Single cart fee\" adds one negative "
+"line (\"Bundle discount −$12.00\"), simplest and clearest. \"Per-item\" "
+"lowers the price of each bundled product instead, which suits stores that "
+"need the discount reflected on every line and in per-product tax."
 msgstr ""
 
 #: src/Admin/Settings.php:223
@@ -181,7 +218,9 @@ msgid "Per-item price adjustment"
 msgstr ""
 
 #: src/Admin/Settings.php:226
-msgid "Choose how the bundle discount is shown when bundled items are in the cart. Most stores want the single cart fee."
+msgid ""
+"Choose how the bundle discount is shown when bundled items are in the cart. "
+"Most stores want the single cart fee."
 msgstr ""
 
 #: src/Admin/Settings.php:234
@@ -189,7 +228,9 @@ msgid "Labels &amp; wording"
 msgstr ""
 
 #: src/Admin/Settings.php:235
-msgid "The words shoppers read. Leave any field blank to use the sensible default shown as a placeholder."
+msgid ""
+"The words shoppers read. Leave any field blank to use the sensible default "
+"shown as a placeholder."
 msgstr ""
 
 #: src/Admin/Settings.php:240
@@ -197,11 +238,12 @@ msgid "Box title"
 msgstr ""
 
 #: src/Admin/Settings.php:241
-msgid "The heading shown at the top of the bundle box. Keep it short and benefit-led, e.g. \"Frequently bought together\" or \"Complete the set\"."
+msgid ""
+"The heading shown at the top of the bundle box. Keep it short and benefit-"
+"led, e.g. \"Frequently bought together\" or \"Complete the set\"."
 msgstr ""
 
-#: src/Admin/Settings.php:244
-#: src/Admin/Settings.php:310
+#: src/Admin/Settings.php:244 src/Admin/Settings.php:310
 #: src/Service/BundleService.php:186
 msgid "Frequently bought together"
 msgstr ""
@@ -215,11 +257,13 @@ msgid "Add-to-cart label"
 msgstr ""
 
 #: src/Admin/Settings.php:251
-msgid "Text on the button that adds the whole bundle to the cart. An action-led label such as \"Add all to cart\" or \"Buy the set\" outperforms a generic one."
+msgid ""
+"Text on the button that adds the whole bundle to the cart. An action-led "
+"label such as \"Add all to cart\" or \"Buy the set\" outperforms a generic "
+"one."
 msgstr ""
 
-#: src/Admin/Settings.php:254
-#: src/Admin/Settings.php:311
+#: src/Admin/Settings.php:254 src/Admin/Settings.php:311
 #: src/Service/BundleService.php:187
 msgid "Add bundle to cart"
 msgstr ""
@@ -233,17 +277,21 @@ msgid "Discount line label"
 msgstr ""
 
 #: src/Admin/Settings.php:261
-msgid "The wording of the discount line in the cart and at checkout when \"Single cart fee\" mode is used, e.g. \"Bundle discount\". Shoppers see this next to the saved amount."
+msgid ""
+"The wording of the discount line in the cart and at checkout when \"Single "
+"cart fee\" mode is used, e.g. \"Bundle discount\". Shoppers see this next to "
+"the saved amount."
 msgstr ""
 
-#: src/Admin/Settings.php:264
-#: src/Admin/Settings.php:312
+#: src/Admin/Settings.php:264 src/Admin/Settings.php:312
 #: src/Service/BundleService.php:188
 msgid "Bundle discount"
 msgstr ""
 
 #: src/Admin/Settings.php:265
-msgid "Shown on the cart fee line (fee mode). Leave blank to use the default \"Bundle discount\"."
+msgid ""
+"Shown on the cart fee line (fee mode). Leave blank to use the default "
+"\"Bundle discount\"."
 msgstr ""
 
 #: src/Service/BundleService.php:189
@@ -260,4 +308,64 @@ msgstr ""
 #: templates/single-product/bundle-box.php:112
 #, php-format
 msgid "Bundle total <strong>%1$s</strong>, you save <strong>%2$s</strong>."
+msgstr ""
+
+#: src/Admin/ProUpsell.php:82
+msgid "Wkrótce"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:82
+msgid "Coming soon"
+msgstr ""
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:87
+#, php-format
+msgid "od %d zł/rok"
+msgstr ""
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:92
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:101
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:102
+msgid "Powiadom mnie"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:102
+msgid "Get notified"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:132
+msgid "Permission denied."
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:162
+#, php-format
+msgid "Do more with %s"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:169
+msgid "Dismiss this notice"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:186
+msgid "Unlock every PRO feature"
+msgstr ""
+
+#: src/Admin/ProUpsell.php:199
+msgid "one licence, every PRO feature"
+msgstr ""
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:218
+#, php-format
+msgid "What %s adds"
 msgstr ""

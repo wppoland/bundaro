@@ -12,7 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n == 1 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n == 1 ? 0 : n % 10 >= 2 && n % 10 <= 4 && "
+"(n % 100 < 12 || n % 100 > 14) ? 1 : 2);\n"
 "X-Domain: plogins-bundle\n"
 
 #. Plugin Name of the plugin
@@ -58,9 +59,9 @@ msgid ""
 "appear in a \"frequently bought together\" box on this product's page, and "
 "shoppers can add the whole set to the cart in one click."
 msgstr ""
-"Połącz produkty, które zwykle są kupowane razem z tym produktem. Pojawią się"
-" w sekcji „Często kupowane razem” na stronie produktu, a klienci dodadzą "
-"cały zestaw do koszyka jednym kliknięciem."
+"Połącz produkty, które zwykle są kupowane razem z tym produktem. Pojawią się "
+"w sekcji „Często kupowane razem” na stronie produktu, a klienci dodadzą cały "
+"zestaw do koszyka jednym kliknięciem."
 
 #. translators: %s: "Products > All Products" admin breadcrumb.
 #: src/Admin/ProductBundleBox.php:110
@@ -100,8 +101,8 @@ msgstr "Rabat na zestaw (%)"
 #: src/Admin/ProductBundleBox.php:147
 msgid ""
 "Optional. The percentage off the combined price when the whole bundle is "
-"added to the cart. Leave at 0 for no discount (the box still cross-sells the"
-" items). Values are clamped to 0–100."
+"added to the cart. Leave at 0 for no discount (the box still cross-sells the "
+"items). Values are clamped to 0–100."
 msgstr ""
 "Opcjonalne. Procent rabatu od łącznej ceny po dodaniu całego zestawu do "
 "koszyka. Zostaw 0, jeśli nie chcesz rabatu, sekcja nadal będzie polecać "
@@ -119,8 +120,8 @@ msgstr "Więcej informacji"
 msgid ""
 "Configure the \"frequently bought together\" box that lets shoppers add a "
 "product and its companions to the cart in one click. Link the companion "
-"products and set an optional discount on each product in the product editor,"
-" under the \"Bundle\" tab."
+"products and set an optional discount on each product in the product editor, "
+"under the \"Bundle\" tab."
 msgstr ""
 "Skonfiguruj sekcję „Często kupowane razem”, która pozwala klientom dodać "
 "produkt i produkty towarzyszące do koszyka jednym kliknięciem. Powiąż "
@@ -174,8 +175,8 @@ msgstr "Pokaż na stronie produktu"
 #: src/Admin/Settings.php:174
 msgid ""
 "Automatically render the box just below the product summary on single "
-"product pages. Turn this off if you only want to place the box manually with"
-" the [bundle] shortcode."
+"product pages. Turn this off if you only want to place the box manually with "
+"the [bundle] shortcode."
 msgstr ""
 "Automatycznie wyświetl sekcję tuż pod podsumowaniem produktu na stronie "
 "pojedynczego produktu. Wyłącz to, jeśli chcesz umieszczać ją ręcznie "
@@ -196,8 +197,8 @@ msgid ""
 "with just the button."
 msgstr ""
 "Pokaż każdy produkt towarzyszący z miniaturą i ceną w sekcji zestawu, aby "
-"klienci dokładnie widzieli, co kupują. Wyłącz, aby pokazać kompaktową wersję"
-" z samym przyciskiem."
+"klienci dokładnie widzieli, co kupują. Wyłącz, aby pokazać kompaktową wersję "
+"z samym przyciskiem."
 
 #: src/Admin/Settings.php:191
 msgid "List the bundled products (with thumbnails) inside the box."
@@ -209,8 +210,8 @@ msgstr "Pokaż oszczędności"
 
 #: src/Admin/Settings.php:198
 msgid ""
-"Show the bundle total and the exact amount saved (e.g. \"you save $12.00\")."
-" A clear saving figure is a strong nudge to buy the whole bundle."
+"Show the bundle total and the exact amount saved (e.g. \"you save $12.00\"). "
+"A clear saving figure is a strong nudge to buy the whole bundle."
 msgstr ""
 "Pokaż łączną cenę zestawu i dokładną kwotę oszczędności, np. „oszczędzasz "
 "50,00 zł”. Konkretna oszczędność mocno zachęca do kupienia całego zestawu."
@@ -245,8 +246,8 @@ msgstr ""
 "Określa, jak rabat pojawia się w koszyku. „Pojedyncza opłata w koszyku” "
 "dodaje jedną ujemną pozycję, np. „Rabat na zestaw −50,00 zł”, najprościej i "
 "najczytelniej. „Na pozycję” obniża cenę każdego produktu w zestawie, co "
-"pasuje do sklepów, które muszą pokazać rabat przy każdej pozycji i w podatku"
-" liczonym od produktu."
+"pasuje do sklepów, które muszą pokazać rabat przy każdej pozycji i w podatku "
+"liczonym od produktu."
 
 #: src/Admin/Settings.php:223
 msgid "Single cart fee (one negative line)"
@@ -261,8 +262,8 @@ msgid ""
 "Choose how the bundle discount is shown when bundled items are in the cart. "
 "Most stores want the single cart fee."
 msgstr ""
-"Wybierz, jak pokazywać rabat zestawu, gdy produkty z zestawu są w koszyku. W"
-" większości sklepów najlepiej sprawdza się pojedyncza opłata w koszyku."
+"Wybierz, jak pokazywać rabat zestawu, gdy produkty z zestawu są w koszyku. W "
+"większości sklepów najlepiej sprawdza się pojedyncza opłata w koszyku."
 
 #: src/Admin/Settings.php:234
 msgid "Labels &amp; wording"
@@ -307,9 +308,9 @@ msgid ""
 "label such as \"Add all to cart\" or \"Buy the set\" outperforms a generic "
 "one."
 msgstr ""
-"Tekst przycisku, który dodaje cały zestaw do koszyka. Etykieta nastawiona na"
-" działanie, np. „Dodaj wszystko do koszyka” albo „Kup zestaw”, zwykle działa"
-" lepiej niż ogólny tekst."
+"Tekst przycisku, który dodaje cały zestaw do koszyka. Etykieta nastawiona na "
+"działanie, np. „Dodaj wszystko do koszyka” albo „Kup zestaw”, zwykle działa "
+"lepiej niż ogólny tekst."
 
 #: src/Admin/Settings.php:254 src/Admin/Settings.php:311
 #: src/Service/BundleService.php:187
@@ -327,11 +328,11 @@ msgstr "Etykieta pozycji rabatu"
 #: src/Admin/Settings.php:261
 msgid ""
 "The wording of the discount line in the cart and at checkout when \"Single "
-"cart fee\" mode is used, e.g. \"Bundle discount\". Shoppers see this next to"
-" the saved amount."
+"cart fee\" mode is used, e.g. \"Bundle discount\". Shoppers see this next to "
+"the saved amount."
 msgstr ""
-"Treść linii rabatowej w koszyku i przy kasie w przypadku korzystania z trybu"
-" „Opłata za pojedynczy koszyk”, np. „Rabat pakietowy”. Kupujący widzą tę "
+"Treść linii rabatowej w koszyku i przy kasie w przypadku korzystania z trybu "
+"„Opłata za pojedynczy koszyk”, np. „Rabat pakietowy”. Kupujący widzą tę "
 "informację obok zaoszczędzonej kwoty."
 
 #: src/Admin/Settings.php:264 src/Admin/Settings.php:312
@@ -344,8 +345,8 @@ msgid ""
 "Shown on the cart fee line (fee mode). Leave blank to use the default "
 "\"Bundle discount\"."
 msgstr ""
-"Wyświetlane przy pozycji opłaty w koszyku w trybie opłaty. Zostaw puste, aby"
-" użyć domyślnego „Rabat na zestaw”."
+"Wyświetlane przy pozycji opłaty w koszyku w trybie opłaty. Zostaw puste, aby "
+"użyć domyślnego „Rabat na zestaw”."
 
 #: src/Service/BundleService.php:189
 msgid "Some bundled products could not be added to the cart."
@@ -362,5 +363,64 @@ msgstr "Kup razem i zaoszczędź %s%%"
 #, php-format
 msgid "Bundle total <strong>%1$s</strong>, you save <strong>%2$s</strong>."
 msgstr ""
-"Łączna cena zestawu <strong>%1$s</strong>, oszczędzasz "
-"<strong>%2$s</strong>."
+"Łączna cena zestawu <strong>%1$s</strong>, oszczędzasz <strong>%2$s</strong>."
+
+#: src/Admin/ProUpsell.php:82
+msgid "Wkrótce"
+msgstr "Wkrótce"
+
+#: src/Admin/ProUpsell.php:82
+msgid "Coming soon"
+msgstr "Wkrótce"
+
+#. translators: %d: yearly price in PLN
+#: src/Admin/ProUpsell.php:87
+#, php-format
+msgid "od %d zł/rok"
+msgstr "od %d zł/rok"
+
+#. translators: 1: currency symbol, 2: yearly price
+#: src/Admin/ProUpsell.php:92
+#, php-format
+msgid "from %1$s%2$d/yr"
+msgstr "od %1$s%2$d/rok"
+
+#: src/Admin/ProUpsell.php:101
+msgid "Upgrade to PRO"
+msgstr "Przejdź na PRO"
+
+#: src/Admin/ProUpsell.php:102
+msgid "Powiadom mnie"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:102
+msgid "Get notified"
+msgstr "Powiadom mnie"
+
+#: src/Admin/ProUpsell.php:132
+msgid "Permission denied."
+msgstr "Brak uprawnień."
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:162
+#, php-format
+msgid "Do more with %s"
+msgstr "Zrób więcej dzięki %s"
+
+#: src/Admin/ProUpsell.php:169
+msgid "Dismiss this notice"
+msgstr "Odrzuć to powiadomienie"
+
+#: src/Admin/ProUpsell.php:186
+msgid "Unlock every PRO feature"
+msgstr "Odblokuj wszystkie funkcje PRO"
+
+#: src/Admin/ProUpsell.php:199
+msgid "one licence, every PRO feature"
+msgstr "jedna licencja, wszystkie funkcje PRO"
+
+#. translators: %s: PRO edition name
+#: src/Admin/ProUpsell.php:218
+#, php-format
+msgid "What %s adds"
+msgstr "Co dodaje %s"
