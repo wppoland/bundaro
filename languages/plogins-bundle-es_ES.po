@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bundle – Product Bundles for WooCommerce 0.2.0\n"
+"Project-Id-Version: Bundle, Product Bundles for WooCommerce 0.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bundle\n"
 "POT-Creation-Date: 2026-06-16T20:25:32+00:00\n"
 "PO-Revision-Date: 2026-07-07 00:00+0000\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: bundle.php
-msgid "Bundle – Product Bundles for WooCommerce"
+msgid "Bundle, Product Bundles for WooCommerce"
 msgstr "Paquete: paquetes de productos para WooCommerce"
 
 #. Plugin URI of the plugin
@@ -46,7 +46,7 @@ msgstr "https://plogins.com/"
 
 #: bundle.php:47
 msgid ""
-"Bundle – Product Bundles for WooCommerce requires WooCommerce to be active."
+"Bundle, Product Bundles for WooCommerce requires WooCommerce to be active."
 msgstr ""
 "Paquete: los paquetes de productos para WooCommerce requieren que "
 "WooCommerce esté activo."
@@ -105,11 +105,11 @@ msgstr "Descuento del paquete (%)"
 msgid ""
 "Optional. The percentage off the combined price when the whole bundle is "
 "added to the cart. Leave at 0 for no discount (the box still cross-sells the "
-"items). Values are clamped to 0–100."
+"items). Values are clamped to 0-100."
 msgstr ""
 "Opcional. Porcentaje de descuento sobre el precio combinado cuando se añade "
 "todo el bundle al carrito. Déjelo en 0 si no quiere descuento, la sección "
-"seguirá recomendando los artículos. Los valores se limitan a 0–100."
+"seguirá recomendando los artículos. Los valores se limitan a 0-100."
 
 #: src/Admin/Settings.php:39
 msgid "Bundle Settings"

@@ -4,7 +4,7 @@
  * ProductBundleEngine on `woocommerce_after_single_product_summary`.
  *
  * Lists the bundled products (when enabled) and a single button that adds the
- * whole bundle — the main product plus every linked item — to the cart. The
+ * whole bundle, the main product plus every linked item, to the cart. The
  * engine applies the configured discount (cart fee or per-item) afterwards.
  *
  * @var \WC_Product                                          $product
@@ -55,7 +55,7 @@ foreach ($bundle_item_ids as $bundle_item_id) {
     $bundle_total  += (float) $bundle_item->get_price('edit');
 }
 
-// Nothing resolvable to bundle with — render nothing rather than a lone product
+// Nothing resolvable to bundle with, render nothing rather than a lone product
 // with an "Add bundle" button that would behave like a normal add-to-cart.
 if ($bundle_items === []) {
     return;

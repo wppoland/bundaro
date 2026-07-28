@@ -1,5 +1,5 @@
 /*
- * Bundle — admin settings page polish.
+ * Bundle, admin settings page polish.
  *
  * Lightweight, dependency-free styling layered over the standard WordPress
  * settings UI: clearly headed sections within a tidy card, accessible "?" help
@@ -14,9 +14,9 @@
 	/*
 	 * Family accent: the storefront "parcel twine" amber, computed against the
 	 * wp-admin surfaces (#fff / #f0f0f1):
-	 *   --bundle-admin-accent      #8a5e26 — text/glyph use: 5.66:1 on #fff,
+	 *   --bundle-admin-accent      #8a5e26, text/glyph use: 5.66:1 on #fff,
 	 *                                        4.97:1 on #f0f0f1 (passes AA text).
-	 *   --bundle-admin-accent-bar  #ad7a3a — non-text section marker only:
+	 *   --bundle-admin-accent-bar  #ad7a3a, non-text section marker only:
 	 *                                        3.74:1 on #fff (passes 3:1 UI).
 	 */
 	--bundle-admin-accent: #8a5e26;
@@ -80,7 +80,7 @@
 	font-size: 0.9em;
 }
 
-/* "?" help affordance — a real button so it is keyboard operable. */
+/* "?" help affordance, a real button so it is keyboard operable. */
 .bundle-help {
 	display: inline-grid;
 	place-items: center;
@@ -164,7 +164,7 @@
 	.bundle-settings {
 		/*
 		 * Lift the amber on dark cards (#1d2327): #d6a55c is the storefront's own
-		 * dark-mode twine — 7.11:1 on #1d2327 (AA text). The bar tone passes 3:1.
+		 * dark-mode twine, 7.11:1 on #1d2327 (AA text). The bar tone passes 3:1.
 		 */
 		--bundle-admin-accent: #d6a55c;
 		--bundle-admin-accent-bar: #d6a55c;
@@ -199,13 +199,13 @@
 }
 
 /* ------------------------------------------------------------------ *
- * PRO upsell — dismissible banner, sidebar promo, "what PRO adds"
+ * PRO upsell, dismissible banner, sidebar promo, "what PRO adds"
  * locked cards. Coming-soon variant: soft CTA, no price, no buy button.
  * Pure advertising (no disabled inputs), scoped to .bundle-settings.
  *
  * Accent reuse (WCAG on wp-admin #fff):
- *   --bundle-admin-accent      #8a5e26 — behind WHITE CTA text: 5.66:1 (AA).
- *   --bundle-admin-accent-bar  #ad7a3a — non-text borders/lock glyphs (3:1 UI).
+ *   --bundle-admin-accent      #8a5e26, behind WHITE CTA text: 5.66:1 (AA).
+ *   --bundle-admin-accent-bar  #ad7a3a, non-text borders/lock glyphs (3:1 UI).
  * ------------------------------------------------------------------ */
 
 .bundle-settings {

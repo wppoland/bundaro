@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
  * Injects this plugin's text-domain ('bundle'), request/nonce keys, the bundle
  * product-meta key and asset URLs into the namespace-neutral engine, and
  * supplies the closures it needs: an enabled-check, resolved settings, a reader
- * for the per-product bundle definition (stored as product meta — no custom
+ * for the per-product bundle definition (stored as product meta, no custom
  * table) and a template renderer for the bundle box. All bundle orchestration
  * (render, add-to-cart, discount fee / per-item adjustment) lives in the kit;
  * this class only supplies localisation, option storage, the meta key and the
@@ -98,7 +98,7 @@ final class BundleService implements HasHooks
     }
 
     /**
-     * `[bundle]` / `[bundle id="123"]` — render a bundle box for the given
+     * `[bundle]` / `[bundle id="123"]`, render a bundle box for the given
      * product (defaults to the current product in the loop). Lets merchants
      * place the box anywhere (page, post, block) rather than only after the
      * product summary. Returns an empty string when the product has no bundle.

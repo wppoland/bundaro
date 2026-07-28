@@ -1,6 +1,6 @@
 <?php
 /**
- * Uninstall cleanup for Bundle – Product Bundles for WooCommerce.
+ * Uninstall cleanup for Bundle, Product Bundles for WooCommerce.
  *
  * Runs only when the plugin is deleted from the Plugins screen. Removes the
  * settings option, the migration version marker and every per-product bundle

@@ -17,10 +17,10 @@ Bundle dodaje do stron produktów WooCommerce pole pakietu „często kupowane r
 
 * Pole pakietu pod podsumowaniem produktu z listą produktów w pakiecie.
 * „Dodaj pakiet do koszyka” dodaje jednocześnie produkt główny i wszystkie powiązane pozycje.
-* Opcjonalny rabat pakietowy — jako pojedyncza opłata w koszyku albo korekta ceny dla każdej pozycji.
+* Opcjonalny rabat pakietowy, jako pojedyncza opłata w koszyku albo korekta ceny dla każdej pozycji.
 * Opcjonalny wiersz oszczędności pokazujący sumę pakietu i zaoszczędzoną kwotę.
 * Shortcode `[bundle]` do umieszczenia pola pakietu w dowolnym miejscu; użyj `[bundle id="123"]`, aby wskazać konkretny produkt.
-* Edytowalny tytuł pola, etykieta przycisku i etykieta wiersza rabatu — wszystko przetłumaczalne.
+* Edytowalny tytuł pola, etykieta przycisku i etykieta wiersza rabatu, wszystko przetłumaczalne.
 * Definicje pakietów są przechowywane jako meta produktu, bez niestandardowych tabel w bazie danych.
 * Czysta dezinstalacja: po usunięciu usuwa swoje opcje i definicje pakietów.
 * Jeden mały arkusz stylów, bez JavaScriptu w sklepie i bez jQuery. Obrazy rezerwują miejsce, więc pole nie powoduje przeskoku układu podczas ładowania i dostosowuje się do preferencji trybu ciemnego odwiedzającego.

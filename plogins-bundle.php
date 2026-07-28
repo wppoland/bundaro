@@ -3,7 +3,7 @@
  * Plugin Name:       Bundle - Product Bundles for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-bundle/
  * Description:        Sell groups of products together as a bundle with an optional bundle discount.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -25,7 +25,7 @@ namespace Bundle;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '1.0.3';
+const VERSION     = '1.0.4';
 const PLUGIN_FILE = __FILE__;
 
 define('BUNDLE_DIR', plugin_dir_path(__FILE__));
@@ -45,7 +45,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Bundle – Product Bundles for WooCommerce requires WooCommerce to be active.', 'plogins-bundle');
+            echo esc_html__('Bundle, Product Bundles for WooCommerce requires WooCommerce to be active.', 'plogins-bundle');
             echo '</p></div>';
         });
         return;

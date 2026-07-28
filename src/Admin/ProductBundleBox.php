@@ -144,7 +144,7 @@ final class ProductBundleBox implements HasHooks
                         aria-describedby="bundle_discount_desc"
                     />
                     <span class="description" id="bundle_discount_desc">
-                        <?php esc_html_e('Optional. The percentage off the combined price when the whole bundle is added to the cart. Leave at 0 for no discount (the box still cross-sells the items). Values are clamped to 0–100.', 'plogins-bundle'); ?>
+                        <?php esc_html_e('Optional. The percentage off the combined price when the whole bundle is added to the cart. Leave at 0 for no discount (the box still cross-sells the items). Values are clamped to 0-100.', 'plogins-bundle'); ?>
                     </span>
                 </p>
             </div>

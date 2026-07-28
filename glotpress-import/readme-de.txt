@@ -17,10 +17,10 @@ Bundle fügt deinen WooCommerce-Produktseiten eine „häufig zusammen gekauft�
 
 * Eine Paketbox unter der Produktzusammenfassung mit einer Liste der gebündelten Produkte.
 * „Paket in den Warenkorb“ fügt das Hauptprodukt und alle verknüpften Artikel auf einmal hinzu.
-* Optionaler Paketrabatt — entweder als einzelne Warenkorbgebühr oder als Preisanpassung pro Artikel.
+* Optionaler Paketrabatt, entweder als einzelne Warenkorbgebühr oder als Preisanpassung pro Artikel.
 * Eine optionale Ersparniszeile, die die Paketsumme und den gesparten Betrag anzeigt.
 * Shortcode `[bundle]`, um die Paketbox überall zu platzieren; nutze `[bundle id="123"]`, um ein bestimmtes Produkt anzusprechen.
-* Bearbeitbarer Boxtitel, Button-Beschriftung und Rabattzeilen-Beschriftung — alles übersetzbar.
+* Bearbeitbarer Boxtitel, Button-Beschriftung und Rabattzeilen-Beschriftung, alles übersetzbar.
 * Paketdefinitionen werden als Produktmeta gespeichert, ohne eigene Datenbanktabellen.
 * Saubere Deinstallation: entfernt beim Löschen seine Optionen und Paketdefinitionen.
 * Ein kleines Stylesheet, kein JavaScript im Shop und kein jQuery. Bilder reservieren ihren Platz, sodass die Box beim Laden keine Layout-Verschiebung verursacht und der Dark-Mode-Präferenz des Besuchers folgt.

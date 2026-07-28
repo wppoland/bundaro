@@ -1,5 +1,5 @@
 /**
- * Bundle — admin settings help affordances.
+ * Bundle, admin settings help affordances.
  *
  * Progressive enhancement only. The "?" buttons are real, focusable controls and
  * each is wired to a help bubble via aria-describedby, so screen-reader and
