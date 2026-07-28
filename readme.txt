@@ -1,10 +1,10 @@
-=== Plogins Bundle - Product Bundles for WooCommerce ===
+=== Bundle - Product Bundles for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, product bundles, frequently bought together, bundle discount, upsell
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 0.2.1
+Stable tag: 1.0.4
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -89,7 +89,20 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 Bundle does not connect to any external services. It makes no remote API calls and sends no data off your site. Its only stylesheet and admin script are served from your own WordPress install (`assets/css/bundle.css`, `assets/css/admin.css` and `assets/js/admin.js`), with no third-party fonts, CDNs or analytics. All data stays in your database: global options in `bundle_settings` and `bundle_db_version`, and each product's bundle in the `_bundle_definition` post meta. The plugin sends no email.
 
+== Translations ==
+
+Plogins Bundle includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-bundle`, so WordPress.org language packs can also override or extend these bundled translations.
+
 == Changelog ==
+
+= 1.0.3 =
+* Translations: completed Polish, German and Spanish for the PRO upgrade panel.
+
+= 1.0.2 =
+* Added bundled Polish, German and Spanish translations for the plugin interface.
+
+= 1.0.1 =
+* First stable release.
 
 = 0.2.1 =
 * Renamed to Plogins Bundle for WooCommerce for a more distinctive plugin name.

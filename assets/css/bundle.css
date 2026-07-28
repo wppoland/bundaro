@@ -1,9 +1,9 @@
 /*
- * Bundle — "frequently bought together" box on the single product page.
+ * Bundle, "frequently bought together" box on the single product page.
  *
  * World: a bundle is a parcel tied with twine. The items are strung on one
  * connecting thread (the "+" markers are twine knots), and the combined saving
- * is the payoff — rendered as a die-cut paper price tag with a punched hole and
+ * is the payoff, rendered as a die-cut paper price tag with a punched hole and
  * a dashed tear edge. The tag is the one moment that matters: it settles with a
  * single hanging swing on load (reduced-motion honoured).
  *
@@ -15,7 +15,7 @@
 
 .bundle-box {
 	/*
-	 * Themeable tokens — override any of these from a child theme to re-skin.
+	 * Themeable tokens, override any of these from a child theme to re-skin.
 	 * Accent is grounded in the parcel world: warm twine amber over deep ink,
 	 * deliberately NOT a generic e-commerce green or default blue.
 	 */
@@ -27,7 +27,7 @@
 	--bundle-bg: rgba(173, 122, 58, 0.04);
 	--bundle-fg: inherit;
 	--bundle-muted: rgba(43, 32, 20, 0.62);
-	--bundle-accent: #ad7a3a;          /* parcel twine — warm tan/amber */
+	--bundle-accent: #ad7a3a;          /* parcel twine, warm tan/amber */
 	--bundle-accent-ink: #5a3d18;      /* burnt-cord ink for tag text   */
 	--bundle-accent-bg: rgba(173, 122, 58, 0.12);
 	--bundle-twine: rgba(173, 122, 58, 0.55);
@@ -124,7 +124,7 @@
 /*
  * The twine segment strung from each knot back to the previous thumbnail, so the
  * products read as one bound parcel. Lives on the knot, so it spans exactly the
- * real joins and vanishes cleanly when an item wraps to the next line — no
+ * real joins and vanishes cleanly when an item wraps to the next line, no
  * full-width line overshooting past the last thumbnail.
  */
 .bundle-box__plus::before {
@@ -145,7 +145,7 @@
 }
 
 /*
- * THE MOMENT — the combined saving as a die-cut paper price tag.
+ * THE MOMENT, the combined saving as a die-cut paper price tag.
  * Punched hole + threaded twine loop on top, dashed tear edge down the right,
  * kraft paper fill. This is the payoff of buying the kit, given physical form.
  */
@@ -171,7 +171,7 @@
 	clip-path: polygon(
 		0.9rem 0, 100% 0, 100% 100%, 0.9rem 100%, 0 50%
 	);
-	/* Single hanging settle on load — the tag drops onto its string. */
+	/* Single hanging settle on load, the tag drops onto its string. */
 	transform-origin: 1.1rem -0.6rem;
 	animation: bundle-tag-settle 0.9s cubic-bezier(0.2, 0.85, 0.3, 1) both;
 }
@@ -190,7 +190,7 @@
 	box-shadow: inset 0 0 0 1px var(--bundle-accent);
 }
 
-/* The leading glyph (✦) — recoloured to twine, sized as a small mark. */
+/* The leading glyph (✦), recoloured to twine, sized as a small mark. */
 .bundle-box__discount > [aria-hidden] {
 	font-size: 0.85em;
 	color: var(--bundle-accent);
