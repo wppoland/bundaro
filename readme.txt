@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,6 +94,11 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Plogins Bundle includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-bundle`, so WordPress.org language packs can also override or extend these bundled translations.
 
 == Changelog ==
+
+= 1.0.5 =
+* Clearing the box title, the button label or the discount line label now really restores the packaged default, instead of quietly bringing your previous wording back.
+* Bundles are offered on simple products only. A variable product cannot reach the cart until the shopper picks its options, so the "Bundle" tab no longer shows on variable products and the box no longer renders on them.
+* Putting a variable product ID in the bundled list is refused when you save, with a notice naming the dropped IDs, instead of leaving shoppers with a cart missing those products.
 
 = 1.0.3 =
 * Translations: completed Polish, German and Spanish for the PRO upgrade panel.

@@ -306,7 +306,7 @@ final class Settings implements HasHooks
             $raw = [];
         }
 
-        $defaults = $this->settings();
+        $current = $this->settings();
 
         $mode = isset($raw['discount_mode']) ? sanitize_text_field((string) $raw['discount_mode']) : 'fee';
 
@@ -318,15 +318,21 @@ final class Settings implements HasHooks
         $addLabel = isset($raw['add_label']) ? sanitize_text_field((string) $raw['add_label']) : '';
         $feeLabel = isset($raw['fee_label']) ? sanitize_text_field((string) $raw['fee_label']) : '';
 
-        return array_merge($defaults, [
+        // The three wording fields say "leave blank to use the default", but the
+        // blank used to be backfilled from $this->settings(), which is the
+        // stored value itself. A merchant who cleared "Box title" got their old
+        // title saved straight back, and shoppers kept reading the wording the
+        // merchant had just deleted. Store the blank and let
+        // BundleService::label() resolve the packaged, translated default.
+        return array_merge($current, [
             'enabled'        => ! empty($raw['enabled']),
             'show_on_single' => ! empty($raw['show_on_single']),
             'show_items'     => ! empty($raw['show_items']),
             'show_savings'   => ! empty($raw['show_savings']),
             'discount_mode'  => $mode,
-            'box_title'      => $boxTitle !== '' ? $boxTitle : (string) ($defaults['box_title'] ?? __('Frequently bought together', 'plogins-bundle')),
-            'add_label'      => $addLabel !== '' ? $addLabel : (string) ($defaults['add_label'] ?? __('Add bundle to cart', 'plogins-bundle')),
-            'fee_label'      => $feeLabel !== '' ? $feeLabel : (string) ($defaults['fee_label'] ?? __('Bundle discount', 'plogins-bundle')),
+            'box_title'      => $boxTitle,
+            'add_label'      => $addLabel,
+            'fee_label'      => $feeLabel,
         ]);
     }
 

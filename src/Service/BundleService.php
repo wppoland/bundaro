@@ -120,7 +120,7 @@ final class BundleService implements HasHooks
 
         $product = $productId > 0 ? wc_get_product($productId) : null;
 
-        if (! $product instanceof \WC_Product) {
+        if (! $product instanceof \WC_Product || ! $this->engine->isBundleable($product)) {
             return '';
         }
 

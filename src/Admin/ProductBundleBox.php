@@ -24,6 +24,9 @@ final class ProductBundleBox implements HasHooks
     private const NONCE_ACTION = 'bundle_save_definition';
     private const NONCE_FIELD  = 'bundle_definition_nonce';
 
+    /** Per-user transient carrying the "these IDs were dropped" notice to the next screen. */
+    private const SKIPPED_TRANSIENT = 'bundle_skipped_variable_';
+
     /**
      * Hard cap on bundled items per product. Bounds the per-request work the
      * storefront box and the one-click add-to-cart do (each item is a product
@@ -38,6 +41,7 @@ final class ProductBundleBox implements HasHooks
         add_filter('woocommerce_product_data_tabs', [$this, 'addTab']);
         add_action('woocommerce_process_product_meta', [$this, 'save']);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAssets']);
+        add_action('admin_notices', [$this, 'renderSkippedNotice']);
     }
 
     /**
@@ -72,10 +76,15 @@ final class ProductBundleBox implements HasHooks
      */
     public function addTab(array $tabs): array
     {
+        // Simple products only. The tab used to show on variable products too,
+        // so a merchant could configure a bundle there, but the one-click add
+        // sends no variation, and WooCommerce answers a variable product with
+        // "please choose product options" instead of putting it in the cart. The
+        // shopper got a cart missing the very product the box was selling.
         $tabs['bundle'] = [
             'label'    => __('Bundle', 'plogins-bundle'),
             'target'   => 'bundle_product_data',
-            'class'    => ['show_if_simple', 'show_if_variable'],
+            'class'    => ['show_if_simple'],
             'priority' => 65,
         ];
 
@@ -128,6 +137,8 @@ final class ProductBundleBox implements HasHooks
                     />
                     <span class="description" id="bundle_items_desc">
                         <?php esc_html_e('Comma-separated product IDs to sell alongside this product. Duplicates, blanks and this product\'s own ID are ignored automatically.', 'plogins-bundle'); ?>
+                        <br />
+                        <?php esc_html_e('Simple products only. A variable product needs its options chosen before it can go in the cart, so those IDs are dropped when you save.', 'plogins-bundle'); ?>
                     </span>
                 </p>
                 <p class="form-field bundle-field">
@@ -176,16 +187,29 @@ final class ProductBundleBox implements HasHooks
             ? sanitize_text_field(wp_unslash($_POST['bundle_items']))
             : '';
 
-        $items = [];
+        $items   = [];
+        $skipped = [];
 
         foreach (explode(',', $rawItems) as $candidate) {
             $itemId = absint(trim($candidate));
 
             if ($itemId > 0 && $itemId !== $postId && ! in_array($itemId, $items, true)) {
+                // A variable product cannot be added to the cart without a
+                // chosen variation, and the one-click add sends none. Listing
+                // one here looked fine on this screen and then dropped that
+                // product from the shopper's cart, so it is refused at save
+                // time and reported, rather than saved to fail on the
+                // storefront.
+                if (wc_get_product($itemId) instanceof \WC_Product_Variable) {
+                    $skipped[] = $itemId;
+
+                    continue;
+                }
+
                 $items[] = $itemId;
             }
 
-            if (count($items) >= self::MAX_ITEMS) {
+            if (count($items) + count($skipped) >= self::MAX_ITEMS) {
                 break;
             }
         }
@@ -206,5 +230,36 @@ final class ProductBundleBox implements HasHooks
         }
 
         $product->save();
+
+        if ($skipped !== []) {
+            set_transient(self::SKIPPED_TRANSIENT . get_current_user_id(), $skipped, MINUTE_IN_SECONDS);
+        }
+    }
+
+    /**
+     * Tell the merchant which IDs were dropped on the last save, so a variable
+     * product silently vanishing from the bundle list is never a mystery.
+     */
+    public function renderSkippedNotice(): void
+    {
+        $key     = self::SKIPPED_TRANSIENT . get_current_user_id();
+        $skipped = get_transient($key);
+
+        if (! is_array($skipped) || $skipped === []) {
+            return;
+        }
+
+        delete_transient($key);
+
+        printf(
+            '<div class="notice notice-warning is-dismissible"><p>%s</p></div>',
+            esc_html(
+                sprintf(
+                    /* translators: %s: comma-separated list of product IDs. */
+                    __('Bundle: these product IDs were not saved because they are variable products, which cannot be added to the cart until the shopper picks their options: %s. Link simple products instead.', 'plogins-bundle'),
+                    implode(', ', array_map('absint', $skipped))
+                )
+            )
+        );
     }
 }
