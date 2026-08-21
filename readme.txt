@@ -28,7 +28,7 @@ Bundle adds a "frequently bought together" product bundle box to your WooCommerc
 
 Configure global behaviour under WooCommerce → Bundle. Link products and set the discount per product in the product editor's "Bundle" tab. Turn off "Show on product page" to render the box only where you drop the `[bundle]` shortcode.
 
-The plugin is developed in the open. Code, bug reports and patches live at https://github.com/wppoland/plogins-bundle.
+The plugin is developed in the open. Code, bug reports and patches live at [github.com/wppoland/plogins-bundle](https://github.com/wppoland/plogins-bundle).
 
 == Installation ==
 
@@ -41,10 +41,10 @@ The plugin is developed in the open. Code, bug reports and patches live at https
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/plogins-bundle/docs/
-* **Plugin page** - https://plogins.com/plogins-bundle/
-* **Source code** - https://github.com/wppoland/plogins-bundle
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-bundle/issues
+* **Documentation**: [plogins.com/plogins-bundle/docs/](https://plogins.com/plogins-bundle/docs/)
+* **Plugin page**: [plogins.com/plogins-bundle/](https://plogins.com/plogins-bundle/)
+* **Source code**: [github.com/wppoland/plogins-bundle](https://github.com/wppoland/plogins-bundle)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-bundle/issues](https://github.com/wppoland/plogins-bundle/issues)
 
 
 = Does it require WooCommerce? =
