@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,6 +94,9 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Plogins Bundle includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-bundle`, so WordPress.org language packs can also override or extend these bundled translations.
 
 == Changelog ==
+
+= 1.0.6 =
+* Fixed the PRO promo on the settings screen quoting a price in PLN. PRO is priced and charged in EUR, so an admin on a Polish site was shown a zloty amount and then billed in euro, and the zloty figure was a fixed conversion that drifted from the real charge as the rate moved. The promo now shows the euro price that is actually taken.
 
 = 1.0.5 =
 * Clearing the box title, the button label or the discount line label now really restores the packaged default, instead of quietly bringing your previous wording back.
