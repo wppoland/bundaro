@@ -91,7 +91,7 @@ Bundle does not connect to any external services. It makes no remote API calls a
 
 == Translations ==
 
-Plogins Bundle includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-bundle`, so WordPress.org language packs can also override or extend these bundled translations.
+Plogins Bundle is fully translatable and ships the `plogins-bundle.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
 
