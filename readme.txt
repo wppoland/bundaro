@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,6 +94,9 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Plogins Bundle is fully translatable and ships the `plogins-bundle.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.0.9 =
+* Fixed the bundle box wording never being translated. The box title, the add-to-cart button label, the cart discount line label and the "could not be added" notice were plain English text in a config file, so they were missing from the translation template and every shop showed them in English no matter which language pack was installed. They are now translatable, so they follow the site language as soon as a translation exists. Translations arrive as WordPress.org language packs rather than in this download, so until a pack is published the wording stays English. If you had saved the settings screen at least once, the English wording had also been written into your database: that copy is cleared automatically on update, but only when it is still word for word the packaged English, so your own wording (including your own translation of it) is left alone.
 
 = 1.0.8 =
 * Renamed to Plogins Bundle - Product Bundles for WooCommerce so the name leads with the brand rather than a generic word, which is what the WordPress.org plugin review team asks for. The plugin slug is unchanged.

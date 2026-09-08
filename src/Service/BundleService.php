@@ -173,8 +173,9 @@ final class BundleService implements HasHooks
     }
 
     /**
-     * Localised fallback labels for the bundle box, falling back to the
-     * merchant's saved chrome where set.
+     * The bundle box wording under the keys the engine expects: the merchant's
+     * own chrome where they set it, the translated default from
+     * {@see Texts} where they did not.
      *
      * @return array{box_title: string, add_bundle: string, fee_label: string, add_failed: string}
      */
@@ -183,21 +184,11 @@ final class BundleService implements HasHooks
         $settings = $this->settings();
 
         return [
-            'box_title'  => $this->label($settings, 'box_title', __('Frequently bought together', 'plogins-bundle')),
-            'add_bundle' => $this->label($settings, 'add_label', __('Add bundle to cart', 'plogins-bundle')),
-            'fee_label'  => $this->label($settings, 'fee_label', __('Bundle discount', 'plogins-bundle')),
-            'add_failed' => $this->label($settings, 'add_failed_text', __('Some bundled products could not be added to the cart.', 'plogins-bundle')),
+            'box_title'  => (string) $settings['box_title'],
+            'add_bundle' => (string) $settings['add_label'],
+            'fee_label'  => (string) $settings['fee_label'],
+            'add_failed' => (string) $settings['add_failed_text'],
         ];
-    }
-
-    /**
-     * @param array<string, mixed> $settings
-     */
-    private function label(array $settings, string $key, string $default): string
-    {
-        $value = isset($settings[$key]) ? trim((string) $settings[$key]) : '';
-
-        return $value !== '' ? $value : $default;
     }
 
     private function isEnabled(): bool
@@ -221,7 +212,11 @@ final class BundleService implements HasHooks
     }
 
     /**
-     * Stored settings merged over packaged defaults.
+     * Stored settings merged over packaged defaults, resolved for RENDERING.
+     *
+     * Every customer-facing string left empty is filled from {@see Texts} here,
+     * on the way out. Nothing resolved is ever written back to the option; the
+     * admin screen reads the raw values so a save cannot freeze one language in.
      *
      * @return array<string, mixed>
      */
@@ -236,7 +231,7 @@ final class BundleService implements HasHooks
         /** @var array<string, mixed> $defaults */
         $defaults = require BUNDLE_DIR . 'config/defaults.php';
 
-        return array_merge($defaults, $stored);
+        return Texts::apply(array_merge($defaults, $stored));
     }
 
     /**

@@ -26,11 +26,17 @@ return [
     // How the bundle discount is applied: `fee` | `per_item`.
     'discount_mode' => 'fee',
 
-    // Bundle box chrome.
-    'box_title'       => 'Frequently bought together',
-    'add_label'       => 'Add bundle to cart',
-    'fee_label'       => 'Bundle discount',
-    'add_failed_text' => 'Some bundled products could not be added to the cart.',
+    // Bundle box chrome. Every customer-facing string below is empty on
+    // purpose. A literal here is not a gettext call, so it never reaches the
+    // .pot and no translator can touch it, and the first time a merchant saves
+    // the settings form the English wording is frozen into `bundle_settings`
+    // where no language pack can reach it either. Empty means "use
+    // Bundle\Service\Texts", which is translated; anything a merchant types
+    // still wins.
+    'box_title'       => '',
+    'add_label'       => '',
+    'fee_label'       => '',
+    'add_failed_text' => '',
 
     // Whether the box lists the individual bundled items with thumbnails.
     'show_items' => true,

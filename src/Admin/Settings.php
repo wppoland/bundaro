@@ -337,7 +337,13 @@ final class Settings implements HasHooks
     }
 
     /**
-     * Stored settings merged over packaged defaults.
+     * Stored settings merged over packaged defaults, RAW.
+     *
+     * Deliberately never passed through {@see \Bundle\Service\Texts}: the
+     * wording fields must render empty when the merchant has typed nothing, so
+     * the placeholder shows the translated default and a save stores a blank.
+     * Resolving here would put one language into the input and freeze it into
+     * the option on the next save.
      *
      * @return array<string, mixed>
      */
