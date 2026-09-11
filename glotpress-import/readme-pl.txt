@@ -26,16 +26,16 @@ Bundle dodaje do stron produktów WooCommerce pole pakietu „często kupowane r
 * Jeden mały arkusz stylów, bez JavaScriptu w sklepie i bez jQuery. Obrazy rezerwują miejsce, więc pole nie powoduje przeskoku układu podczas ładowania i dostosowuje się do preferencji trybu ciemnego odwiedzającego.
 * Dymek pomocy „?” przy każdym ustawieniu, dostępny z klawiatury; pole ukrywa się, gdy dla produktu nie ma już nic do pokazania w pakiecie.
 
-Skonfiguruj zachowanie globalne w WooCommerce → Bundle. Połącz produkty i ustaw rabat w zakładce „Bundle” w edytorze produktów. Wyłącz „Pokaż na stronie produktu”, aby wyświetlać pole tylko tam, gdzie umieścisz shortcode `[bundle]`.
+Skonfiguruj zachowanie globalne w WooCommerce > Bundle. Połącz produkty i ustaw rabat w zakładce „Bundle” w edytorze produktów. Wyłącz „Pokaż na stronie produktu”, aby wyświetlać pole tylko tam, gdzie umieścisz shortcode `[bundle]`.
 
 Wtyczka jest rozwijana otwarcie (open source). Kod, zgłoszenia błędów i poprawki znajdziesz na https://github.com/wppoland/plogins-bundle.
 
 == Installation ==
 
-1. Wgraj wtyczkę do `/wp-content/plugins/bundle` lub zainstaluj przez Wtyczki → Dodaj nową.
+1. Wgraj wtyczkę do `/wp-content/plugins/bundle` lub zainstaluj przez Wtyczki > Dodaj nową.
 2. Włącz ją. WooCommerce musi być aktywne.
 3. Edytuj produkt, otwórz zakładkę „Bundle”, wprowadź identyfikatory produktów w pakiecie i opcjonalny rabat, a następnie zapisz.
-4. Dostosuj opcje globalne w WooCommerce → Bundle.
+4. Dostosuj opcje globalne w WooCommerce > Bundle.
 
 == Frequently Asked Questions ==
 
@@ -53,7 +53,7 @@ Tak. WooCommerce musi być zainstalowane i aktywne.
 
 = How is the discount applied? =
 
-Wybierz między pojedynczą ujemną opłatą w koszyku (jedna linia w koszyku) a korektą ceny dla każdego produktu w pakiecie. Ustaw to w WooCommerce → Bundle.
+Wybierz między pojedynczą ujemną opłatą w koszyku (jedna linia w koszyku) a korektą ceny dla każdego produktu w pakiecie. Ustaw to w WooCommerce > Bundle.
 
 = Can a bundle include a discount? =
 
@@ -69,7 +69,7 @@ Nie. Definicje pakietów są przechowywane jako meta produktu.
 
 = Can I place the bundle box somewhere other than under the product summary? =
 
-Tak. Użyj shortcode’u `[bundle]` wszędzie tam, gdzie znany jest bieżący produkt, lub `[bundle id="123"]`, aby wyrenderować pakiet konkretnego produktu. Wyłącz „Pokaż na stronie produktu” w WooCommerce → Bundle, aby używać wyłącznie shortcode’u.
+Tak. Użyj shortcode’u `[bundle]` wszędzie tam, gdzie znany jest bieżący produkt, lub `[bundle id="123"]`, aby wyrenderować pakiet konkretnego produktu. Wyłącz „Pokaż na stronie produktu” w WooCommerce > Bundle, aby używać wyłącznie shortcode’u.
 
 = Does Bundle use JavaScript on the storefront? =
 

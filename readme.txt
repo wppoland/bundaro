@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -26,16 +26,16 @@ Bundle adds a "frequently bought together" product bundle box to your WooCommerc
 * One small stylesheet, no JavaScript on the storefront and no jQuery. Images reserve their space so the box does not shift the layout as it loads, and it follows the visitor's dark-mode preference.
 * A "?" help bubble on every setting, reachable by keyboard, plus the box hides itself when a product has no bundle left to show.
 
-Configure global behaviour under WooCommerce → Bundle. Link products and set the discount per product in the product editor's "Bundle" tab. Turn off "Show on product page" to render the box only where you drop the `[bundle]` shortcode.
+Configure global behaviour under WooCommerce > Bundle. Link products and set the discount per product in the product editor's "Bundle" tab. Turn off "Show on product page" to render the box only where you drop the `[bundle]` shortcode.
 
 The plugin is developed in the open. Code, bug reports and patches live at [github.com/wppoland/plogins-bundle](https://github.com/wppoland/plogins-bundle).
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/bundle`, or install via Plugins → Add New.
+1. Upload the plugin to `/wp-content/plugins/bundle`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be active.
 3. Edit a product, open the "Bundle" tab, enter the bundled product IDs and an optional discount, then save.
-4. Adjust global options under WooCommerce → Bundle.
+4. Adjust global options under WooCommerce > Bundle.
 
 == Frequently Asked Questions ==
 
@@ -53,7 +53,7 @@ Yes. WooCommerce must be installed and active.
 
 = How is the discount applied? =
 
-Choose between a single negative cart fee (one line in the cart) or a per-item price adjustment on each bundled product. Set this under WooCommerce → Bundle.
+Choose between a single negative cart fee (one line in the cart) or a per-item price adjustment on each bundled product. Set this under WooCommerce > Bundle.
 
 = Can a bundle include a discount? =
 
@@ -69,7 +69,7 @@ No. Bundle definitions are stored as product meta.
 
 = Can I place the bundle box somewhere other than under the product summary? =
 
-Yes. Use the `[bundle]` shortcode anywhere the current product is known, or `[bundle id="123"]` to render a specific product's bundle. Turn off "Show on product page" under WooCommerce → Bundle to use the shortcode only.
+Yes. Use the `[bundle]` shortcode anywhere the current product is known, or `[bundle id="123"]` to render a specific product's bundle. Turn off "Show on product page" under WooCommerce > Bundle to use the shortcode only.
 
 = Does Bundle use JavaScript on the storefront? =
 
@@ -94,6 +94,10 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Plogins Bundle is fully translatable and ships the `plogins-bundle.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.0.11 =
+* Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
+* Fixed: arrow glyphs in the admin menu paths, and in the strings handed to translators. An arrow inside a translatable string makes the glyph every translator's problem and changes the layout in any locale that drops it.
 
 = 1.0.10 =
 * Fixed: deleting the plugin left the per-user "dismiss" flag from the PRO notice in the database. Uninstall now removes it for every user, not just the one who dismissed it.
