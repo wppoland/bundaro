@@ -1,10 +1,10 @@
-=== Plogins Bundle - Product Bundles for WooCommerce ===
+=== Fasko - Product Bundles for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, product bundles, frequently bought together, bundle discount, upsell
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.11
+Stable tag: 1.1.0
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ Sell product bundles and frequently bought together offers with an optional WooC
 
 == Description ==
 
-Bundle adds a "frequently bought together" product bundle box to your WooCommerce product pages. Link any number of products to a product, set an optional bundle discount, and let customers add the whole product set to the cart in one click.
+Fasko adds a "frequently bought together" product bundle box to your WooCommerce product pages. Link any number of products to a product, set an optional bundle discount, and let customers add the whole product set to the cart in one click.
 
 * A bundle box under the product summary that lists the bundled products.
 * "Add bundle to cart" adds the main product plus every linked item at once.
@@ -32,7 +32,7 @@ The plugin is developed in the open. Code, bug reports and patches live at [gith
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/bundle`, or install via Plugins > Add New.
+1. Upload the plugin to `/wp-content/plugins/fasko`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be active.
 3. Edit a product, open the "Bundle" tab, enter the bundled product IDs and an optional discount, then save.
 4. Adjust global options under WooCommerce > Bundle.
@@ -71,7 +71,7 @@ No. Bundle definitions are stored as product meta.
 
 Yes. Use the `[bundle]` shortcode anywhere the current product is known, or `[bundle id="123"]` to render a specific product's bundle. Turn off "Show on product page" under WooCommerce > Bundle to use the shortcode only.
 
-= Does Bundle use JavaScript on the storefront? =
+= Does Fasko use JavaScript on the storefront? =
 
 No. The free bundle box is server-rendered with one small stylesheet and no storefront JavaScript.
 
@@ -91,9 +91,12 @@ Bundle does not connect to any external services. It makes no remote API calls a
 
 == Translations ==
 
-Plogins Bundle is fully translatable and ships the `plogins-bundle.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
+Fasko is fully translatable and ships the `fasko.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.0 =
+* Renamed to Fasko. The WordPress.org review team asks a plugin name to lead with a distinctive, coined identifier rather than a generic descriptive word. Fasko is Esperanto for a bundle. The text domain follows the name; the stored data, the settings and every hook are unchanged.
 
 = 1.0.11 =
 * Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.

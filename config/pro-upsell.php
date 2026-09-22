@@ -4,13 +4,13 @@
  * scripts/gen-pro-upsell.mjs. The admin upsell renders this; curate the
  * feature list to fit this plugin's settings screen (do not invent features).
  *
- * @package plogins-bundle-pro
+ * @package fasko-pro
  */
 
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Bundle Pro',
+    'name'       => 'Fasko Pro',
     'url'        => 'https://plogins.com/plogins-bundle-pro/pricing/',
     'sellable'   => true,
     'price_from' => 49,
