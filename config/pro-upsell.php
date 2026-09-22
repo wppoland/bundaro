@@ -4,7 +4,7 @@
  * scripts/gen-pro-upsell.mjs. The admin upsell renders this; curate the
  * feature list to fit this plugin's settings screen (do not invent features).
  *
- * @package fasko-pro
+ * @package plogins-bundle-pro
  */
 
 defined('ABSPATH') || exit;
