@@ -209,7 +209,7 @@ msgstr ""
 
 #: src/Admin/Settings.php:191
 msgid "List the bundled products (with thumbnails) inside the box."
-msgstr "Enumere los productos incluidos (con miniaturas) dentro de la caja."
+msgstr "Enumera los productos incluidos (con miniaturas) dentro de la caja."
 
 #: src/Admin/Settings.php:197
 msgid "Show savings"
