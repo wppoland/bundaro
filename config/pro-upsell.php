@@ -41,7 +41,7 @@ return [
             'pl' => ['title' => 'Mix-and-match', 'desc' => 'Klient wybiera określoną liczbę produktów z puli, główny produkt zawsze w zestawie, reszta do wyboru na karcie produktu.'],
         ],
         [
-            'en' => ['title' => 'Bundle analytics', 'desc' => 'Track views, add-to-cart, conversions and attributed revenue per bundle, WooCommerce > Bundle Analytics.'],
+            'en' => ['title' => 'Fasko analytics', 'desc' => 'Track views, add-to-cart, conversions and attributed revenue per bundle, WooCommerce > Bundle Analytics.'],
             'pl' => ['title' => 'Analityka pakietów', 'desc' => 'Wyświetlenia, dodania do koszyka, konwersje i przychód per produkt-pakiet, panel WooCommerce > Bundle Analytics.'],
         ],
         [
