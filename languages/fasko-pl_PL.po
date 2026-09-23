@@ -19,12 +19,12 @@ msgstr ""
 #. Plugin Name of the plugin
 #: fasko.php
 msgid "Fasko - Product Bundles for WooCommerce"
-msgstr ""
+msgstr "Plogins Bundle - Zestawy produktów dla WooCommerce"
 
 #. Plugin URI of the plugin
 #: fasko.php
 msgid "https://plogins.com/plogins-bundle/"
-msgstr ""
+msgstr "https://plogins.com/plogins-bundle/"
 
 #. Description of the plugin
 #: fasko.php
@@ -36,16 +36,16 @@ msgstr "Sprzedawaj grupy produktów razem jako zestaw z opcjonalnym rabatem."
 #. Author of the plugin
 #: fasko.php
 msgid "WPPoland.com"
-msgstr ""
+msgstr "WPPoland.com"
 
 #. Author URI of the plugin
 #: fasko.php
 msgid "https://wppoland.com"
-msgstr ""
+msgstr "https://wppoland.com"
 
 #: fasko.php:48
 msgid "Fasko requires WooCommerce to be active."
-msgstr ""
+msgstr "Bundle wymaga aktywnego WooCommerce."
 
 #: src/Admin/ProductBundleBox.php:85 src/Admin/Settings.php:48
 msgid "Bundle"
@@ -96,7 +96,7 @@ msgstr ""
 msgid ""
 "Simple products only. A variable product needs its options chosen before it "
 "can go in the cart, so those IDs are dropped when you save."
-msgstr ""
+msgstr "Tylko produkty proste. Produkt z wariantami wymaga wyboru opcji, zanim trafi do koszyka, więc te identyfikatory są pomijane przy zapisie."
 
 #: src/Admin/ProductBundleBox.php:145
 msgid "Bundle discount (%)"
@@ -119,7 +119,7 @@ msgid ""
 "Bundle: these product IDs were not saved because they are variable products, "
 "which cannot be added to the cart until the shopper picks their options: %s. "
 "Link simple products instead."
-msgstr ""
+msgstr "Bundle: te identyfikatory produktów nie zostały zapisane, ponieważ są to produkty z wariantami, których nie można dodać do koszyka, dopóki klient nie wybierze opcji: %s. Podlinkuj zamiast nich produkty proste."
 
 #: src/Admin/ProUpsell.php:82
 msgid "Wkrótce"
@@ -177,7 +177,7 @@ msgstr "Co dodaje %s"
 
 #: src/Admin/Settings.php:47
 msgid "Fasko: product bundles"
-msgstr ""
+msgstr "Bundle: zestawy produktów"
 
 #: src/Admin/Settings.php:92
 msgid "More information"
