@@ -10,12 +10,11 @@
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Bundle Pro',
+    'name'       => 'Fasko Pro',
     'url'        => 'https://plogins.com/plogins-bundle-pro/pricing/',
     'sellable'   => true,
     'price_from' => 49,
     'currency'   => 'EUR',
-    'price_pln'  => 215,
     'lead'       => [
         'en' => 'The features below ship in the current PRO release.',
         'pl' => 'Poniższe funkcje są dostępne w bieżącym wydaniu PRO.',
@@ -42,8 +41,8 @@ return [
             'pl' => ['title' => 'Mix-and-match', 'desc' => 'Klient wybiera określoną liczbę produktów z puli, główny produkt zawsze w zestawie, reszta do wyboru na karcie produktu.'],
         ],
         [
-            'en' => ['title' => 'Bundle analytics', 'desc' => 'Track views, add-to-cart, conversions and attributed revenue per bundle, WooCommerce → Bundle Analytics.'],
-            'pl' => ['title' => 'Analityka pakietów', 'desc' => 'Wyświetlenia, dodania do koszyka, konwersje i przychód per produkt-pakiet, panel WooCommerce → Bundle Analytics.'],
+            'en' => ['title' => 'Fasko analytics', 'desc' => 'Track views, add-to-cart, conversions and attributed revenue per bundle, WooCommerce > Bundle Analytics.'],
+            'pl' => ['title' => 'Analityka pakietów', 'desc' => 'Wyświetlenia, dodania do koszyka, konwersje i przychód per produkt-pakiet, panel WooCommerce > Bundle Analytics.'],
         ],
         [
             'en' => ['title' => 'Scheduled deals', 'desc' => 'Optional deal start/end dates per bundle, outside the window the box and discounts are off.'],

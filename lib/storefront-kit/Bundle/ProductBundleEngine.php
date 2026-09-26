@@ -71,6 +71,10 @@ final class ProductBundleEngine
             return;
         }
 
+        if (! $this->isBundleable($product)) {
+            return;
+        }
+
         $bundle = $this->getBundle($product);
 
         if ($bundle['items'] === []) {
@@ -104,7 +108,7 @@ final class ProductBundleEngine
         $productId = absint(wp_unslash($_REQUEST[$this->requestKey]));
         $product = wc_get_product($productId);
 
-        if (! $product instanceof \WC_Product || ! WC()->cart instanceof \WC_Cart) {
+        if (! $product instanceof \WC_Product || ! WC()->cart instanceof \WC_Cart || ! $this->isBundleable($product)) {
             return;
         }
 
@@ -119,7 +123,7 @@ final class ProductBundleEngine
         foreach ($this->bundleProductIds($product) as $bundleProductId) {
             $linked = wc_get_product($bundleProductId);
 
-            if (! $linked instanceof \WC_Product || ! $linked->is_purchasable() || ! $linked->is_in_stock()) {
+            if (! $linked instanceof \WC_Product || ! $this->isBundleable($linked) || ! $linked->is_purchasable() || ! $linked->is_in_stock()) {
                 $allAdded = false;
 
                 continue;
@@ -216,6 +220,20 @@ final class ProductBundleEngine
             'items' => $items,
             'discount_percent' => max(0.0, min(100.0, (float) ($raw['discount_percent'] ?? 0))),
         ];
+    }
+
+    /**
+     * Whether a product can take part in a bundle at all.
+     *
+     * A variable product has no single cart line: WooCommerce refuses it until a
+     * variation is chosen, and the one-click add sends none. The box used to
+     * render on such products and the shopper ended up with the companions in
+     * the cart and the product they were actually looking at missing, so a
+     * variable product is left out of bundles entirely.
+     */
+    public function isBundleable(\WC_Product $product): bool
+    {
+        return ! $product instanceof \WC_Product_Variable;
     }
 
     /**

@@ -1,10 +1,10 @@
-=== Bundle - Product Bundles for WooCommerce ===
+=== Fasko - Product Bundles for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, product bundles, frequently bought together, bundle discount, upsell
 Requires at least: 6.5
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.4
+Stable tag: 1.1.1
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ Sell product bundles and frequently bought together offers with an optional WooC
 
 == Description ==
 
-Bundle adds a "frequently bought together" product bundle box to your WooCommerce product pages. Link any number of products to a product, set an optional bundle discount, and let customers add the whole product set to the cart in one click.
+Fasko adds a "frequently bought together" product bundle box to your WooCommerce product pages. Link any number of products to a product, set an optional bundle discount, and let customers add the whole product set to the cart in one click.
 
 * A bundle box under the product summary that lists the bundled products.
 * "Add bundle to cart" adds the main product plus every linked item at once.
@@ -26,25 +26,25 @@ Bundle adds a "frequently bought together" product bundle box to your WooCommerc
 * One small stylesheet, no JavaScript on the storefront and no jQuery. Images reserve their space so the box does not shift the layout as it loads, and it follows the visitor's dark-mode preference.
 * A "?" help bubble on every setting, reachable by keyboard, plus the box hides itself when a product has no bundle left to show.
 
-Configure global behaviour under WooCommerce → Bundle. Link products and set the discount per product in the product editor's "Bundle" tab. Turn off "Show on product page" to render the box only where you drop the `[bundle]` shortcode.
+Configure global behaviour under WooCommerce > Bundle. Link products and set the discount per product in the product editor's "Bundle" tab. Turn off "Show on product page" to render the box only where you drop the `[bundle]` shortcode.
 
-The plugin is developed in the open. Code, bug reports and patches live at https://github.com/wppoland/plogins-bundle.
+The plugin is developed in the open. Code, bug reports and patches live at [github.com/wppoland/plogins-bundle](https://github.com/wppoland/plogins-bundle).
 
 == Installation ==
 
-1. Upload the plugin to `/wp-content/plugins/bundle`, or install via Plugins → Add New.
+1. Upload the plugin to `/wp-content/plugins/fasko`, or install via Plugins > Add New.
 2. Activate it. WooCommerce must be active.
 3. Edit a product, open the "Bundle" tab, enter the bundled product IDs and an optional discount, then save.
-4. Adjust global options under WooCommerce → Bundle.
+4. Adjust global options under WooCommerce > Bundle.
 
 == Frequently Asked Questions ==
 
 = Documentation and links =
 
-* **Documentation** - https://plogins.com/plogins-bundle/docs/
-* **Plugin page** - https://plogins.com/plogins-bundle/
-* **Source code** - https://github.com/wppoland/plogins-bundle
-* **Bug reports and feature requests** - https://github.com/wppoland/plogins-bundle/issues
+* **Documentation**: [plogins.com/plogins-bundle/docs/](https://plogins.com/plogins-bundle/docs/)
+* **Plugin page**: [plogins.com/plogins-bundle/](https://plogins.com/plogins-bundle/)
+* **Source code**: [github.com/wppoland/plogins-bundle](https://github.com/wppoland/plogins-bundle)
+* **Bug reports and feature requests**: [github.com/wppoland/plogins-bundle/issues](https://github.com/wppoland/plogins-bundle/issues)
 
 
 = Does it require WooCommerce? =
@@ -53,7 +53,7 @@ Yes. WooCommerce must be installed and active.
 
 = How is the discount applied? =
 
-Choose between a single negative cart fee (one line in the cart) or a per-item price adjustment on each bundled product. Set this under WooCommerce → Bundle.
+Choose between a single negative cart fee (one line in the cart) or a per-item price adjustment on each bundled product. Set this under WooCommerce > Bundle.
 
 = Can a bundle include a discount? =
 
@@ -69,9 +69,9 @@ No. Bundle definitions are stored as product meta.
 
 = Can I place the bundle box somewhere other than under the product summary? =
 
-Yes. Use the `[bundle]` shortcode anywhere the current product is known, or `[bundle id="123"]` to render a specific product's bundle. Turn off "Show on product page" under WooCommerce → Bundle to use the shortcode only.
+Yes. Use the `[bundle]` shortcode anywhere the current product is known, or `[bundle id="123"]` to render a specific product's bundle. Turn off "Show on product page" under WooCommerce > Bundle to use the shortcode only.
 
-= Does Bundle use JavaScript on the storefront? =
+= Does Fasko use JavaScript on the storefront? =
 
 No. The free bundle box is server-rendered with one small stylesheet and no storefront JavaScript.
 
@@ -91,9 +91,39 @@ Bundle does not connect to any external services. It makes no remote API calls a
 
 == Translations ==
 
-Plogins Bundle includes Polish, German and Spanish translations for the plugin interface. The text domain is `plogins-bundle`, so WordPress.org language packs can also override or extend these bundled translations.
+Fasko is fully translatable and ships the `fasko.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.1 =
+* The sidebar upgrade promo now follows the same dismissal as the banner. Dismissing the banner used to leave a full-height advert on the settings screen for good, which is not what the WordPress.org guideline on upgrade prompts means by used with moderation.
+
+= 1.1.0 =
+* Renamed to Fasko. The WordPress.org review team asks a plugin name to lead with a distinctive, coined identifier rather than a generic descriptive word. Fasko is Esperanto for a bundle. The text domain follows the name; the stored data, the settings and every hook are unchanged.
+
+= 1.0.11 =
+* Fixed: the PRO upgrade promo kept selling to people who had already bought the paid edition. Only the banner could be dismissed, so the sidebar promo and the locked feature cards followed a paying customer around for good. The promo now checks whether the paid edition is active and steps aside when it is.
+* Fixed: arrow glyphs in the admin menu paths, and in the strings handed to translators. An arrow inside a translatable string makes the glyph every translator's problem and changes the layout in any locale that drops it.
+
+= 1.0.10 =
+* Fixed: deleting the plugin left the per-user "dismiss" flag from the PRO notice in the database. Uninstall now removes it for every user, not just the one who dismissed it.
+
+= 1.0.9 =
+* Fixed the bundle box wording never being translated. The box title, the add-to-cart button label, the cart discount line label and the "could not be added" notice were plain English text in a config file, so they were missing from the translation template and every shop showed them in English no matter which language pack was installed. They are now translatable, so they follow the site language as soon as a translation exists. Translations arrive as WordPress.org language packs rather than in this download, so until a pack is published the wording stays English. If you had saved the settings screen at least once, the English wording had also been written into your database: that copy is cleared automatically on update, but only when it is still word for word the packaged English, so your own wording (including your own translation of it) is left alone.
+
+= 1.0.8 =
+* Renamed to Plogins Bundle - Product Bundles for WooCommerce so the name leads with the brand rather than a generic word, which is what the WordPress.org plugin review team asks for. The plugin slug is unchanged.
+
+= 1.0.7 =
+* Tested against WordPress 7.1. Verified by activating this build on a clean 7.1 install with WooCommerce 11.1, not by editing the header.
+
+= 1.0.6 =
+* Fixed the PRO promo on the settings screen quoting a price in PLN. PRO is priced and charged in EUR, so an admin on a Polish site was shown a zloty amount and then billed in euro, and the zloty figure was a fixed conversion that drifted from the real charge as the rate moved. The promo now shows the euro price that is actually taken.
+
+= 1.0.5 =
+* Clearing the box title, the button label or the discount line label now really restores the packaged default, instead of quietly bringing your previous wording back.
+* Bundles are offered on simple products only. A variable product cannot reach the cart until the shopper picks its options, so the "Bundle" tab no longer shows on variable products and the box no longer renders on them.
+* Putting a variable product ID in the bundled list is refused when you save, with a notice naming the dropped IDs, instead of leaving shoppers with a cart missing those products.
 
 = 1.0.3 =
 * Translations: completed Polish, German and Spanish for the PRO upgrade panel.

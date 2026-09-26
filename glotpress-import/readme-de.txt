@@ -26,16 +26,16 @@ Bundle fügt deinen WooCommerce-Produktseiten eine „häufig zusammen gekauft�
 * Ein kleines Stylesheet, kein JavaScript im Shop und kein jQuery. Bilder reservieren ihren Platz, sodass die Box beim Laden keine Layout-Verschiebung verursacht und der Dark-Mode-Präferenz des Besuchers folgt.
 * Ein „?“-Hilfe-Bubble bei jeder Einstellung, per Tastatur erreichbar; die Box blendet sich aus, wenn für ein Produkt nichts mehr zu bündeln ist.
 
-Konfiguriere das globale Verhalten unter WooCommerce → Bundle. Verknüpfe Produkte und lege den Rabatt pro Produkt im Tab „Bundle“ des Produkteditors fest. Deaktiviere „Auf Produktseite anzeigen“, um die Box nur dort zu rendern, wo du den Shortcode `[bundle]` einfügst.
+Konfiguriere das globale Verhalten unter WooCommerce > Bundle. Verknüpfe Produkte und lege den Rabatt pro Produkt im Tab „Bundle“ des Produkteditors fest. Deaktiviere „Auf Produktseite anzeigen“, um die Box nur dort zu rendern, wo du den Shortcode `[bundle]` einfügst.
 
 Das Plugin wird quelloffen entwickelt. Code, Fehlerberichte und Patches findest du unter https://github.com/wppoland/plogins-bundle.
 
 == Installation ==
 
-1. Lade das Plugin nach `/wp-content/plugins/bundle` hoch oder installiere es über Plugins → Installieren.
+1. Lade das Plugin nach `/wp-content/plugins/bundle` hoch oder installiere es über Plugins > Installieren.
 2. Aktiviere es. WooCommerce muss aktiv sein.
 3. Bearbeite ein Produkt, öffne den Tab „Bundle“, gib die Produkt-IDs des Pakets und einen optionalen Rabatt ein und speichere.
-4. Passe die globalen Optionen unter WooCommerce → Bundle an.
+4. Passe die globalen Optionen unter WooCommerce > Bundle an.
 
 == Frequently Asked Questions ==
 
@@ -53,7 +53,7 @@ Ja. WooCommerce muss installiert und aktiv sein.
 
 = How is the discount applied? =
 
-Wähle zwischen einer einzelnen negativen Warenkorbgebühr (eine Zeile im Warenkorb) oder einer Preisanpassung pro Artikel für jedes gebündelte Produkt. Stelle das unter WooCommerce → Bundle ein.
+Wähle zwischen einer einzelnen negativen Warenkorbgebühr (eine Zeile im Warenkorb) oder einer Preisanpassung pro Artikel für jedes gebündelte Produkt. Stelle das unter WooCommerce > Bundle ein.
 
 = Can a bundle include a discount? =
 
@@ -69,7 +69,7 @@ Nein. Paketdefinitionen werden als Produktmeta gespeichert.
 
 = Can I place the bundle box somewhere other than under the product summary? =
 
-Ja. Nutze den Shortcode `[bundle]` überall dort, wo das aktuelle Produkt bekannt ist, oder `[bundle id="123"]`, um das Paket eines bestimmten Produkts zu rendern. Deaktiviere „Auf Produktseite anzeigen“ unter WooCommerce → Bundle, um nur den Shortcode zu verwenden.
+Ja. Nutze den Shortcode `[bundle]` überall dort, wo das aktuelle Produkt bekannt ist, oder `[bundle id="123"]`, um das Paket eines bestimmten Produkts zu rendern. Deaktiviere „Auf Produktseite anzeigen“ unter WooCommerce > Bundle, um nur den Shortcode zu verwenden.
 
 = Does Bundle use JavaScript on the storefront? =
 

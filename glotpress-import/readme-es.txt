@@ -26,16 +26,16 @@ Bundle añade un cuadro de paquete «comprados juntos con frecuencia» a tus pá
 * Una hoja de estilos pequeña, sin JavaScript en la tienda y sin jQuery. Las imágenes reservan su espacio para que el cuadro no provoque saltos de diseño al cargar y respete la preferencia de modo oscuro del visitante.
 * Una burbuja de ayuda «?» en cada ajuste, accesible con el teclado; el cuadro se oculta cuando a un producto no le queda ningún paquete que mostrar.
 
-Configura el comportamiento global en WooCommerce → Bundle. Vincula productos y define el descuento por producto en la pestaña «Bundle» del editor de productos. Desactiva «Mostrar en la página del producto» para renderizar el cuadro solo donde insertes el shortcode `[bundle]`.
+Configura el comportamiento global en WooCommerce > Bundle. Vincula productos y define el descuento por producto en la pestaña «Bundle» del editor de productos. Desactiva «Mostrar en la página del producto» para renderizar el cuadro solo donde insertes el shortcode `[bundle]`.
 
 El plugin se desarrolla de forma abierta (código abierto). El código, los informes de errores y los parches están en https://github.com/wppoland/plogins-bundle.
 
 == Installation ==
 
-1. Sube el plugin a `/wp-content/plugins/bundle` o instálalo desde Plugins → Añadir nuevo.
+1. Sube el plugin a `/wp-content/plugins/bundle` o instálalo desde Plugins > Añadir nuevo.
 2. Actívalo. WooCommerce debe estar activo.
 3. Edita un producto, abre la pestaña «Bundle», introduce los ID de los productos del paquete y un descuento opcional, y guarda.
-4. Ajusta las opciones globales en WooCommerce → Bundle.
+4. Ajusta las opciones globales en WooCommerce > Bundle.
 
 == Frequently Asked Questions ==
 
@@ -53,7 +53,7 @@ Sí. WooCommerce debe estar instalado y activo.
 
 = How is the discount applied? =
 
-Elige entre una sola tarifa negativa en el carrito (una línea en el carrito) o un ajuste de precio por artículo en cada producto del paquete. Configúralo en WooCommerce → Bundle.
+Elige entre una sola tarifa negativa en el carrito (una línea en el carrito) o un ajuste de precio por artículo en cada producto del paquete. Configúralo en WooCommerce > Bundle.
 
 = Can a bundle include a discount? =
 
@@ -69,7 +69,7 @@ No. Las definiciones de paquete se almacenan como metadatos del producto.
 
 = Can I place the bundle box somewhere other than under the product summary? =
 
-Sí. Usa el shortcode `[bundle]` en cualquier sitio donde se conozca el producto actual, o `[bundle id="123"]` para renderizar el paquete de un producto concreto. Desactiva «Mostrar en la página del producto» en WooCommerce → Bundle para usar solo el shortcode.
+Sí. Usa el shortcode `[bundle]` en cualquier sitio donde se conozca el producto actual, o `[bundle id="123"]` para renderizar el paquete de un producto concreto. Desactiva «Mostrar en la página del producto» en WooCommerce > Bundle para usar solo el shortcode.
 
 = Does Bundle use JavaScript on the storefront? =
 
