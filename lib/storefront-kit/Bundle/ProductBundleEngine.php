@@ -60,7 +60,13 @@ final class ProductBundleEngine
         add_action('woocommerce_after_single_product_summary', [$this, 'renderBox'], 15);
         add_action('template_redirect', [$this, 'handleAddBundle'], 5);
         add_action('woocommerce_cart_calculate_fees', [$this, 'applyBundleFee'], 20);
-        add_action('woocommerce_before_calculate_totals', [$this, 'applyPerItemDiscount'], 25);
+        // Price the line once per product object, when it enters the cart and
+        // each time the cart is rebuilt from the session. A price set only in
+        // woocommerce_before_calculate_totals never reached the mini cart or the
+        // cart fragments, which render without recalculating, and the
+        // did_action() guard there skipped lines added after the first pass.
+        add_filter('woocommerce_add_cart_item', [$this, 'applyPerItemDiscount'], 25);
+        add_filter('woocommerce_get_cart_item_from_session', [$this, 'applyPerItemDiscount'], 25);
     }
 
     public function renderBox(): void
@@ -161,32 +167,36 @@ final class ProductBundleEngine
         }
     }
 
-    public function applyPerItemDiscount(\WC_Cart $cart): void
+    /**
+     * @param array<string, mixed> $cartItem
+     * @return array<string, mixed>
+     */
+    public function applyPerItemDiscount($cartItem): array
     {
         if (! $this->isEnabled() || (string) ($this->getSettings()['discount_mode'] ?? 'fee') !== 'per_item') {
-            return;
+            return $cartItem;
         }
 
-        if (did_action('woocommerce_before_calculate_totals') > 1) {
-            return;
+        $bundleParentId = $this->bundleParentId($cartItem);
+
+        if ($bundleParentId === 0 || ! ($cartItem['data'] ?? null) instanceof \WC_Product) {
+            return $cartItem;
         }
 
-        foreach ($cart->get_cart() as $cartItem) {
-            $bundleParentId = $this->bundleParentId($cartItem);
+        /**
+         * Filters the per-item bundle discount for one cart line, in percent.
+         *
+         * @param float $percent        Discount from the bundle definition.
+         * @param int   $bundleParentId Product id of the bundle the line belongs to.
+         */
+        $percent = (float) apply_filters('bundle/per_item_discount_percent', $this->discountPercentFor($bundleParentId), $bundleParentId);
 
-            if ($bundleParentId === 0 || ! $cartItem['data'] instanceof \WC_Product) {
-                continue;
-            }
-
-            $percent = $this->discountPercentFor($bundleParentId);
-
-            if ($percent <= 0.0) {
-                continue;
-            }
-
+        if ($percent > 0.0) {
             $base = (float) $cartItem['data']->get_price('edit');
             $cartItem['data']->set_price((string) ($base * (1 - $percent / 100)));
         }
+
+        return $cartItem;
     }
 
     /**

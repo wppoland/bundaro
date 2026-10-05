@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Fasko - Product Bundles for WooCommerce 1.1.0\n"
+"Project-Id-Version: Fasko - Product Bundles for WooCommerce 1.1.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fasko\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-08T13:42:24+00:00\n"
+"POT-Creation-Date: 2026-10-05T11:15:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: fasko\n"
@@ -92,56 +92,48 @@ msgstr ""
 msgid "Bundle: these product IDs were not saved because they are variable products, which cannot be added to the cart until the shopper picks their options: %s. Link simple products instead."
 msgstr ""
 
-#: src/Admin/ProUpsell.php:82
-msgid "Wkrótce"
-msgstr ""
-
-#: src/Admin/ProUpsell.php:82
+#: src/Admin/ProUpsell.php:89
 msgid "Coming soon"
 msgstr ""
 
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:88
+#: src/Admin/ProUpsell.php:95
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:97
+#: src/Admin/ProUpsell.php:104
 msgid "Upgrade to PRO"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:98
-msgid "Powiadom mnie"
-msgstr ""
-
-#: src/Admin/ProUpsell.php:98
+#: src/Admin/ProUpsell.php:105
 msgid "Get notified"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:128
+#: src/Admin/ProUpsell.php:135
 msgid "Permission denied."
 msgstr ""
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:158
+#: src/Admin/ProUpsell.php:165
 #, php-format
 msgid "Do more with %s"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:165
+#: src/Admin/ProUpsell.php:172
 msgid "Dismiss this notice"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:182
+#: src/Admin/ProUpsell.php:194
 msgid "Unlock every PRO feature"
 msgstr ""
 
-#: src/Admin/ProUpsell.php:195
+#: src/Admin/ProUpsell.php:207
 msgid "one licence, every PRO feature"
 msgstr ""
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:214
+#: src/Admin/ProUpsell.php:226
 #, php-format
 msgid "What %s adds"
 msgstr ""
