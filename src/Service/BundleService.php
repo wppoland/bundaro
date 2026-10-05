@@ -118,7 +118,7 @@ final class BundleService implements HasHooks
             $productId = (int) get_the_ID();
         }
 
-        $product = $productId > 0 ? wc_get_product($productId) : null;
+        $product = $productId > 0 && $this->isViewable($productId) ? wc_get_product($productId) : null;
 
         if (! $product instanceof \WC_Product || ! $this->engine->isBundleable($product)) {
             return '';
@@ -208,7 +208,36 @@ final class BundleService implements HasHooks
     {
         $raw = $product->get_meta(self::META_BUNDLE);
 
-        return is_array($raw) && $raw !== [] ? $raw : null;
+        if (! is_array($raw) || $raw === []) {
+            return null;
+        }
+
+        // A draft or private companion is never listed, linked or added.
+        $raw['items'] = array_values(array_filter(
+            (array) ($raw['items'] ?? []),
+            fn (mixed $itemId): bool => $this->isViewable(absint($itemId)),
+        ));
+
+        return $raw;
+    }
+
+    /**
+     * Whether the current visitor may see this product. A variation answers
+     * for its parent. A password-protected product needs its password from
+     * everyone, as in core: read_post on a published post is the plain
+     * 'read' cap every customer holds, so it cannot stand in for the password.
+     * Otherwise the product must be published, or readable by the current
+     * user (their own draft, a private product they may read).
+     */
+    private function isViewable(int $productId): bool
+    {
+        $postId = get_post_type($productId) === 'product_variation' ? (int) wp_get_post_parent_id($productId) : $productId;
+
+        if ($postId <= 0 || post_password_required($postId)) {
+            return false;
+        }
+
+        return get_post_status($postId) === 'publish' || current_user_can('read_post', $postId);
     }
 
     /**

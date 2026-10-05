@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,6 +94,9 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Fasko is fully translatable and ships the `fasko.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.4 =
+* Security (low): the [bundle id="N"] shortcode showed the name, price and linked items of any product, including drafts, private and password protected ones. A contributor or author could put the shortcode in a post and expose a product that was not yet public. The box now renders only a product the visitor may see, and lists only linked items they may see.
 
 = 1.1.3 =
 * In per-item discount mode the bundle price is set on each cart line when it is added and when the cart is restored from the session. It used to be set only during a totals recalculation, so the mini cart and the cart fragments showed the base price, and a companion added after the first recalculation was never discounted.
