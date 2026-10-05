@@ -160,3 +160,8 @@ Fasko is fully translatable and ships the `fasko.pot` template. Translations are
 
 = 0.1.0 =
 * Initial release.
+
+== Upgrade Notice ==
+
+= 1.1.4 =
+Security release. Not exposed to visitors: only a user who can write posts could show the name and price of an unpublished or password-protected product through the bundle shortcode. Update, nothing else to do.
