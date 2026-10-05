@@ -118,7 +118,7 @@ final class BundleService implements HasHooks
             $productId = (int) get_the_ID();
         }
 
-        $product = $productId > 0 ? wc_get_product($productId) : null;
+        $product = $productId > 0 && $this->isViewable($productId) ? wc_get_product($productId) : null;
 
         if (! $product instanceof \WC_Product || ! $this->engine->isBundleable($product)) {
             return '';
@@ -208,7 +208,27 @@ final class BundleService implements HasHooks
     {
         $raw = $product->get_meta(self::META_BUNDLE);
 
-        return is_array($raw) && $raw !== [] ? $raw : null;
+        if (! is_array($raw) || $raw === []) {
+            return null;
+        }
+
+        // A draft or private companion is never listed, linked or added.
+        $raw['items'] = array_values(array_filter(
+            (array) ($raw['items'] ?? []),
+            fn (mixed $itemId): bool => $this->isViewable(absint($itemId)),
+        ));
+
+        return $raw;
+    }
+
+    /**
+     * Whether the current visitor may see this product: published and not
+     * password protected, or readable by the current user (draft, private).
+     */
+    private function isViewable(int $productId): bool
+    {
+        return (get_post_status($productId) === 'publish' && ! post_password_required($productId))
+            || current_user_can('read_post', $productId);
     }
 
     /**
