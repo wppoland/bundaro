@@ -222,13 +222,22 @@ final class BundleService implements HasHooks
     }
 
     /**
-     * Whether the current visitor may see this product: published and not
-     * password protected, or readable by the current user (draft, private).
+     * Whether the current visitor may see this product. A variation answers
+     * for its parent. A password-protected product needs its password from
+     * everyone, as in core: read_post on a published post is the plain
+     * 'read' cap every customer holds, so it cannot stand in for the password.
+     * Otherwise the product must be published, or readable by the current
+     * user (their own draft, a private product they may read).
      */
     private function isViewable(int $productId): bool
     {
-        return (get_post_status($productId) === 'publish' && ! post_password_required($productId))
-            || current_user_can('read_post', $productId);
+        $postId = get_post_type($productId) === 'product_variation' ? (int) wp_get_post_parent_id($productId) : $productId;
+
+        if ($postId <= 0 || post_password_required($postId)) {
+            return false;
+        }
+
+        return get_post_status($postId) === 'publish' || current_user_can('read_post', $postId);
     }
 
     /**

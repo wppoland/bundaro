@@ -36,7 +36,9 @@ namespace {
     function get_the_ID(): int { return 0; }
     function get_post_status(int $id): string|false { return $GLOBALS['statuses'][$id] ?? false; }
     function post_password_required(int $id): bool { return 30 === $id; }
-    function current_user_can(string $cap, mixed ...$args): bool { return $GLOBALS['canRead']; }
+    function current_user_can(string $cap, mixed ...$args): bool { return ($GLOBALS['statuses'][$args[0] ?? 0] ?? '') === 'publish' || $GLOBALS['canRead']; }
+    function get_post_type(int $id): string { return 40 === $id ? 'product_variation' : 'product'; }
+    function wp_get_post_parent_id(int $id): int { return 40 === $id ? 13 : 0; }
     function wp_create_nonce(string $action): string { return 'nonce'; }
     function add_query_arg(array $args, string $url): string { return $url; }
 
@@ -81,6 +83,7 @@ namespace {
         [20, false, '', 'draft product renders nothing for a visitor'],
         [12, false, '', 'private product renders nothing for a visitor'],
         [30, false, '', 'password protected product renders nothing for a visitor'],
+        [30, true, '', 'password protected product renders nothing for a logged-in reader either'],
         [20, true, '20:11,12,13', 'a user who can read the draft still sees it'],
     ];
 
