@@ -120,45 +120,16 @@ final class BundleService implements HasHooks
 
         $product = $productId > 0 && $this->isViewable($productId) ? wc_get_product($productId) : null;
 
-        if (! $product instanceof \WC_Product || ! $this->engine->isBundleable($product)) {
-            return '';
-        }
+        $context = $product instanceof \WC_Product ? $this->engine->boxContext($product) : null;
 
-        $bundle = $this->engine->getBundle($product);
-
-        if ($bundle['items'] === []) {
+        if ($context === null) {
             return '';
         }
 
         ob_start();
-        $this->renderTemplate(self::BOX_TEMPLATE, [
-            'product'     => $product,
-            'bundle'      => $bundle,
-            'action_url'  => $this->addUrl($product),
-            'nonce_field' => wp_create_nonce(self::NONCE_ACTION),
-            'request_key' => self::REQUEST_KEY,
-            'box_title'   => $this->labels()['box_title'],
-            'add_label'   => $this->labels()['add_bundle'],
-            'settings'    => $this->settings(),
-        ]);
+        $this->renderTemplate(self::BOX_TEMPLATE, $context);
 
         return (string) ob_get_clean();
-    }
-
-    /**
-     * Build the add-bundle URL (carries the request key + a fresh nonce). Mirrors
-     * the engine's own action URL so the shortcode-rendered form posts the same
-     * way the auto-rendered box does.
-     */
-    private function addUrl(\WC_Product $product): string
-    {
-        return add_query_arg(
-            [
-                self::REQUEST_KEY => $product->get_id(),
-                '_wpnonce'        => wp_create_nonce(self::NONCE_ACTION),
-            ],
-            (string) $product->get_permalink(),
-        );
     }
 
     /**
@@ -177,7 +148,7 @@ final class BundleService implements HasHooks
      * own chrome where they set it, the translated default from
      * {@see Texts} where they did not.
      *
-     * @return array{box_title: string, add_bundle: string, fee_label: string, add_failed: string}
+     * @return array{box_title: string, add_bundle: string, fee_label: string, add_failed: string, expired: string}
      */
     private function labels(): array
     {
@@ -188,6 +159,7 @@ final class BundleService implements HasHooks
             'add_bundle' => (string) $settings['add_label'],
             'fee_label'  => (string) $settings['fee_label'],
             'add_failed' => (string) $settings['add_failed_text'],
+            'expired'    => __('Your session expired, please try again.', 'fasko'),
         ];
     }
 

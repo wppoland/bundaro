@@ -32,6 +32,15 @@ final class ProductBundleEngine
     private array $discountPercentCache = [];
 
     /**
+     * Undiscounted unit price of each bundle line's product object, recorded
+     * the first time the line is priced, so per-item mode can recompute the
+     * discount from scratch every pass instead of compounding it.
+     *
+     * @var \WeakMap<\WC_Product, float>
+     */
+    private \WeakMap $basePrices;
+
+    /**
      * @param \Closure(): bool $isEnabled
      * @param \Closure(): array<string, mixed> $settings Resolved settings:
      *        `discount_mode` (`fee`|`per_item`), `show_on_single`.
@@ -53,6 +62,7 @@ final class ProductBundleEngine
         private readonly \Closure $productMeta,
         private readonly \Closure $renderTemplate,
     ) {
+        $this->basePrices = new \WeakMap();
     }
 
     public function registerHooks(): void
@@ -60,13 +70,13 @@ final class ProductBundleEngine
         add_action('woocommerce_after_single_product_summary', [$this, 'renderBox'], 15);
         add_action('template_redirect', [$this, 'handleAddBundle'], 5);
         add_action('woocommerce_cart_calculate_fees', [$this, 'applyBundleFee'], 20);
-        // Price the line once per product object, when it enters the cart and
-        // each time the cart is rebuilt from the session. A price set only in
-        // woocommerce_before_calculate_totals never reached the mini cart or the
-        // cart fragments, which render without recalculating, and the
-        // did_action() guard there skipped lines added after the first pass.
-        add_filter('woocommerce_add_cart_item', [$this, 'applyPerItemDiscount'], 25);
-        add_filter('woocommerce_get_cart_item_from_session', [$this, 'applyPerItemDiscount'], 25);
+        // Per-item prices depend on the whole cart (a bundle is discounted only
+        // while it is complete), so they are recomputed for the whole cart once
+        // it is restored from the session, before the mini cart or the cart
+        // fragments render, and again on every totals pass, which WooCommerce
+        // runs after each add, removal and quantity change.
+        add_action('woocommerce_cart_loaded_from_session', [$this, 'applyPerItemDiscount'], 25);
+        add_action('woocommerce_before_calculate_totals', [$this, 'applyPerItemDiscount'], 25);
     }
 
     public function renderBox(): void
@@ -77,17 +87,29 @@ final class ProductBundleEngine
             return;
         }
 
-        if (! $this->isBundleable($product)) {
-            return;
+        $context = $this->boxContext($product);
+
+        if ($context !== null) {
+            ($this->renderTemplate)($this->boxTemplate, $context);
+        }
+    }
+
+    /**
+     * Template context for the bundle box, or null when there is nothing the
+     * shopper could actually buy: the main product is unavailable, or none of
+     * its companions are. The listed items are the ones Add bundle adds.
+     *
+     * @return array<string, mixed>|null
+     */
+    public function boxContext(\WC_Product $product): ?array
+    {
+        $bundle = $this->offer($product);
+
+        if ($bundle === null) {
+            return null;
         }
 
-        $bundle = $this->getBundle($product);
-
-        if ($bundle['items'] === []) {
-            return;
-        }
-
-        ($this->renderTemplate)($this->boxTemplate, [
+        return [
             'product' => $product,
             'bundle' => $bundle,
             'action_url' => $this->getActionUrl($product),
@@ -96,7 +118,46 @@ final class ProductBundleEngine
             'box_title' => $this->message('box_title'),
             'add_label' => $this->message('add_bundle'),
             'settings' => $this->getSettings(),
-        ]);
+        ];
+    }
+
+    /**
+     * The bundle as it can be bought right now: the definition with every
+     * companion that cannot go into the cart dropped, or null when the main
+     * product cannot, or no companion is left.
+     *
+     * @return array{items: list<int>, discount_percent: float}|null
+     */
+    public function offer(\WC_Product $product): ?array
+    {
+        if (! $this->isAddable($product)) {
+            return null;
+        }
+
+        $bundle = $this->getBundle($product);
+        $bundle['items'] = array_values(array_filter(
+            $bundle['items'],
+            function (int $itemId): bool {
+                $item = wc_get_product($itemId);
+
+                return $item instanceof \WC_Product && $this->isAddable($item);
+            },
+        ));
+
+        return $bundle['items'] === [] ? null : $bundle;
+    }
+
+    /**
+     * Whether one click can put this product in the cart: a bundleable type
+     * (not external or grouped, which have no cart line of their own), on sale
+     * and in stock.
+     */
+    public function isAddable(\WC_Product $product): bool
+    {
+        return $this->isBundleable($product)
+            && ! $product->is_type(['external', 'grouped'])
+            && $product->is_purchasable()
+            && $product->is_in_stock();
     }
 
     public function handleAddBundle(): void
@@ -108,46 +169,46 @@ final class ProductBundleEngine
         $nonce = isset($_REQUEST['_wpnonce']) ? sanitize_text_field((string) wp_unslash($_REQUEST['_wpnonce'])) : '';
 
         if (! wp_verify_nonce($nonce, $this->nonceAction)) {
+            // A page served from cache carries a nonce that no longer verifies.
+            wc_add_notice($this->message('expired'), 'error');
+
             return;
         }
 
         $productId = absint(wp_unslash($_REQUEST[$this->requestKey]));
         $product = wc_get_product($productId);
 
-        if (! $product instanceof \WC_Product || ! WC()->cart instanceof \WC_Cart || ! $this->isBundleable($product)) {
+        if (! $product instanceof \WC_Product || ! WC()->cart instanceof \WC_Cart) {
             return;
         }
 
-        $bundle = $this->getBundle($product);
+        $bundle = $this->offer($product);
 
-        if ($bundle['items'] === []) {
+        if ($bundle === null) {
+            wc_add_notice($this->message('add_failed'), 'error');
+
             return;
         }
 
-        $allAdded = true;
+        // All or nothing: a bundle missing a product is not the bundle that
+        // was offered, so whatever went in is taken out again.
+        $added = [];
 
-        foreach ($this->bundleProductIds($product) as $bundleProductId) {
-            $linked = wc_get_product($bundleProductId);
+        foreach (array_merge([$productId], $bundle['items']) as $bundleProductId) {
+            $key = WC()->cart->add_to_cart($bundleProductId, 1, 0, [], [$this->cartFlag => $productId]);
 
-            if (! $linked instanceof \WC_Product || ! $this->isBundleable($linked) || ! $linked->is_purchasable() || ! $linked->is_in_stock()) {
-                $allAdded = false;
+            if ($key === false) {
+                foreach ($added as $addedKey) {
+                    $line = WC()->cart->get_cart_item($addedKey);
+                    WC()->cart->set_quantity($addedKey, max(0, (int) ($line['quantity'] ?? 1) - 1));
+                }
 
-                continue;
+                wc_add_notice($this->message('add_failed'), 'error');
+
+                return;
             }
 
-            $added = WC()->cart->add_to_cart(
-                $bundleProductId,
-                1,
-                0,
-                [],
-                [$this->cartFlag => $productId],
-            );
-
-            $allAdded = $allAdded && $added !== false;
-        }
-
-        if (! $allAdded) {
-            wc_add_notice($this->message('add_failed'), 'error');
+            $added[] = $key;
         }
 
         wp_safe_redirect(wc_get_cart_url());
@@ -168,35 +229,41 @@ final class ProductBundleEngine
     }
 
     /**
-     * @param array<string, mixed> $cartItem
-     * @return array<string, mixed>
+     * Per-item mode: set each bundle line's unit price so the line carries
+     * the discount for the complete bundles in the cart and no more. A line
+     * with more units than complete bundles gets a blended unit price.
      */
-    public function applyPerItemDiscount($cartItem): array
+    public function applyPerItemDiscount(\WC_Cart $cart): void
     {
         if (! $this->isEnabled() || (string) ($this->getSettings()['discount_mode'] ?? 'fee') !== 'per_item') {
-            return $cartItem;
+            return;
         }
 
-        $bundleParentId = $this->bundleParentId($cartItem);
+        $sets = $this->completeSets($cart);
 
-        if ($bundleParentId === 0 || ! ($cartItem['data'] ?? null) instanceof \WC_Product) {
-            return $cartItem;
+        foreach ($cart->get_cart() as $cartItem) {
+            $bundleParentId = $this->bundleParentId($cartItem);
+            $data = $cartItem['data'] ?? null;
+
+            if ($bundleParentId === 0 || ! $data instanceof \WC_Product) {
+                continue;
+            }
+
+            $base = $this->basePrices[$data] ??= (float) $data->get_price('edit');
+            $units = min($sets[$bundleParentId][$data->get_id()] ?? 0, (int) $cartItem['quantity']);
+
+            /**
+             * Filters the per-item bundle discount for one cart line, in percent.
+             *
+             * @param float $percent        Discount from the bundle definition.
+             * @param int   $bundleParentId Product id of the bundle the line belongs to.
+             */
+            $percent = $units > 0
+                ? (float) apply_filters('bundle/per_item_discount_percent', $this->discountPercentFor($bundleParentId), $bundleParentId)
+                : 0.0;
+
+            $data->set_price((string) ($base * (1 - $percent / 100 * $units / max(1, (int) $cartItem['quantity']))));
         }
-
-        /**
-         * Filters the per-item bundle discount for one cart line, in percent.
-         *
-         * @param float $percent        Discount from the bundle definition.
-         * @param int   $bundleParentId Product id of the bundle the line belongs to.
-         */
-        $percent = (float) apply_filters('bundle/per_item_discount_percent', $this->discountPercentFor($bundleParentId), $bundleParentId);
-
-        if ($percent > 0.0) {
-            $base = (float) $cartItem['data']->get_price('edit');
-            $cartItem['data']->set_price((string) ($base * (1 - $percent / 100)));
-        }
-
-        return $cartItem;
     }
 
     /**
@@ -259,6 +326,7 @@ final class ProductBundleEngine
     private function calculateBundleDiscount(\WC_Cart $cart): float
     {
         $discount = 0.0;
+        $sets = $this->completeSets($cart);
 
         foreach ($cart->get_cart() as $cartItem) {
             $bundleParentId = $this->bundleParentId($cartItem);
@@ -268,16 +336,57 @@ final class ProductBundleEngine
             }
 
             $percent = $this->discountPercentFor($bundleParentId);
+            $units = min($sets[$bundleParentId][$cartItem['data']->get_id()] ?? 0, (int) $cartItem['quantity']);
 
-            if ($percent <= 0.0) {
+            if ($percent <= 0.0 || $units <= 0) {
                 continue;
             }
 
-            $lineTotal = (float) $cartItem['data']->get_price('edit') * (int) $cartItem['quantity'];
-            $discount += $lineTotal * ($percent / 100);
+            $discount += (float) $cartItem['data']->get_price('edit') * $units * ($percent / 100);
         }
 
         return round($discount, wc_get_price_decimals());
+    }
+
+    /**
+     * How many complete bundles the cart holds, per bundle: the lowest
+     * quantity across the products the bundle offers right now. A line the
+     * offer does not include, or a bundle with any of its products missing,
+     * earns nothing.
+     *
+     * @return array<int, array<int, int>> Parent id => product id => discounted units.
+     */
+    private function completeSets(\WC_Cart $cart): array
+    {
+        $quantities = [];
+
+        foreach ($cart->get_cart() as $cartItem) {
+            $bundleParentId = $this->bundleParentId($cartItem);
+
+            if ($bundleParentId === 0 || ! ($cartItem['data'] ?? null) instanceof \WC_Product) {
+                continue;
+            }
+
+            $id = $cartItem['data']->get_id();
+            $quantities[$bundleParentId][$id] = ($quantities[$bundleParentId][$id] ?? 0) + (int) $cartItem['quantity'];
+        }
+
+        $sets = [];
+
+        foreach ($quantities as $bundleParentId => $have) {
+            $parent = wc_get_product($bundleParentId);
+            $offer = $parent instanceof \WC_Product ? $this->offer($parent) : null;
+
+            if ($offer === null) {
+                continue;
+            }
+
+            $ids = array_merge([$bundleParentId], $offer['items']);
+            $complete = min(array_map(static fn (int $id): int => $have[$id] ?? 0, $ids));
+            $sets[$bundleParentId] = array_fill_keys($ids, $complete);
+        }
+
+        return $sets;
     }
 
     private function discountPercentFor(int $parentProductId): float

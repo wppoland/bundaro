@@ -138,7 +138,7 @@ final class ProductBundleBox implements HasHooks
                     <span class="description" id="bundle_items_desc">
                         <?php esc_html_e('Comma-separated product IDs to sell alongside this product. Duplicates, blanks and this product\'s own ID are ignored automatically.', 'fasko'); ?>
                         <br />
-                        <?php esc_html_e('Simple products only. A variable product needs its options chosen before it can go in the cart, so those IDs are dropped when you save.', 'fasko'); ?>
+                        <?php esc_html_e('Simple products, or variations with every option chosen. Variable, grouped and external products cannot go in the cart in one click, so those IDs are dropped when you save.', 'fasko'); ?>
                     </span>
                 </p>
                 <p class="form-field bundle-field">
@@ -194,13 +194,14 @@ final class ProductBundleBox implements HasHooks
             $itemId = absint(trim($candidate));
 
             if ($itemId > 0 && $itemId !== $postId && ! in_array($itemId, $items, true)) {
-                // A variable product cannot be added to the cart without a
-                // chosen variation, and the one-click add sends none. Listing
-                // one here looked fine on this screen and then dropped that
-                // product from the shopper's cart, so it is refused at save
-                // time and reported, rather than saved to fail on the
-                // storefront.
-                if (wc_get_product($itemId) instanceof \WC_Product_Variable) {
+                // Only what one click can put in the cart is kept: a simple
+                // product, or a variation with every attribute chosen. A
+                // variable product needs the shopper's options, an external
+                // or grouped product has no cart line, and an ID that is not
+                // a product at all was saved and then advertised in the box.
+                // Each is refused here and reported, rather than saved to
+                // fail on the storefront.
+                if (! self::isLinkable(wc_get_product($itemId))) {
                     $skipped[] = $itemId;
 
                     continue;
@@ -237,8 +238,21 @@ final class ProductBundleBox implements HasHooks
     }
 
     /**
-     * Tell the merchant which IDs were dropped on the last save, so a variable
-     * product silently vanishing from the bundle list is never a mystery.
+     * Whether a product can be added to the cart without the shopper choosing
+     * anything: a simple product, or a variation with no "Any" attribute.
+     */
+    private static function isLinkable(mixed $product): bool
+    {
+        if ($product instanceof \WC_Product_Variation) {
+            return ! in_array('', $product->get_variation_attributes(), true);
+        }
+
+        return $product instanceof \WC_Product && $product->is_type('simple');
+    }
+
+    /**
+     * Tell the merchant which IDs were dropped on the last save, so a product
+     * silently vanishing from the bundle list is never a mystery.
      */
     public function renderSkippedNotice(): void
     {
@@ -256,7 +270,7 @@ final class ProductBundleBox implements HasHooks
             esc_html(
                 sprintf(
                     /* translators: %s: comma-separated list of product IDs. */
-                    __('Bundle: these product IDs were not saved because they are variable products, which cannot be added to the cart until the shopper picks their options: %s. Link simple products instead.', 'fasko'),
+                    __('Bundle: these product IDs were not saved because one click cannot add them to the cart: %s. Link simple products, or variations with every option chosen.', 'fasko'),
                     implode(', ', array_map('absint', $skipped))
                 )
             )
