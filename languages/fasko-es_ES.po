@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bundle, Product Bundles for WooCommerce 0.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fasko\n"
-"POT-Creation-Date: 2026-10-05T11:15:18+00:00\n"
+"POT-Creation-Date: 2026-10-06T20:16:30+00:00\n"
 "PO-Revision-Date: 2026-07-07 00:00+0000\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -96,12 +96,13 @@ msgstr ""
 
 #: src/Admin/ProductBundleBox.php:141
 msgid ""
-"Simple products only. A variable product needs its options chosen before it "
-"can go in the cart, so those IDs are dropped when you save."
+"Simple products, or variations with every option chosen. Variable, grouped "
+"and external products cannot go in the cart in one click, so those IDs are "
+"dropped when you save."
 msgstr ""
-"Solo productos simples. Un producto variable necesita que se elijan sus "
-"opciones antes de poder añadirse al carrito, por lo que esos ID se eliminan "
-"al guardar."
+"Productos simples o variaciones con todas sus opciones elegidas. Los "
+"productos variables, agrupados y externos no se pueden añadir al carrito con"
+" un solo clic, por lo que esos ID se eliminan al guardar."
 
 #: src/Admin/ProductBundleBox.php:145
 msgid "Bundle discount (%)"
@@ -118,16 +119,16 @@ msgstr ""
 "seguirá recomendando los artículos. Los valores se limitan a 0-100."
 
 #. translators: %s: comma-separated list of product IDs.
-#: src/Admin/ProductBundleBox.php:259
+#: src/Admin/ProductBundleBox.php:273
 #, php-format
 msgid ""
-"Bundle: these product IDs were not saved because they are variable products,"
-" which cannot be added to the cart until the shopper picks their options: "
-"%s. Link simple products instead."
+"Bundle: these product IDs were not saved because one click cannot add them "
+"to the cart: %s. Link simple products, or variations with every option "
+"chosen."
 msgstr ""
-"Paquete: estos ID de producto no se guardaron porque son productos "
-"variables, que no se pueden añadir al carrito hasta que el comprador elija "
-"sus opciones: %s. Enlace productos simples en su lugar."
+"Paquete: estos ID de producto no se guardaron porque no se pueden añadir al "
+"carrito con un solo clic: %s. Enlace productos simples o variaciones con "
+"todas sus opciones elegidas."
 
 #: src/Admin/ProUpsell.php:89
 msgid "Coming soon"
@@ -425,6 +426,10 @@ msgstr ""
 "Se muestra en la línea de tarifa del carrito (modo de tarifa). Déjelo en "
 "blanco para utilizar el \"descuento por paquete\" predeterminado."
 
+#: src/Service/BundleService.php:162
+msgid "Your session expired, please try again."
+msgstr "Su sesión ha caducado, inténtelo de nuevo."
+
 #: src/Service/Texts.php:37
 msgid "Some bundled products could not be added to the cart."
 msgstr "Algunos productos empaquetados no se pudieron añadir al carrito."
@@ -441,6 +446,24 @@ msgstr "Comprar juntos y ahorrar %s%%"
 msgid "Bundle total <strong>%1$s</strong>, you save <strong>%2$s</strong>."
 msgstr ""
 "Total del bundle <strong>%1$s</strong>, ahorras <strong>%2$s</strong>."
+
+#~ msgid ""
+#~ "Simple products only. A variable product needs its options chosen before it "
+#~ "can go in the cart, so those IDs are dropped when you save."
+#~ msgstr ""
+#~ "Solo productos simples. Un producto variable necesita que se elijan sus "
+#~ "opciones antes de poder añadirse al carrito, por lo que esos ID se eliminan "
+#~ "al guardar."
+
+#, php-format
+#~ msgid ""
+#~ "Bundle: these product IDs were not saved because they are variable products,"
+#~ " which cannot be added to the cart until the shopper picks their options: "
+#~ "%s. Link simple products instead."
+#~ msgstr ""
+#~ "Paquete: estos ID de producto no se guardaron porque son productos "
+#~ "variables, que no se pueden añadir al carrito hasta que el comprador elija "
+#~ "sus opciones: %s. Enlace productos simples en su lugar."
 
 #~ msgid "Wkrótce"
 #~ msgstr "Próximamente"

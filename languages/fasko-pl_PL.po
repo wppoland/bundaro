@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bundle, Product Bundles for WooCommerce 0.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fasko\n"
-"POT-Creation-Date: 2026-10-05T11:15:18+00:00\n"
+"POT-Creation-Date: 2026-10-06T20:16:30+00:00\n"
 "PO-Revision-Date: 2026-07-07 00:00+0000\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -93,11 +93,13 @@ msgstr ""
 
 #: src/Admin/ProductBundleBox.php:141
 msgid ""
-"Simple products only. A variable product needs its options chosen before it "
-"can go in the cart, so those IDs are dropped when you save."
+"Simple products, or variations with every option chosen. Variable, grouped "
+"and external products cannot go in the cart in one click, so those IDs are "
+"dropped when you save."
 msgstr ""
-"Tylko produkty proste. Produkt z wariantami wymaga wyboru opcji, zanim trafi"
-" do koszyka, więc te identyfikatory są pomijane przy zapisie."
+"Produkty proste albo warianty z wybranymi wszystkimi opcjami. Produktów z "
+"wariantami, grupowych i zewnętrznych nie da się dodać do koszyka jednym "
+"kliknięciem, więc te identyfikatory są pomijane przy zapisie."
 
 #: src/Admin/ProductBundleBox.php:145
 msgid "Bundle discount (%)"
@@ -114,16 +116,16 @@ msgstr ""
 "produkty. Wartości są ograniczone do 0-100."
 
 #. translators: %s: comma-separated list of product IDs.
-#: src/Admin/ProductBundleBox.php:259
+#: src/Admin/ProductBundleBox.php:273
 #, php-format
 msgid ""
-"Bundle: these product IDs were not saved because they are variable products,"
-" which cannot be added to the cart until the shopper picks their options: "
-"%s. Link simple products instead."
+"Bundle: these product IDs were not saved because one click cannot add them "
+"to the cart: %s. Link simple products, or variations with every option "
+"chosen."
 msgstr ""
-"Bundle: te identyfikatory produktów nie zostały zapisane, ponieważ są to "
-"produkty z wariantami, których nie można dodać do koszyka, dopóki klient nie"
-" wybierze opcji: %s. Podlinkuj zamiast nich produkty proste."
+"Bundle: te identyfikatory produktów nie zostały zapisane, ponieważ nie da "
+"się ich dodać do koszyka jednym kliknięciem: %s. Podlinkuj produkty proste "
+"albo warianty z wybranymi wszystkimi opcjami."
 
 #: src/Admin/ProUpsell.php:89
 msgid "Coming soon"
@@ -408,6 +410,10 @@ msgstr ""
 "Wyświetlane przy pozycji opłaty w koszyku w trybie opłaty. Zostaw puste, aby"
 " użyć domyślnego „Rabat na zestaw”."
 
+#: src/Service/BundleService.php:162
+msgid "Your session expired, please try again."
+msgstr "Sesja wygasła, spróbuj ponownie."
+
 #: src/Service/Texts.php:37
 msgid "Some bundled products could not be added to the cart."
 msgstr "Niektórych produktów z zestawu nie udało się dodać do koszyka."
@@ -425,6 +431,23 @@ msgid "Bundle total <strong>%1$s</strong>, you save <strong>%2$s</strong>."
 msgstr ""
 "Łączna cena zestawu <strong>%1$s</strong>, oszczędzasz "
 "<strong>%2$s</strong>."
+
+#~ msgid ""
+#~ "Simple products only. A variable product needs its options chosen before it "
+#~ "can go in the cart, so those IDs are dropped when you save."
+#~ msgstr ""
+#~ "Tylko produkty proste. Produkt z wariantami wymaga wyboru opcji, zanim trafi"
+#~ " do koszyka, więc te identyfikatory są pomijane przy zapisie."
+
+#, php-format
+#~ msgid ""
+#~ "Bundle: these product IDs were not saved because they are variable products,"
+#~ " which cannot be added to the cart until the shopper picks their options: "
+#~ "%s. Link simple products instead."
+#~ msgstr ""
+#~ "Bundle: te identyfikatory produktów nie zostały zapisane, ponieważ są to "
+#~ "produkty z wariantami, których nie można dodać do koszyka, dopóki klient nie"
+#~ " wybierze opcji: %s. Podlinkuj zamiast nich produkty proste."
 
 #~ msgid "Wkrótce"
 #~ msgstr "Wkrótce"

@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,7 @@ Sell product bundles and frequently bought together offers with an optional WooC
 Fasko adds a "frequently bought together" product bundle box to your WooCommerce product pages. Link any number of products to a product, set an optional bundle discount, and let customers add the whole product set to the cart in one click.
 
 * A bundle box under the product summary that lists the bundled products.
-* "Add bundle to cart" adds the main product plus every linked item at once.
+* "Add bundle to cart" adds the main product plus every linked item the box lists, all at once or not at all. Products that are out of stock or cannot be bought on their own are left out of the box.
 * Optional bundle discount, applied either as a single cart fee or as a per-item price adjustment.
 * An optional savings line that shows the bundle total and the amount saved.
 * A `[bundle]` shortcode to place the bundle box anywhere, use `[bundle id="123"]` to target a specific product.
@@ -53,7 +53,7 @@ Yes. WooCommerce must be installed and active.
 
 = How is the discount applied? =
 
-Choose between a single negative cart fee (one line in the cart) or a per-item price adjustment on each bundled product. Set this under WooCommerce > Bundle.
+Choose between a single negative cart fee (one line in the cart) or a per-item price adjustment on each bundled product. Set this under WooCommerce > Bundle. The discount covers complete bundles only: remove a bundled product from the cart and the discount goes, raise one quantity and only the complete sets stay discounted.
 
 = Can a bundle include a discount? =
 
@@ -94,6 +94,13 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Fasko is fully translatable and ships the `fasko.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.5 =
+* Fixed: the bundle discount stayed in the cart after the bundle was broken up. Removing the other products, or raising the quantity of one, still took the discount off every unit. The discount now covers only complete bundles in the cart, in both the cart fee and the per-item mode.
+* Fixed: "Add bundle to cart" on an out-of-stock or unpurchasable product added the other products with the discount and left that product out. The box no longer shows on such a product, and the button adds the whole bundle or nothing.
+* Fixed: the box listed linked products that cannot go in the cart (external, grouped or out of stock) and counted them in the bundle total and the savings it promised. They are left out of the box, the total and the savings now. The product editor keeps only simple products and variations with every option chosen, and names the IDs it dropped.
+* Fixed: an expired add-bundle link, for example on a page served from a cache, did nothing at all. The shopper now sees a notice asking them to try again.
+* Fixed: deleting the plugin on a multisite network cleaned only one site. Uninstall now removes the settings and the bundle definitions on every site.
 
 = 1.1.4 =
 * Security (low): the [bundle id="N"] shortcode showed the name, price and linked items of any product, including drafts, private and password protected ones. A contributor or author could put the shortcode in a post and expose a product that was not yet public. The box now renders only a product the visitor may see, and lists only linked items they may see.
@@ -162,6 +169,9 @@ Fasko is fully translatable and ships the `fasko.pot` template. Translations are
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.1.5 =
+The bundle discount now applies to complete bundles only, and the box offers only products that can be bought.
 
 = 1.1.4 =
 Security release. Not exposed to visitors: only a user who can write posts could show the name and price of an unpublished or password-protected product through the bundle shortcode. Update, nothing else to do.

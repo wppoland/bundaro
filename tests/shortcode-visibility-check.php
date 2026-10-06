@@ -58,6 +58,21 @@ namespace {
             return '';
         }
 
+        public function is_type(string|array $type): bool
+        {
+            return false;
+        }
+
+        public function is_purchasable(): bool
+        {
+            return true;
+        }
+
+        public function is_in_stock(): bool
+        {
+            return true;
+        }
+
         public function get_meta(string $key): mixed
         {
             return ['items' => [11, 12, 13], 'discount_percent' => 10];

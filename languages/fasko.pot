@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Fasko - Product Bundles for WooCommerce 1.1.3\n"
+"Project-Id-Version: Fasko - Product Bundles for WooCommerce 1.1.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fasko\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-05T11:15:18+00:00\n"
+"POT-Creation-Date: 2026-10-06T20:16:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: fasko\n"
@@ -75,7 +75,7 @@ msgid "Comma-separated product IDs to sell alongside this product. Duplicates, b
 msgstr ""
 
 #: src/Admin/ProductBundleBox.php:141
-msgid "Simple products only. A variable product needs its options chosen before it can go in the cart, so those IDs are dropped when you save."
+msgid "Simple products, or variations with every option chosen. Variable, grouped and external products cannot go in the cart in one click, so those IDs are dropped when you save."
 msgstr ""
 
 #: src/Admin/ProductBundleBox.php:145
@@ -87,9 +87,9 @@ msgid "Optional. The percentage off the combined price when the whole bundle is 
 msgstr ""
 
 #. translators: %s: comma-separated list of product IDs.
-#: src/Admin/ProductBundleBox.php:259
+#: src/Admin/ProductBundleBox.php:273
 #, php-format
-msgid "Bundle: these product IDs were not saved because they are variable products, which cannot be added to the cart until the shopper picks their options: %s. Link simple products instead."
+msgid "Bundle: these product IDs were not saved because one click cannot add them to the cart: %s. Link simple products, or variations with every option chosen."
 msgstr ""
 
 #: src/Admin/ProUpsell.php:89
@@ -297,6 +297,10 @@ msgstr ""
 
 #: src/Admin/Settings.php:277
 msgid "Shown on the cart fee line (fee mode). Leave blank to use the default \"Bundle discount\"."
+msgstr ""
+
+#: src/Service/BundleService.php:162
+msgid "Your session expired, please try again."
 msgstr ""
 
 #: src/Service/Texts.php:37
