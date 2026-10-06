@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bundle, Product Bundles for WooCommerce 0.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fasko\n"
-"POT-Creation-Date: 2026-09-08T13:42:24+00:00\n"
+"POT-Creation-Date: 2026-10-05T11:15:18+00:00\n"
 "PO-Revision-Date: 2026-07-07 00:00+0000\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -125,56 +125,48 @@ msgstr ""
 "produkty z wariantami, których nie można dodać do koszyka, dopóki klient nie"
 " wybierze opcji: %s. Podlinkuj zamiast nich produkty proste."
 
-#: src/Admin/ProUpsell.php:82
-msgid "Wkrótce"
-msgstr "Wkrótce"
-
-#: src/Admin/ProUpsell.php:82
+#: src/Admin/ProUpsell.php:89
 msgid "Coming soon"
 msgstr "Wkrótce"
 
 #. translators: 1: currency symbol, 2: yearly price
-#: src/Admin/ProUpsell.php:88
+#: src/Admin/ProUpsell.php:95
 #, php-format
 msgid "from %1$s%2$d/yr"
 msgstr "od %1$s%2$d/rok"
 
-#: src/Admin/ProUpsell.php:97
+#: src/Admin/ProUpsell.php:104
 msgid "Upgrade to PRO"
 msgstr "Przejdź na PRO"
 
-#: src/Admin/ProUpsell.php:98
-msgid "Powiadom mnie"
-msgstr "Powiadom mnie"
-
-#: src/Admin/ProUpsell.php:98
+#: src/Admin/ProUpsell.php:105
 msgid "Get notified"
 msgstr "Powiadom mnie"
 
-#: src/Admin/ProUpsell.php:128
+#: src/Admin/ProUpsell.php:135
 msgid "Permission denied."
 msgstr "Brak uprawnień."
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:158
+#: src/Admin/ProUpsell.php:165
 #, php-format
 msgid "Do more with %s"
 msgstr "Zrób więcej dzięki %s"
 
-#: src/Admin/ProUpsell.php:165
+#: src/Admin/ProUpsell.php:172
 msgid "Dismiss this notice"
 msgstr "Odrzuć to powiadomienie"
 
-#: src/Admin/ProUpsell.php:182
+#: src/Admin/ProUpsell.php:194
 msgid "Unlock every PRO feature"
 msgstr "Odblokuj wszystkie funkcje PRO"
 
-#: src/Admin/ProUpsell.php:195
+#: src/Admin/ProUpsell.php:207
 msgid "one licence, every PRO feature"
 msgstr "jedna licencja, wszystkie funkcje PRO"
 
 #. translators: %s: PRO edition name
-#: src/Admin/ProUpsell.php:214
+#: src/Admin/ProUpsell.php:226
 #, php-format
 msgid "What %s adds"
 msgstr "Co dodaje %s"
@@ -433,6 +425,12 @@ msgid "Bundle total <strong>%1$s</strong>, you save <strong>%2$s</strong>."
 msgstr ""
 "Łączna cena zestawu <strong>%1$s</strong>, oszczędzasz "
 "<strong>%2$s</strong>."
+
+#~ msgid "Wkrótce"
+#~ msgstr "Wkrótce"
+
+#~ msgid "Powiadom mnie"
+#~ msgstr "Powiadom mnie"
 
 #~ msgid "Bundle, Product Bundles for WooCommerce"
 #~ msgstr "Bundle, zestawy produktów dla WooCommerce"
