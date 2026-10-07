@@ -159,7 +159,7 @@ final class BundleService implements HasHooks
             'add_bundle' => (string) $settings['add_label'],
             'fee_label'  => (string) $settings['fee_label'],
             'add_failed' => (string) $settings['add_failed_text'],
-            'expired'    => __('Your session expired, please try again.', 'fasko'),
+            'expired'    => __('Your session expired, please try again.', 'bundaro'),
         ];
     }
 
