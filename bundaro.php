@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Fasko - Product Bundles for WooCommerce
+ * Plugin Name:       Bundaro - Product Bundles for WooCommerce
  * Plugin URI:        https://plogins.com/plogins-bundle/
  * Description:        Sell groups of products together as a bundle with an optional bundle discount.
  * Version:           1.1.5
@@ -11,7 +11,7 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       fasko
+ * Text Domain:       bundaro
  * Domain Path:       /languages
  * WC requires at least: 8.0
  * WC tested up to: 11.0
@@ -45,7 +45,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Fasko requires WooCommerce to be active.', 'fasko');
+            echo esc_html__('Bundaro requires WooCommerce to be active.', 'bundaro');
             echo '</p></div>';
         });
         return;

@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-define('WP_UNINSTALL_PLUGIN', 'fasko/fasko.php');
+define('WP_UNINSTALL_PLUGIN', 'bundaro/bundaro.php');
 
 $blog    = 1;
 $deleted = [];

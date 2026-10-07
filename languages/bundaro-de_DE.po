@@ -3,50 +3,49 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Bundle, Product Bundles for WooCommerce 0.2.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fasko\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bundaro\n"
 "POT-Creation-Date: 2026-10-06T20:16:30+00:00\n"
 "PO-Revision-Date: 2026-07-07 00:00+0000\n"
 "Last-Translator: motylanogha <szatkowski.mariusz@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
-"Language: es_ES\n"
+"Language-Team: German <de@li.org>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: fasko\n"
+"X-Domain: bundaro\n"
 
 #. Plugin Name of the plugin
-#: fasko.php
-msgid "Fasko - Product Bundles for WooCommerce"
-msgstr "Fasko - Paquetes de productos para WooCommerce"
+#: bundaro.php
+msgid "Bundaro - Product Bundles for WooCommerce"
+msgstr "Bundaro - Produkt-Bundles für WooCommerce"
 
 #. Plugin URI of the plugin
-#: fasko.php
+#: bundaro.php
 msgid "https://plogins.com/plogins-bundle/"
 msgstr "https://plogins.com/plogins-bundle/"
 
 #. Description of the plugin
-#: fasko.php
+#: bundaro.php
 msgid ""
 "Sell groups of products together as a bundle with an optional bundle "
 "discount."
 msgstr ""
-"Venda grupos de productos juntos como un paquete con un descuento de paquete"
-" opcional."
+"Verkaufe Produktgruppen zusammen als Paket mit einem optionalen Paketrabatt."
 
 #. Author of the plugin
-#: fasko.php
+#: bundaro.php
 msgid "WPPoland.com"
 msgstr "WPPoland.com"
 
 #. Author URI of the plugin
-#: fasko.php
+#: bundaro.php
 msgid "https://wppoland.com"
 msgstr "https://wppoland.com"
 
-#: fasko.php:48
-msgid "Fasko requires WooCommerce to be active."
-msgstr "Fasko requiere que WooCommerce esté activo."
+#: bundaro.php:48
+msgid "Bundaro requires WooCommerce to be active."
+msgstr "Bundaro erfordert, dass WooCommerce aktiv ist."
 
 #: src/Admin/ProductBundleBox.php:85 src/Admin/Settings.php:48
 msgid "Bundle"
@@ -58,10 +57,9 @@ msgid ""
 "appear in a \"frequently bought together\" box on this product's page, and "
 "shoppers can add the whole set to the cart in one click."
 msgstr ""
-"Enlaza los productos que se suelen comprar junto con este. Aparecen en un "
-"cuadro \"comprados juntos con frecuencia\" en la página de este producto, y "
-"los compradores pueden añadir el conjunto completo al carrito con un solo "
-"clic."
+"Verknüpfe hiermit die Produkte, die üblicherweise zusammen gekauft werden. "
+"Sie erscheinen auf der Produktseite im Feld „Häufig zusammen gekauft“ und "
+"Käufer können das gesamte Set mit einem Klick in den Warenkorb legen."
 
 #. translators: %s: "Products > All Products" admin breadcrumb.
 #: src/Admin/ProductBundleBox.php:119
@@ -70,29 +68,29 @@ msgid ""
 "Tip: the product ID is shown in the URL when you edit a product, and in the "
 "ID column under %s."
 msgstr ""
-"Consejo: el ID del producto se muestra en URL cuando editas un producto y en"
-" la columna ID debajo de %s."
+"Tipp: Die Produkt-ID wird in der URL angezeigt, wenn du ein Produkt "
+"bearbeitest, und in der ID-Spalte unter %s."
 
 #: src/Admin/ProductBundleBox.php:120
 msgid "Products"
-msgstr "Productos"
+msgstr "Produkte"
 
 #: src/Admin/ProductBundleBox.php:126
 msgid "Bundled product IDs"
-msgstr "ID de productos incluidos"
+msgstr "Gebündelte Produkt-IDs"
 
 #: src/Admin/ProductBundleBox.php:133
 msgid "e.g. 42, 108, 256"
-msgstr "p.ej. 42, 108, 256"
+msgstr "z.B. 42, 108, 256"
 
 #: src/Admin/ProductBundleBox.php:139
 msgid ""
 "Comma-separated product IDs to sell alongside this product. Duplicates, "
 "blanks and this product's own ID are ignored automatically."
 msgstr ""
-"ID de producto separados por comas para vender junto con este producto. Los "
-"duplicados, los espacios en blanco y el propio ID de este producto se "
-"ignoran automáticamente."
+"Durch Kommas getrennte Produkt-IDs, die zusammen mit diesem Produkt verkauft"
+" werden sollen. Duplikate, Leerzeichen und die eigene ID dieses Produkts "
+"werden automatisch ignoriert."
 
 #: src/Admin/ProductBundleBox.php:141
 msgid ""
@@ -100,13 +98,13 @@ msgid ""
 "and external products cannot go in the cart in one click, so those IDs are "
 "dropped when you save."
 msgstr ""
-"Productos simples o variaciones con todas sus opciones elegidas. Los "
-"productos variables, agrupados y externos no se pueden añadir al carrito con"
-" un solo clic, por lo que esos ID se eliminan al guardar."
+"Einfache Produkte oder Variationen mit allen gewählten Optionen. Variable, "
+"gruppierte und externe Produkte können nicht mit einem Klick in den "
+"Warenkorb, daher werden diese IDs beim Speichern entfernt."
 
 #: src/Admin/ProductBundleBox.php:145
 msgid "Bundle discount (%)"
-msgstr "Descuento del paquete (%)"
+msgstr "Bundle-Rabatt (%)"
 
 #: src/Admin/ProductBundleBox.php:158
 msgid ""
@@ -114,9 +112,9 @@ msgid ""
 "added to the cart. Leave at 0 for no discount (the box still cross-sells the"
 " items). Values are clamped to 0-100."
 msgstr ""
-"Opcional. Porcentaje de descuento sobre el precio combinado cuando se añade "
-"todo el bundle al carrito. Déjelo en 0 si no quiere descuento, la sección "
-"seguirá recomendando los artículos. Los valores se limitan a 0-100."
+"Optional. Prozentualer Rabatt auf den Gesamtpreis, wenn das ganze Bundle in "
+"den Warenkorb gelegt wird. Bei 0 gibt es keinen Rabatt, die Sektion "
+"empfiehlt die Artikel aber weiterhin. Werte werden auf 0-100 begrenzt."
 
 #. translators: %s: comma-separated list of product IDs.
 #: src/Admin/ProductBundleBox.php:273
@@ -126,63 +124,63 @@ msgid ""
 "to the cart: %s. Link simple products, or variations with every option "
 "chosen."
 msgstr ""
-"Paquete: estos ID de producto no se guardaron porque no se pueden añadir al "
-"carrito con un solo clic: %s. Enlace productos simples o variaciones con "
-"todas sus opciones elegidas."
+"Bundle: Diese Produkt-IDs wurden nicht gespeichert, weil sie sich nicht mit "
+"einem Klick in den Warenkorb legen lassen: %s. Verknüpfe einfache Produkte "
+"oder Variationen mit allen gewählten Optionen."
 
 #: src/Admin/ProUpsell.php:89
 msgid "Coming soon"
-msgstr "Próximamente"
+msgstr "Demnächst"
 
 #. translators: 1: currency symbol, 2: yearly price
 #: src/Admin/ProUpsell.php:95
 #, php-format
 msgid "from %1$s%2$d/yr"
-msgstr "desde %1$s%2$d/año"
+msgstr "ab %1$s%2$d/Jahr"
 
 #: src/Admin/ProUpsell.php:104
 msgid "Upgrade to PRO"
-msgstr "Mejora a PRO"
+msgstr "Auf PRO upgraden"
 
 #: src/Admin/ProUpsell.php:105
 msgid "Get notified"
-msgstr "Avísame"
+msgstr "Benachrichtige mich"
 
 #: src/Admin/ProUpsell.php:135
 msgid "Permission denied."
-msgstr "Permiso denegado."
+msgstr "Zugriff verweigert."
 
 #. translators: %s: PRO edition name
 #: src/Admin/ProUpsell.php:165
 #, php-format
 msgid "Do more with %s"
-msgstr "Haz más con %s"
+msgstr "Mehr erreichen mit %s"
 
 #: src/Admin/ProUpsell.php:172
 msgid "Dismiss this notice"
-msgstr "Descartar este aviso"
+msgstr "Diesen Hinweis ausblenden"
 
 #: src/Admin/ProUpsell.php:194
 msgid "Unlock every PRO feature"
-msgstr "Desbloquea todas las funciones PRO"
+msgstr "Alle PRO-Funktionen freischalten"
 
 #: src/Admin/ProUpsell.php:207
 msgid "one licence, every PRO feature"
-msgstr "una licencia, todas las funciones PRO"
+msgstr "eine Lizenz, alle PRO-Funktionen"
 
 #. translators: %s: PRO edition name
 #: src/Admin/ProUpsell.php:226
 #, php-format
 msgid "What %s adds"
-msgstr "Lo que añade %s"
+msgstr "Was %s ergänzt"
 
 #: src/Admin/Settings.php:47
-msgid "Fasko: product bundles"
-msgstr "Fasko: paquetes de productos"
+msgid "Bundaro: product bundles"
+msgstr "Bundaro: Produkt-Bundles"
 
 #: src/Admin/Settings.php:92
 msgid "More information"
-msgstr "Más información"
+msgstr "Weitere Informationen"
 
 #: src/Admin/Settings.php:148
 msgid ""
@@ -191,11 +189,10 @@ msgid ""
 "products and set an optional discount on each product in the product editor,"
 " under the \"Bundle\" tab."
 msgstr ""
-"Configure la casilla \"comprados juntos con frecuencia\" que permite a los "
-"compradores añadir un producto y sus complementos al carrito con un solo "
-"clic. Vincula los productos complementarios y establece un descuento "
-"opcional en cada producto en el editor de productos, en la pestaña "
-"\"Paquete\"."
+"Konfiguriere das Feld „Häufig zusammen gekauft“, mit dem Käufer ein Produkt "
+"und seine Begleiter mit einem Klick in den Warenkorb legen können. Verknüpfe"
+" die Begleitprodukte und lege im Produkteditor unter der Registerkarte "
+"„Bundle“ einen optionalen Rabatt auf jedes Produkt fest."
 
 #. translators: 1: [bundle] shortcode, 2: [bundle id="123"] shortcode.
 #: src/Admin/Settings.php:154
@@ -205,44 +202,43 @@ msgid ""
 "%2$s to target a specific product, then turn off \"Show on product page\" "
 "below."
 msgstr ""
-"¿Prefieres colocar la caja tú mismo? Usa el código corto %1$s en cualquier "
-"página, o %2$s para apuntar a un producto concreto, luego desactiva "
-"\"Mostrar en la página del producto\" a continuación."
+"Möchte die Box lieber selbst aufstellen? Verwende den Shortcode %1$s auf "
+"einer beliebigen Seite oder %2$s, um ein bestimmtes Produkt anzusprechen, "
+"und deaktiviere dann „Auf Produktseite anzeigen“ unten."
 
 #: src/Admin/Settings.php:167
 msgid "Display"
-msgstr "Mostrar"
+msgstr "Anzeige"
 
 #: src/Admin/Settings.php:168
 msgid ""
 "Where the bundle box appears and how much it shows. The defaults work for "
 "most stores."
 msgstr ""
-"Dónde aparece el cuadro del paquete y cuánto muestra. Los valores "
-"predeterminados funcionan para la mayoría de las tiendas."
+"Wo die Bundle-Box erscheint und wie viel sie anzeigt. Die "
+"Standardeinstellungen funktionieren für die meisten Geschäfte."
 
 #: src/Admin/Settings.php:173
 msgid "Enable bundles"
-msgstr "Habilitar paquetes"
+msgstr "Bundles aktivieren"
 
 #: src/Admin/Settings.php:174
 msgid ""
 "Master switch. When off, no bundle box is shown anywhere and no bundle "
 "discount is applied, your products keep selling normally."
 msgstr ""
-"Interruptor maestro. Cuando está desactivado, no se muestra ningún cuadro de"
-" paquete en ninguna parte y no se aplica ningún descuento de paquete, sus "
-"productos se siguen vendiendo normalmente."
+"Hauptschalter. Wenn diese Option deaktiviert ist, wird nirgendwo ein Bundle-"
+"Feld angezeigt und es wird kein Bundle-Rabatt gewährt. deine Produkte werden"
+" weiterhin normal verkauft."
 
 #: src/Admin/Settings.php:179
 msgid "Show the bundle box on product pages and apply bundle discounts."
 msgstr ""
-"Muestre el cuadro del paquete en las páginas del producto y aplique "
-"descuentos por paquete."
+"Zeige die Bundle-Box auf Produktseiten an und wende Bundle-Rabatte an."
 
 #: src/Admin/Settings.php:185
 msgid "Show on product page"
-msgstr "Mostrar en la página del producto"
+msgstr "Auf Produktseite anzeigen"
 
 #: src/Admin/Settings.php:186
 msgid ""
@@ -250,17 +246,17 @@ msgid ""
 "product pages. Turn this off if you only want to place the box manually with"
 " the [bundle] shortcode."
 msgstr ""
-"Representa automáticamente el cuadro justo debajo del resumen del producto "
-"en páginas de un solo producto. Desactive esto si solo desea colocar el "
-"cuadro manualmente con el código corto [bundle]."
+"Zeige das Feld auf einzelnen Produktseiten automatisch direkt unter der "
+"Produktzusammenfassung an. Schalte dies aus, wenn du die Box nur manuell mit"
+" dem Shortcode [bundle] platzieren möchtest."
 
 #: src/Admin/Settings.php:191
 msgid "Render the bundle box below the product summary."
-msgstr "Representa el cuadro del paquete debajo del resumen del producto."
+msgstr "Zeige die Paketbox unter der Produktzusammenfassung an."
 
 #: src/Admin/Settings.php:197
 msgid "Show bundled items"
-msgstr "Mostrar artículos empaquetados"
+msgstr "Gebündelte Artikel anzeigen"
 
 #: src/Admin/Settings.php:198
 msgid ""
@@ -268,47 +264,47 @@ msgid ""
 "so shoppers see exactly what they are getting. Turn off for a compact box "
 "with just the button."
 msgstr ""
-"Muestra cada producto complementario con su miniatura y precio dentro de la "
-"sección, para que los compradores vean exactamente qué están comprando. "
-"Desactívelo para una versión compacta solo con el botón."
+"Zeigt jedes Begleitprodukt mit Vorschaubild und Preis in der Bundle-Sektion,"
+" damit Käufer genau sehen, was sie erhalten. Deaktiviere dies für eine "
+"kompakte Variante nur mit Button."
 
 #: src/Admin/Settings.php:203
 msgid "List the bundled products (with thumbnails) inside the box."
-msgstr "Enumera los productos incluidos (con miniaturas) dentro de la caja."
+msgstr ""
+"Liste die gebündelten Produkte (mit Miniaturansichten) in der Box auf."
 
 #: src/Admin/Settings.php:209
 msgid "Show savings"
-msgstr "Mostrar ahorros"
+msgstr "Einsparungen anzeigen"
 
 #: src/Admin/Settings.php:210
 msgid ""
 "Show the bundle total and the exact amount saved (e.g. \"you save $12.00\")."
 " A clear saving figure is a strong nudge to buy the whole bundle."
 msgstr ""
-"Muestra el total del paquete y la cantidad exacta ahorrada (por ejemplo, "
-"\"ahorras $12,00\"). Una cifra de ahorro clara es un fuerte empujón para "
-"comprar el paquete completo."
+"Zeige die Gesamtsumme des Pakets und den genauen gesparten Betrag an (z. B. "
+"„Du sparst 12,00 $“). Eine klare Ersparniszahl ist ein starker Anreiz, das "
+"gesamte Paket zu kaufen."
 
 #: src/Admin/Settings.php:215
 msgid "Show the bundle total and the amount saved on the bundle box."
-msgstr ""
-"Muestra el total del bundle y el importe ahorrado en la sección del bundle."
+msgstr "Gesamtsumme des Bundles und Ersparnis in der Bundle-Sektion anzeigen."
 
 #: src/Admin/Settings.php:224
 msgid "Discount"
-msgstr "Descuento"
+msgstr "Rabatt"
 
 #: src/Admin/Settings.php:225
 msgid ""
 "How the bundle discount reaches the cart. Set the per-product discount "
 "itself in the product editor, under the \"Bundle\" tab."
 msgstr ""
-"Cómo llega el descuento del paquete al carrito. Establezca el descuento por "
-"producto en el editor de productos, en la pestaña \"Paquete\"."
+"So gelangt der Bundle-Rabatt in den Warenkorb. Lege den Rabatt pro Produkt "
+"im Produkteditor unter der Registerkarte „Bundle“ fest."
 
 #: src/Admin/Settings.php:230
 msgid "Discount mode"
-msgstr "Modo descuento"
+msgstr "Rabattmodus"
 
 #: src/Admin/Settings.php:231
 msgid ""
@@ -317,68 +313,66 @@ msgid ""
 "lowers the price of each bundled product instead, which suits stores that "
 "need the discount reflected on every line and in per-product tax."
 msgstr ""
-"Cómo aparece el descuento en el carrito. \"Tarifa de carrito único\" añade "
-"una línea negativa (\"Descuento por paquete -$12,00\"), la más simple y "
-"clara. \"Por artículo\" reduce el precio de cada producto empaquetado, lo "
-"que se adapta a las tiendas que necesitan que el descuento se refleje en "
-"cada línea y en el impuesto por producto."
+"Wie der Rabatt im Warenkorb angezeigt wird. „Gebühr für einen einzelnen "
+"Warenkorb“ fügt eine negative Zeile hinzu („Paketrabatt, 12,00 $“), am "
+"einfachsten und klarsten. „Pro Artikel“ senkt stattdessen den Preis jedes "
+"gebündelten Produkts, was für Geschäfte geeignet ist, die den Rabatt in "
+"jeder Zeile und in der Steuer pro Produkt berücksichtigen möchten."
 
 #: src/Admin/Settings.php:235
 msgid "Single cart fee (one negative line)"
-msgstr "Tarifa de carrito único (una línea negativa)"
+msgstr "Gebühr für einen einzelnen Warenkorb (eine negative Zeile)"
 
 #: src/Admin/Settings.php:236
 msgid "Per-item price adjustment"
-msgstr "Ajuste de precio por artículo"
+msgstr "Preisanpassung pro Artikel"
 
 #: src/Admin/Settings.php:238
 msgid ""
 "Choose how the bundle discount is shown when bundled items are in the cart. "
 "Most stores want the single cart fee."
 msgstr ""
-"Elija cómo se muestra el descuento del paquete cuando hay artículos "
-"empaquetados en el carrito. La mayoría de las tiendas quieren la tarifa de "
-"carrito único."
+"Wähle aus, wie der Bundle-Rabatt angezeigt wird, wenn sich gebündelte "
+"Artikel im Warenkorb befinden. Die meisten Geschäfte verlangen die Gebühr "
+"für einen einzelnen Warenkorb."
 
 #: src/Admin/Settings.php:246
 msgid "Labels &amp; wording"
-msgstr "Etiquetas y redacción"
+msgstr "Etiketten und Formulierungen"
 
 #: src/Admin/Settings.php:247
 msgid ""
 "The words shoppers read. Leave any field blank to use the sensible default "
 "shown as a placeholder."
 msgstr ""
-"Las palabras que leen los compradores. Deje cualquier campo en blanco para "
-"utilizar el valor predeterminado sensato que se muestra como marcador de "
-"posición."
+"Die Worte, die Käufer lesen. Lass alle Felder leer, um die sinnvolle "
+"Standardeinstellung zu verwenden, die als Platzhalter angezeigt wird."
 
 #: src/Admin/Settings.php:252
 msgid "Box title"
-msgstr "Título del cuadro"
+msgstr "Boxtitel"
 
 #: src/Admin/Settings.php:253
 msgid ""
 "The heading shown at the top of the bundle box. Keep it short and benefit-"
 "led, e.g. \"Frequently bought together\" or \"Complete the set\"."
 msgstr ""
-"El título que se muestra en la parte superior del cuadro del paquete. Sea "
-"breve y orientado a los beneficios, p. \"Comprados juntos frecuentemente\" o"
-" \"Completar el set\"."
+"Die Überschrift wird oben im Bundle-Feld angezeigt. Halte es kurz und "
+"nutzenorientiert, z.B. „Häufig zusammen gekauft“ oder „Set komplettieren“."
 
 #: src/Admin/Settings.php:256 src/Service/Texts.php:34
 msgid "Frequently bought together"
-msgstr "Comprados juntos con frecuencia"
+msgstr "Oft zusammen gekauft"
 
 #: src/Admin/Settings.php:257
 msgid "Leave blank to use the default \"Frequently bought together\"."
 msgstr ""
-"Déjelo en blanco para utilizar el valor predeterminado \"Comprados juntos "
-"con frecuencia\"."
+"Lass das Feld leer, um die Standardeinstellung „Häufig zusammen gekauft“ zu "
+"verwenden."
 
 #: src/Admin/Settings.php:262
 msgid "Add-to-cart label"
-msgstr "Etiqueta de añadir al carrito"
+msgstr "Etikett zum Hinzufügen zum Warenkorb"
 
 #: src/Admin/Settings.php:263
 msgid ""
@@ -386,23 +380,23 @@ msgid ""
 "label such as \"Add all to cart\" or \"Buy the set\" outperforms a generic "
 "one."
 msgstr ""
-"Texto en el botón que añade el paquete completo al carrito. Una etiqueta "
-"basada en acciones como \"Añadir todo al carrito\" o \"Comprar el juego\" "
-"supera a una genérica."
+"Text auf der Schaltfläche, der das gesamte Paket zum Warenkorb hinzufügt. "
+"Eine aktionsorientierte Beschriftung wie „Alles in den Warenkorb legen“ oder"
+" „Set kaufen“ übertrifft eine generische Beschriftung."
 
 #: src/Admin/Settings.php:266 src/Service/Texts.php:35
 msgid "Add bundle to cart"
-msgstr "Añadir paquete al carrito"
+msgstr "Paket zum Warenkorb hinzufügen"
 
 #: src/Admin/Settings.php:267
 msgid "Leave blank to use the default \"Add bundle to cart\"."
 msgstr ""
-"Déjelo en blanco para usar el valor predeterminado \"Añadir paquete al "
-"carrito\"."
+"Lass das Feld leer, um die Standardeinstellung „Paket zum Warenkorb "
+"hinzufügen“ zu verwenden."
 
 #: src/Admin/Settings.php:272
 msgid "Discount line label"
-msgstr "Etiqueta de línea de descuento"
+msgstr "Rabattzeilenetikett"
 
 #: src/Admin/Settings.php:273
 msgid ""
@@ -410,50 +404,51 @@ msgid ""
 "cart fee\" mode is used, e.g. \"Bundle discount\". Shoppers see this next to"
 " the saved amount."
 msgstr ""
-"El texto de la línea de descuento en el carrito y al finalizar la compra "
-"cuando se utiliza el modo \"Tarifa de carrito único\", p. \"Descuento por "
-"paquete\". Los compradores ven esto junto al monto ahorrado."
+"Der Wortlaut der Rabattzeile im Warenkorb und an der Kasse, wenn der Modus "
+"„Einzel-Warenkorbgebühr“ verwendet wird, z.B. „Bundle-Rabatt“. Käufer sehen "
+"dies neben dem gesparten Betrag."
 
 #: src/Admin/Settings.php:276 src/Service/Texts.php:36
 msgid "Bundle discount"
-msgstr "Descuento por paquete"
+msgstr "Bundle-Rabatt"
 
 #: src/Admin/Settings.php:277
 msgid ""
 "Shown on the cart fee line (fee mode). Leave blank to use the default "
 "\"Bundle discount\"."
 msgstr ""
-"Se muestra en la línea de tarifa del carrito (modo de tarifa). Déjelo en "
-"blanco para utilizar el \"descuento por paquete\" predeterminado."
+"Wird in der Gebührenzeile des Warenkorbs angezeigt (Gebührenmodus). Lass das"
+" Feld leer, um den standardmäßigen „Paketrabatt“ zu verwenden."
 
 #: src/Service/BundleService.php:162
 msgid "Your session expired, please try again."
-msgstr "Su sesión ha caducado, inténtelo de nuevo."
+msgstr "Deine Sitzung ist abgelaufen, bitte versuche es erneut."
 
 #: src/Service/Texts.php:37
 msgid "Some bundled products could not be added to the cart."
-msgstr "Algunos productos empaquetados no se pudieron añadir al carrito."
+msgstr ""
+"Einige gebündelte Produkte konnten nicht zum Warenkorb hinzugefügt werden."
 
 #. translators: %s: discount percentage.
 #: templates/single-product/bundle-box.php:101
 #, php-format
 msgid "Buy together and save %s%%"
-msgstr "Comprar juntos y ahorrar %s%%"
+msgstr "Zusammen kaufen und %s%% sparen"
 
 #. translators: 1: total bundle price, 2: amount saved.
 #: templates/single-product/bundle-box.php:112
 #, php-format
 msgid "Bundle total <strong>%1$s</strong>, you save <strong>%2$s</strong>."
 msgstr ""
-"Total del bundle <strong>%1$s</strong>, ahorras <strong>%2$s</strong>."
+"Bundle-Gesamtpreis <strong>%1$s</strong>, du sparst <strong>%2$s</strong>."
 
 #~ msgid ""
 #~ "Simple products only. A variable product needs its options chosen before it "
 #~ "can go in the cart, so those IDs are dropped when you save."
 #~ msgstr ""
-#~ "Solo productos simples. Un producto variable necesita que se elijan sus "
-#~ "opciones antes de poder añadirse al carrito, por lo que esos ID se eliminan "
-#~ "al guardar."
+#~ "Nur einfache Produkte. Bei einem variablen Produkt müssen erst die Optionen "
+#~ "gewählt werden, bevor es in den Warenkorb kann, daher werden diese IDs beim "
+#~ "Speichern entfernt."
 
 #, php-format
 #~ msgid ""
@@ -461,18 +456,18 @@ msgstr ""
 #~ " which cannot be added to the cart until the shopper picks their options: "
 #~ "%s. Link simple products instead."
 #~ msgstr ""
-#~ "Paquete: estos ID de producto no se guardaron porque son productos "
-#~ "variables, que no se pueden añadir al carrito hasta que el comprador elija "
-#~ "sus opciones: %s. Enlace productos simples en su lugar."
+#~ "Bundle: Diese Produkt-IDs wurden nicht gespeichert, weil es variable "
+#~ "Produkte sind, die erst in den Warenkorb gelegt werden können, wenn der "
+#~ "Käufer ihre Optionen wählt: %s. Verknüpfe stattdessen einfache Produkte."
 
 #~ msgid "Wkrótce"
-#~ msgstr "Próximamente"
+#~ msgstr "Demnächst"
 
 #~ msgid "Powiadom mnie"
-#~ msgstr "Avísame"
+#~ msgstr "Benachrichtige mich"
 
 #~ msgid "Bundle, Product Bundles for WooCommerce"
-#~ msgstr "Paquete: paquetes de productos para WooCommerce"
+#~ msgstr "Bundle, Produktpakete für WooCommerce"
 
 #~ msgid "https://plogins.com/bundle/"
 #~ msgstr "https://plogins.com/bundle/"
@@ -486,12 +481,11 @@ msgstr ""
 #~ msgid ""
 #~ "Bundle, Product Bundles for WooCommerce requires WooCommerce to be active."
 #~ msgstr ""
-#~ "Paquete: los paquetes de productos para WooCommerce requieren que "
-#~ "WooCommerce esté activo."
+#~ "Bundle, Produktpakete für WooCommerce erfordern, dass WooCommerce aktiv ist."
 
 #~ msgid "Bundle Settings"
-#~ msgstr "Configuración del paquete"
+#~ msgstr "Bundle-Einstellungen"
 
 #, php-format
 #~ msgid "od %d zł/rok"
-#~ msgstr "desde %d zł/año"
+#~ msgstr "ab %d zł/Jahr"
