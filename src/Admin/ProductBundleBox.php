@@ -82,7 +82,7 @@ final class ProductBundleBox implements HasHooks
         // "please choose product options" instead of putting it in the cart. The
         // shopper got a cart missing the very product the box was selling.
         $tabs['bundle'] = [
-            'label'    => __('Bundle', 'fasko'),
+            'label'    => __('Bundle', 'bundaro'),
             'target'   => 'bundle_product_data',
             'class'    => ['show_if_simple'],
             'priority' => 65,
@@ -111,38 +111,38 @@ final class ProductBundleBox implements HasHooks
         <div id="bundle_product_data" class="panel woocommerce_options_panel hidden">
             <?php wp_nonce_field(self::NONCE_ACTION, self::NONCE_FIELD); ?>
             <p class="bundle-panel-hint">
-                <?php esc_html_e('Link the products that are usually bought together with this one. They appear in a "frequently bought together" box on this product\'s page, and shoppers can add the whole set to the cart in one click.', 'fasko'); ?>
+                <?php esc_html_e('Link the products that are usually bought together with this one. They appear in a "frequently bought together" box on this product\'s page, and shoppers can add the whole set to the cart in one click.', 'bundaro'); ?>
                 <br />
                 <?php
                 printf(
                     /* translators: %s: "Products > All Products" admin breadcrumb. */
-                    esc_html__('Tip: the product ID is shown in the URL when you edit a product, and in the ID column under %s.', 'fasko'),
-                    '<strong>' . esc_html__('Products', 'fasko') . '</strong>'
+                    esc_html__('Tip: the product ID is shown in the URL when you edit a product, and in the ID column under %s.', 'bundaro'),
+                    '<strong>' . esc_html__('Products', 'bundaro') . '</strong>'
                 );
                 ?>
             </p>
             <div class="options_group">
                 <p class="form-field bundle-field">
-                    <label for="bundle_items"><?php esc_html_e('Bundled product IDs', 'fasko'); ?></label>
+                    <label for="bundle_items"><?php esc_html_e('Bundled product IDs', 'bundaro'); ?></label>
                     <input
                         type="text"
                         id="bundle_items"
                         name="bundle_items"
                         class="long"
                         value="<?php echo esc_attr($items); ?>"
-                        placeholder="<?php esc_attr_e('e.g. 42, 108, 256', 'fasko'); ?>"
+                        placeholder="<?php esc_attr_e('e.g. 42, 108, 256', 'bundaro'); ?>"
                         inputmode="numeric"
                         autocomplete="off"
                         aria-describedby="bundle_items_desc"
                     />
                     <span class="description" id="bundle_items_desc">
-                        <?php esc_html_e('Comma-separated product IDs to sell alongside this product. Duplicates, blanks and this product\'s own ID are ignored automatically.', 'fasko'); ?>
+                        <?php esc_html_e('Comma-separated product IDs to sell alongside this product. Duplicates, blanks and this product\'s own ID are ignored automatically.', 'bundaro'); ?>
                         <br />
-                        <?php esc_html_e('Simple products only. A variable product needs its options chosen before it can go in the cart, so those IDs are dropped when you save.', 'fasko'); ?>
+                        <?php esc_html_e('Simple products, or variations with every option chosen. Variable, grouped and external products cannot go in the cart in one click, so those IDs are dropped when you save.', 'bundaro'); ?>
                     </span>
                 </p>
                 <p class="form-field bundle-field">
-                    <label for="bundle_discount_percent"><?php esc_html_e('Bundle discount (%)', 'fasko'); ?></label>
+                    <label for="bundle_discount_percent"><?php esc_html_e('Bundle discount (%)', 'bundaro'); ?></label>
                     <input
                         type="number"
                         id="bundle_discount_percent"
@@ -155,7 +155,7 @@ final class ProductBundleBox implements HasHooks
                         aria-describedby="bundle_discount_desc"
                     />
                     <span class="description" id="bundle_discount_desc">
-                        <?php esc_html_e('Optional. The percentage off the combined price when the whole bundle is added to the cart. Leave at 0 for no discount (the box still cross-sells the items). Values are clamped to 0-100.', 'fasko'); ?>
+                        <?php esc_html_e('Optional. The percentage off the combined price when the whole bundle is added to the cart. Leave at 0 for no discount (the box still cross-sells the items). Values are clamped to 0-100.', 'bundaro'); ?>
                     </span>
                 </p>
             </div>
@@ -194,13 +194,14 @@ final class ProductBundleBox implements HasHooks
             $itemId = absint(trim($candidate));
 
             if ($itemId > 0 && $itemId !== $postId && ! in_array($itemId, $items, true)) {
-                // A variable product cannot be added to the cart without a
-                // chosen variation, and the one-click add sends none. Listing
-                // one here looked fine on this screen and then dropped that
-                // product from the shopper's cart, so it is refused at save
-                // time and reported, rather than saved to fail on the
-                // storefront.
-                if (wc_get_product($itemId) instanceof \WC_Product_Variable) {
+                // Only what one click can put in the cart is kept: a simple
+                // product, or a variation with every attribute chosen. A
+                // variable product needs the shopper's options, an external
+                // or grouped product has no cart line, and an ID that is not
+                // a product at all was saved and then advertised in the box.
+                // Each is refused here and reported, rather than saved to
+                // fail on the storefront.
+                if (! self::isLinkable(wc_get_product($itemId))) {
                     $skipped[] = $itemId;
 
                     continue;
@@ -237,8 +238,21 @@ final class ProductBundleBox implements HasHooks
     }
 
     /**
-     * Tell the merchant which IDs were dropped on the last save, so a variable
-     * product silently vanishing from the bundle list is never a mystery.
+     * Whether a product can be added to the cart without the shopper choosing
+     * anything: a simple product, or a variation with no "Any" attribute.
+     */
+    private static function isLinkable(mixed $product): bool
+    {
+        if ($product instanceof \WC_Product_Variation) {
+            return ! in_array('', $product->get_variation_attributes(), true);
+        }
+
+        return $product instanceof \WC_Product && $product->is_type('simple');
+    }
+
+    /**
+     * Tell the merchant which IDs were dropped on the last save, so a product
+     * silently vanishing from the bundle list is never a mystery.
      */
     public function renderSkippedNotice(): void
     {
@@ -256,7 +270,7 @@ final class ProductBundleBox implements HasHooks
             esc_html(
                 sprintf(
                     /* translators: %s: comma-separated list of product IDs. */
-                    __('Bundle: these product IDs were not saved because they are variable products, which cannot be added to the cart until the shopper picks their options: %s. Link simple products instead.', 'fasko'),
+                    __('Bundle: these product IDs were not saved because one click cannot add them to the cart: %s. Link simple products, or variations with every option chosen.', 'bundaro'),
                     implode(', ', array_map('absint', $skipped))
                 )
             )

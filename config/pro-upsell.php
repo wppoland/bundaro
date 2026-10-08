@@ -10,7 +10,7 @@
 defined('ABSPATH') || exit;
 
 return [
-    'name'       => 'Fasko Pro',
+    'name'       => 'Bundaro Pro',
     'url'        => 'https://plogins.com/plogins-bundle-pro/pricing/',
     'sellable'   => true,
     'price_from' => 49,
@@ -41,7 +41,7 @@ return [
             'pl' => ['title' => 'Mix-and-match', 'desc' => 'Klient wybiera określoną liczbę produktów z puli, główny produkt zawsze w zestawie, reszta do wyboru na karcie produktu.'],
         ],
         [
-            'en' => ['title' => 'Fasko analytics', 'desc' => 'Track views, add-to-cart, conversions and attributed revenue per bundle, WooCommerce > Bundle Analytics.'],
+            'en' => ['title' => 'Bundaro analytics', 'desc' => 'Track views, add-to-cart, conversions and attributed revenue per bundle, WooCommerce > Bundle Analytics.'],
             'pl' => ['title' => 'Analityka pakietów', 'desc' => 'Wyświetlenia, dodania do koszyka, konwersje i przychód per produkt-pakiet, panel WooCommerce > Bundle Analytics.'],
         ],
         [

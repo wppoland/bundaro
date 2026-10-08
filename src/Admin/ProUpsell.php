@@ -7,7 +7,7 @@ namespace Bundle\Admin;
 defined('ABSPATH') || exit;
 
 /**
- * PRO upgrade promotion, shown ONLY on the Fasko settings screen: a dismissible
+ * PRO upgrade promotion, shown ONLY on the Bundaro settings screen: a dismissible
  * top banner, a sidebar promo panel, and a "what PRO adds" locked-card list.
  *
  * It is pure advertising: no disabled form fields, nothing blocks a free
@@ -60,7 +60,7 @@ final class ProUpsell
             return false;
         }
         /**
-         * Filters whether the Fasko PRO promo is shown on the settings screen.
+         * Filters whether the Bundaro PRO promo is shown on the settings screen.
          *
          * @param bool $show Default true.
          */
@@ -73,7 +73,7 @@ final class ProUpsell
         /**
          * Filters the URL the PRO call-to-action buttons point at.
          *
-         * @param string $url Default the Fasko PRO page.
+         * @param string $url Default the Bundaro PRO page.
          */
         return (string) apply_filters('bundle/pro_url', $default);
     }
@@ -86,13 +86,13 @@ final class ProUpsell
     private function priceLabel(): string
     {
         if (! $this->sellable()) {
-            return __('Coming soon', 'fasko');
+            return __('Coming soon', 'bundaro');
         }
         $d = $this->data();
         if (! empty($d['price_from'])) {
             $cur = ($d['currency'] ?? 'EUR') === 'EUR' ? '€' : (string) $d['currency'] . ' ';
             /* translators: 1: currency symbol, 2: yearly price */
-            return sprintf(__('from %1$s%2$d/yr', 'fasko'), $cur, (int) $d['price_from']);
+            return sprintf(__('from %1$s%2$d/yr', 'bundaro'), $cur, (int) $d['price_from']);
         }
         return '';
     }
@@ -101,8 +101,8 @@ final class ProUpsell
     private function ctaLabel(): string
     {
         return $this->sellable()
-            ? __('Upgrade to PRO', 'fasko')
-            : __('Get notified', 'fasko');
+            ? __('Upgrade to PRO', 'bundaro')
+            : __('Get notified', 'bundaro');
     }
 
     /** @return array<int, array{title: string, desc: string}> */
@@ -132,7 +132,7 @@ final class ProUpsell
     public function handleDismiss(): void
     {
         if (! current_user_can('manage_woocommerce')) {
-            wp_die(esc_html__('Permission denied.', 'fasko'));
+            wp_die(esc_html__('Permission denied.', 'bundaro'));
         }
         check_admin_referer(self::ACTION);
         update_user_meta(get_current_user_id(), self::META, 1);
@@ -150,7 +150,7 @@ final class ProUpsell
         if (! $this->enabled() || $this->bannerDismissed()) {
             return;
         }
-        $name     = (string) ($this->data()['name'] ?? 'Fasko Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Bundaro Pro');
         $price    = $this->priceLabel();
         $subtitle = implode(', ', array_slice(array_map(
             static fn (array $f): string => $f['title'],
@@ -162,14 +162,14 @@ final class ProUpsell
             <p class="bundle-pro-banner__text">
                 <strong><?php
                 /* translators: %s: PRO edition name */
-                printf(esc_html__('Do more with %s', 'fasko'), esc_html($name)); ?></strong>
+                printf(esc_html__('Do more with %s', 'bundaro'), esc_html($name)); ?></strong>
                 <?php if ($subtitle !== '') : ?><span class="bundle-pro-banner__sub"><?php echo esc_html($subtitle); ?></span><?php endif; ?>
                 <?php if ($price !== '') : ?><span class="bundle-pro-banner__price"><?php echo esc_html($price); ?></span><?php endif; ?>
             </p>
             <a class="button button-primary bundle-pro-banner__cta" href="<?php echo esc_url($this->url()); ?>" target="_blank" rel="noopener noreferrer">
                 <?php echo esc_html($this->ctaLabel()); ?>
             </a>
-            <a class="bundle-pro-banner__dismiss" href="<?php echo esc_url($this->dismissUrl()); ?>" aria-label="<?php esc_attr_e('Dismiss this notice', 'fasko'); ?>">&times;</a>
+            <a class="bundle-pro-banner__dismiss" href="<?php echo esc_url($this->dismissUrl()); ?>" aria-label="<?php esc_attr_e('Dismiss this notice', 'bundaro'); ?>">&times;</a>
         </div>
         <?php
     }
@@ -185,13 +185,13 @@ final class ProUpsell
         if (! $this->enabled() || $this->bannerDismissed()) {
             return;
         }
-        $name     = (string) ($this->data()['name'] ?? 'Fasko Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Bundaro Pro');
         $price    = $this->priceLabel();
         $features = $this->features();
         ?>
         <aside class="bundle-pro-aside" aria-labelledby="bundle-pro-aside-h">
             <p class="bundle-pro-aside__eyebrow"><?php echo esc_html($name); ?></p>
-            <h2 id="bundle-pro-aside-h" class="bundle-pro-aside__heading"><?php esc_html_e('Unlock every PRO feature', 'fasko'); ?></h2>
+            <h2 id="bundle-pro-aside-h" class="bundle-pro-aside__heading"><?php esc_html_e('Unlock every PRO feature', 'bundaro'); ?></h2>
             <ul class="bundle-pro-aside__list">
                 <?php foreach ($features as $f) : ?>
                     <li>
@@ -204,7 +204,7 @@ final class ProUpsell
                 <?php echo esc_html($this->ctaLabel()); ?>
             </a>
             <?php if ($price !== '') : ?>
-                <p class="bundle-pro-aside__price"><?php echo esc_html($price); ?><?php if ($this->sellable()) : ?> · <?php esc_html_e('one licence, every PRO feature', 'fasko'); ?><?php endif; ?></p>
+                <p class="bundle-pro-aside__price"><?php echo esc_html($price); ?><?php if ($this->sellable()) : ?> · <?php esc_html_e('one licence, every PRO feature', 'bundaro'); ?><?php endif; ?></p>
             <?php endif; ?>
         </aside>
         <?php
@@ -217,13 +217,13 @@ final class ProUpsell
             return;
         }
         $features = $this->features();
-        $name     = (string) ($this->data()['name'] ?? 'Fasko Pro');
+        $name     = (string) ($this->data()['name'] ?? 'Bundaro Pro');
         ?>
         <section class="bundle-pro-cards" aria-labelledby="bundle-pro-cards-h">
             <h2 id="bundle-pro-cards-h" class="bundle-pro-cards__title">
                 <?php
                 /* translators: %s: PRO edition name */
-                printf(esc_html__('What %s adds', 'fasko'), esc_html($name)); ?>
+                printf(esc_html__('What %s adds', 'bundaro'), esc_html($name)); ?>
             </h2>
             <div class="bundle-pro-cards__grid">
                 <?php foreach ($features as $f) : ?>

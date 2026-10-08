@@ -81,6 +81,7 @@ final class BundleService implements HasHooks
         $this->engine->registerHooks();
         add_action('wp_enqueue_scripts', [$this, 'enqueueAssets']);
         add_shortcode(self::SHORTCODE, [$this, 'renderShortcode']);
+        add_shortcode('bundaro', [$this, 'renderShortcode']);
     }
 
     public function enqueueAssets(): void
@@ -118,47 +119,18 @@ final class BundleService implements HasHooks
             $productId = (int) get_the_ID();
         }
 
-        $product = $productId > 0 ? wc_get_product($productId) : null;
+        $product = $productId > 0 && $this->isViewable($productId) ? wc_get_product($productId) : null;
 
-        if (! $product instanceof \WC_Product || ! $this->engine->isBundleable($product)) {
-            return '';
-        }
+        $context = $product instanceof \WC_Product ? $this->engine->boxContext($product) : null;
 
-        $bundle = $this->engine->getBundle($product);
-
-        if ($bundle['items'] === []) {
+        if ($context === null) {
             return '';
         }
 
         ob_start();
-        $this->renderTemplate(self::BOX_TEMPLATE, [
-            'product'     => $product,
-            'bundle'      => $bundle,
-            'action_url'  => $this->addUrl($product),
-            'nonce_field' => wp_create_nonce(self::NONCE_ACTION),
-            'request_key' => self::REQUEST_KEY,
-            'box_title'   => $this->labels()['box_title'],
-            'add_label'   => $this->labels()['add_bundle'],
-            'settings'    => $this->settings(),
-        ]);
+        $this->renderTemplate(self::BOX_TEMPLATE, $context);
 
         return (string) ob_get_clean();
-    }
-
-    /**
-     * Build the add-bundle URL (carries the request key + a fresh nonce). Mirrors
-     * the engine's own action URL so the shortcode-rendered form posts the same
-     * way the auto-rendered box does.
-     */
-    private function addUrl(\WC_Product $product): string
-    {
-        return add_query_arg(
-            [
-                self::REQUEST_KEY => $product->get_id(),
-                '_wpnonce'        => wp_create_nonce(self::NONCE_ACTION),
-            ],
-            (string) $product->get_permalink(),
-        );
     }
 
     /**
@@ -177,7 +149,7 @@ final class BundleService implements HasHooks
      * own chrome where they set it, the translated default from
      * {@see Texts} where they did not.
      *
-     * @return array{box_title: string, add_bundle: string, fee_label: string, add_failed: string}
+     * @return array{box_title: string, add_bundle: string, fee_label: string, add_failed: string, expired: string}
      */
     private function labels(): array
     {
@@ -188,6 +160,7 @@ final class BundleService implements HasHooks
             'add_bundle' => (string) $settings['add_label'],
             'fee_label'  => (string) $settings['fee_label'],
             'add_failed' => (string) $settings['add_failed_text'],
+            'expired'    => __('Your session expired, please try again.', 'bundaro'),
         ];
     }
 
@@ -208,7 +181,36 @@ final class BundleService implements HasHooks
     {
         $raw = $product->get_meta(self::META_BUNDLE);
 
-        return is_array($raw) && $raw !== [] ? $raw : null;
+        if (! is_array($raw) || $raw === []) {
+            return null;
+        }
+
+        // A draft or private companion is never listed, linked or added.
+        $raw['items'] = array_values(array_filter(
+            (array) ($raw['items'] ?? []),
+            fn (mixed $itemId): bool => $this->isViewable(absint($itemId)),
+        ));
+
+        return $raw;
+    }
+
+    /**
+     * Whether the current visitor may see this product. A variation answers
+     * for its parent. A password-protected product needs its password from
+     * everyone, as in core: read_post on a published post is the plain
+     * 'read' cap every customer holds, so it cannot stand in for the password.
+     * Otherwise the product must be published, or readable by the current
+     * user (their own draft, a private product they may read).
+     */
+    private function isViewable(int $productId): bool
+    {
+        $postId = get_post_type($productId) === 'product_variation' ? (int) wp_get_post_parent_id($productId) : $productId;
+
+        if ($postId <= 0 || post_password_required($postId)) {
+            return false;
+        }
+
+        return get_post_status($postId) === 'publish' || current_user_can('read_post', $postId);
     }
 
     /**

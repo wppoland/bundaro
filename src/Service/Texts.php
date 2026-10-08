@@ -31,10 +31,10 @@ final class Texts
     public static function defaults(): array
     {
         return [
-            'box_title'       => __('Frequently bought together', 'fasko'),
-            'add_label'       => __('Add bundle to cart', 'fasko'),
-            'fee_label'       => __('Bundle discount', 'fasko'),
-            'add_failed_text' => __('Some bundled products could not be added to the cart.', 'fasko'),
+            'box_title'       => __('Frequently bought together', 'bundaro'),
+            'add_label'       => __('Add bundle to cart', 'bundaro'),
+            'fee_label'       => __('Bundle discount', 'bundaro'),
+            'add_failed_text' => __('Some bundled products could not be added to the cart.', 'bundaro'),
         ];
     }
 
