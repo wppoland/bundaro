@@ -81,6 +81,7 @@ final class BundleService implements HasHooks
         $this->engine->registerHooks();
         add_action('wp_enqueue_scripts', [$this, 'enqueueAssets']);
         add_shortcode(self::SHORTCODE, [$this, 'renderShortcode']);
+        add_shortcode('bundaro', [$this, 'renderShortcode']);
     }
 
     public function enqueueAssets(): void

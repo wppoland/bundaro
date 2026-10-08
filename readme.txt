@@ -19,7 +19,7 @@ Bundaro adds a "frequently bought together" product bundle box to your WooCommer
 * "Add bundle to cart" adds the main product plus every linked item the box lists, all at once or not at all. Products that are out of stock or cannot be bought on their own are left out of the box.
 * Optional bundle discount, applied either as a single cart fee or as a per-item price adjustment.
 * An optional savings line that shows the bundle total and the amount saved.
-* A `[bundle]` shortcode to place the bundle box anywhere, use `[bundle id="123"]` to target a specific product.
+* A `[bundaro]` (or `[bundle]`) shortcode to place the bundle box anywhere, use `[bundaro id="123"]` to target a specific product.
 * Editable box title, button label and discount-line label, all translatable.
 * Bundle definitions are stored as product meta, no custom database tables.
 * Clean uninstall: removes its options and bundle definitions when deleted.
