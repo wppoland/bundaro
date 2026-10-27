@@ -30,6 +30,34 @@ Configure global behaviour under WooCommerce > Bundle. Link products and set the
 
 The plugin is developed in the open. Code, bug reports and patches live at [github.com/wppoland/plogins-bundle](https://github.com/wppoland/plogins-bundle).
 
+== Bundaro Pro ==
+
+Bundaro Pro is a separate paid plugin that extends Bundaro.
+
+Included in Bundaro:
+
+* Bundle definition
+* Bundle discount
+* One-click add
+* Item list
+* Discount mode
+
+Bundaro Pro adds:
+
+* Product-search picker
+* Fixed bundle price
+* Order-history suggestions
+* Tiered quantity pricing
+* Mix-and-match
+* Bundaro analytics
+* Scheduled deals
+
+The free edition is not a trial and its features stay available without a time limit.
+
+* **Bundaro Pro** - [plogins.com/plogins-bundle-pro/](https://plogins.com/plogins-bundle-pro/)
+* **Compare editions and pricing** - [plogins.com/plogins-bundle-pro/pricing/](https://plogins.com/plogins-bundle-pro/pricing/)
+* **PRO documentation** - [plogins.com/plogins-bundle-pro/docs/](https://plogins.com/plogins-bundle-pro/docs/)
+
 == Installation ==
 
 1. Upload the plugin to `/wp-content/plugins/bundaro`, or install via Plugins > Add New.
