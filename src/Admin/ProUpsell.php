@@ -69,7 +69,7 @@ final class ProUpsell
 
     private function url(): string
     {
-        $default = (string) ($this->data()['url'] ?? 'https://plogins.com/plogins-bundle-pro/');
+        $default = (string) ($this->data()['url'] ?? 'https://plogins.com/bundaro-pro/');
         /**
          * Filters the URL the PRO call-to-action buttons point at.
          *

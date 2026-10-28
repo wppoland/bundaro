@@ -22,8 +22,8 @@ msgstr "Bundaro - Produkt-Bundles für WooCommerce"
 
 #. Plugin URI of the plugin
 #: bundaro.php
-msgid "https://plogins.com/plogins-bundle/"
-msgstr "https://plogins.com/plogins-bundle/"
+msgid "https://plogins.com/bundaro/"
+msgstr "https://plogins.com/bundaro/"
 
 #. Description of the plugin
 #: bundaro.php
