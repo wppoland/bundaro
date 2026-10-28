@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -28,7 +28,7 @@ Bundaro adds a "frequently bought together" product bundle box to your WooCommer
 
 Configure global behaviour under WooCommerce > Bundle. Link products and set the discount per product in the product editor's "Bundle" tab. Turn off "Show on product page" to render the box only where you drop the `[bundle]` shortcode.
 
-The plugin is developed in the open. Code, bug reports and patches live at [github.com/wppoland/plogins-bundle](https://github.com/wppoland/plogins-bundle).
+The plugin is developed in the open. Code, bug reports and patches live at [github.com/wppoland/bundaro](https://github.com/wppoland/bundaro).
 
 == Bundaro Pro ==
 
@@ -54,9 +54,9 @@ Bundaro Pro adds:
 
 The free edition is not a trial and its features stay available without a time limit.
 
-* **Bundaro Pro** - [plogins.com/plogins-bundle-pro/](https://plogins.com/plogins-bundle-pro/)
-* **Compare editions and pricing** - [plogins.com/plogins-bundle-pro/pricing/](https://plogins.com/plogins-bundle-pro/pricing/)
-* **PRO documentation** - [plogins.com/plogins-bundle-pro/docs/](https://plogins.com/plogins-bundle-pro/docs/)
+* **Bundaro Pro** - [plogins.com/bundaro-pro/](https://plogins.com/bundaro-pro/)
+* **Compare editions and pricing** - [plogins.com/bundaro-pro/pricing/](https://plogins.com/bundaro-pro/pricing/)
+* **PRO documentation** - [plogins.com/bundaro-pro/docs/](https://plogins.com/bundaro-pro/docs/)
 
 == Installation ==
 
@@ -69,10 +69,10 @@ The free edition is not a trial and its features stay available without a time l
 
 = Documentation and links =
 
-* **Documentation**: [plogins.com/plogins-bundle/docs/](https://plogins.com/plogins-bundle/docs/)
-* **Plugin page**: [plogins.com/plogins-bundle/](https://plogins.com/plogins-bundle/)
-* **Source code**: [github.com/wppoland/plogins-bundle](https://github.com/wppoland/plogins-bundle)
-* **Bug reports and feature requests**: [github.com/wppoland/plogins-bundle/issues](https://github.com/wppoland/plogins-bundle/issues)
+* **Documentation**: [plogins.com/bundaro/docs/](https://plogins.com/bundaro/docs/)
+* **Plugin page**: [plogins.com/bundaro/](https://plogins.com/bundaro/)
+* **Source code**: [github.com/wppoland/bundaro](https://github.com/wppoland/bundaro)
+* **Bug reports and feature requests**: [github.com/wppoland/bundaro/issues](https://github.com/wppoland/bundaro/issues)
 
 
 = Does it require WooCommerce? =
@@ -122,6 +122,9 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Bundaro is fully translatable and ships the `bundaro.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.6 =
+* Links point at the new plogins.com address and the renamed GitHub repository.
 
 = 1.1.5 =
 * Fixed: the bundle discount stayed in the cart after the bundle was broken up. Removing the other products, or raising the quantity of one, still took the discount off every unit. The discount now covers only complete bundles in the cart, in both the cart fee and the per-item mode.
