@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Bundle\Service;
 
 use Bundle\Contract\HasHooks;
-use WPPoland\StorefrontKit\Bundle\ProductBundleEngine;
+use Bundle\Vendor\StorefrontKit\Bundle\ProductBundleEngine;
 
 defined('ABSPATH') || exit;
 

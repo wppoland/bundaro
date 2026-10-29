@@ -164,7 +164,7 @@ namespace {
 
     require __DIR__ . '/../lib/storefront-kit/Bundle/ProductBundleEngine.php';
 
-    $engine = new \WPPoland\StorefrontKit\Bundle\ProductBundleEngine(
+    $engine = new \Bundle\Vendor\StorefrontKit\Bundle\ProductBundleEngine(
         'bundle_add',
         'bundle_add_bundle',
         '_bundle_parent',
