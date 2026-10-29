@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WPPoland\StorefrontKit\Bundle;
+namespace Bundle\Vendor\StorefrontKit\Bundle;
 
 /**
  * Namespace-neutral "frequently bought together" bundle engine (powers the
@@ -16,7 +16,7 @@ namespace WPPoland\StorefrontKit\Bundle;
  * read access, injected via the `productMeta` closure (no custom table).
  *
  * Everything WooCommerce / text-domain / option / meta specific is
- * constructor-injected, mirroring {@see \WPPoland\StorefrontKit\Badge\BadgeEngine}.
+ * constructor-injected, mirroring {@see \Bundle\Vendor\StorefrontKit\Badge\BadgeEngine}.
  * The bundle box markup ships in the consuming plugin via the injected
  * `renderTemplate` closure.
  */

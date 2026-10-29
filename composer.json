@@ -16,7 +16,7 @@
     "autoload": {
         "psr-4": {
             "Bundle\\": "src/",
-            "WPPoland\\StorefrontKit\\": "lib/storefront-kit/"
+            "Bundle\\Vendor\\StorefrontKit\\": "lib/storefront-kit/"
         }
     },
     "scripts": {
