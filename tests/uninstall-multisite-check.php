@@ -20,6 +20,8 @@ function switch_to_blog(int $id): void { $GLOBALS['blog'] = $id; }
 function restore_current_blog(): void { $GLOBALS['blog'] = 1; }
 function delete_option(string $name): void { $GLOBALS['deleted'][] = $GLOBALS['blog'] . ':' . $name; }
 function delete_post_meta_by_key(string $key): void { $GLOBALS['deleted'][] = $GLOBALS['blog'] . ':meta:' . $key; }
+function wp_cache_delete(string $key, string $group): bool { return true; }
+function get_plugins(): array { return ['bundaro/bundaro.php' => ['TextDomain' => 'bundaro']]; }
 function delete_metadata(string $type, int $id, string $key, string $value = '', bool $all = false): void { $GLOBALS['deleted'][] = 'user:' . $key; }
 
 require __DIR__ . '/../uninstall.php';
