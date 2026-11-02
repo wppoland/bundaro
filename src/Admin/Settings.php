@@ -280,6 +280,33 @@ final class Settings implements HasHooks
                             </tbody>
                         </table>
                     </div>
+                    <div class="bundle-section">
+                        <h2 class="bundle-section__title"><?php esc_html_e('Ecosystem integrations', 'bundaro'); ?></h2>
+                        <table class="form-table" role="presentation">
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><?php esc_html_e('Tiers (Tiered Pricing)', 'bundaro'); ?></th>
+                                    <td>
+                                        <?php if (class_exists('\\Tiers\\Plugin')) : ?>
+                                            <p class="description" style="color:#007017;font-weight:600;">
+                                                <?php esc_html_e('Tiers is active. Volume price breaks can be applied alongside your cross-sell product bundles.', 'bundaro'); ?>
+                                            </p>
+                                        <?php else : ?>
+                                            <p class="description">
+                                                <?php
+                                                printf(
+                                                    /* translators: %s: partner plugin name, linked to its search on the Add Plugins screen. */
+                                                    esc_html__('Install %s to reward higher purchase quantities with automated volume price breaks alongside your bundles.', 'bundaro'),
+                                                    '<a href="' . esc_url(admin_url('plugin-install.php?s=' . rawurlencode('Tiers - Tiered Pricing for WooCommerce') . '&tab=search&type=term')) . '">' . esc_html('Tiers - Tiered Pricing for WooCommerce') . '</a>'
+                                                );
+                                                ?>
+                                            </p>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <?php submit_button(); ?>
