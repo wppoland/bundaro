@@ -110,9 +110,9 @@ Yes. This plugin is compatible with WordPress Multisite. Network activate it or 
 
 == Screenshots ==
 
-1. On the storefront.
-2. Settings in the WordPress admin.
-3. On a mobile device.
+1. The "Frequently bought together" box on a product page, with the bundle discount and the amount saved.
+2. Settings under WooCommerce > Bundle: display, discount mode and labels.
+3. The same bundle box on a phone.
 == External Services ==
 
 Bundle does not connect to any external services. It makes no remote API calls and sends no data off your site. Its only stylesheet and admin script are served from your own WordPress install (`assets/css/bundle.css`, `assets/css/admin.css` and `assets/js/admin.js`), with no third-party fonts, CDNs or analytics. All data stays in your database: global options in `bundle_settings` and `bundle_db_version`, and each product's bundle in the `_bundle_definition` post meta. The plugin sends no email.
