@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -122,6 +122,10 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Bundaro is fully translatable and ships the `bundaro.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.9 =
+* Changed: uninstall no longer loads a core admin file itself; WordPress has already loaded it on that path.
+* Changed: the "WooCommerce required" notice shows only to users who can activate plugins.
 
 = 1.1.8 =
 * Fixed: deleting the plugin keeps the bundle definitions on products while an add-on that builds bundles there is still installed; whichever is deleted last removes them.

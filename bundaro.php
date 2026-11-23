@@ -3,7 +3,7 @@
  * Plugin Name:       Bundaro - Product Bundles for WooCommerce
  * Plugin URI:        https://plogins.com/bundaro/
  * Description:        Sell groups of products together as a bundle with an optional bundle discount.
- * Version:           1.1.8
+ * Version:           1.1.9
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -25,7 +25,7 @@ namespace Bundle;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '1.1.8';
+const VERSION     = '1.1.9';
 const PLUGIN_FILE = __FILE__;
 
 define('BUNDLE_DIR', plugin_dir_path(__FILE__));
@@ -44,6 +44,9 @@ add_action('before_woocommerce_init', static function (): void {
 add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
+            if (! current_user_can('activate_plugins')) {
+                return;
+            }
             echo '<div class="notice notice-error"><p>';
             echo esc_html__('Bundaro requires WooCommerce to be active.', 'bundaro');
             echo '</p></div>';
