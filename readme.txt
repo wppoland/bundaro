@@ -2,7 +2,7 @@
 Contributors: motylanogha
 Tags: woocommerce, product bundles, frequently bought together, bundle discount, upsell
 Requires at least: 6.5
-Tested up to: 7.1
+Tested up to: 7.2
 Requires PHP: 8.1
 Stable tag: 1.1.10
 Requires Plugins: woocommerce
@@ -122,7 +122,11 @@ Bundle does not connect to any external services. It makes no remote API calls a
 
 Bundaro is fully translatable and ships the `bundaro.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
-== Changelog ==  = 1.1.10 = * Readme links the Pro edition page.
+== Changelog ==
+
+= 1.1.10 =
+* Readme links the Pro edition page.
+* Tested with WordPress 7.2.
 
 = 1.1.9 =
 * Changed: uninstall no longer loads a core admin file itself; WordPress has already loaded it on that path.
