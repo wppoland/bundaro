@@ -4,7 +4,7 @@ Tags: woocommerce, product bundles, frequently bought together, bundle discount,
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.1.9
+Stable tag: 1.1.10
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -73,6 +73,7 @@ The free edition is not a trial and its features stay available without a time l
 * **Plugin page**: [plogins.com/bundaro/](https://plogins.com/bundaro/)
 * **Source code**: [github.com/wppoland/bundaro](https://github.com/wppoland/bundaro)
 * **Bug reports and feature requests**: [github.com/wppoland/bundaro/issues](https://github.com/wppoland/bundaro/issues)
+* **Bundaro Pro**: [plogins.com/bundaro-pro/](https://plogins.com/bundaro-pro/)
 
 
 = Does it require WooCommerce? =
@@ -121,7 +122,7 @@ Bundle does not connect to any external services. It makes no remote API calls a
 
 Bundaro is fully translatable and ships the `bundaro.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
-== Changelog ==
+== Changelog ==  = 1.1.10 = * Readme links the Pro edition page.
 
 = 1.1.9 =
 * Changed: uninstall no longer loads a core admin file itself; WordPress has already loaded it on that path.
