@@ -1,10 +1,10 @@
 === Bundaro - Product Bundles for WooCommerce ===
 Contributors: motylanogha
-Tags: woocommerce, product bundles, frequently bought together, bundle discount, upsell
+Tags: product bundles, product bundle, bundles, bundle discount, frequently bought together
 Requires at least: 6.5
 Tested up to: 7.2
 Requires PHP: 8.1
-Stable tag: 1.1.10
+Stable tag: 1.1.11
 Requires Plugins: woocommerce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -123,6 +123,9 @@ Bundle does not connect to any external services. It makes no remote API calls a
 Bundaro is fully translatable and ships the `bundaro.pot` template. Translations are delivered by WordPress.org language packs from translate.wordpress.org, which is where Polish, German and Spanish are being contributed; the package itself carries no compiled translation files.
 
 == Changelog ==
+
+= 1.1.11 =
+* Readme: tags updated.
 
 = 1.1.10 =
 * Readme links the Pro edition page.
